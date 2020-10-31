@@ -1,6 +1,6 @@
 # Requires Caddy 2.1+
 
-localhost
+localhost:80
 
 @noV1 not path /v1/*
 redir @noV1 /v1{path}
