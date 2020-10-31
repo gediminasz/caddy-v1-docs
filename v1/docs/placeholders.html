@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<head>
+	<head>
+		<title>Placeholders - Caddy</title>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
+<link rel="icon" href="/v1/resources/images/favicon.png">
+<link rel="stylesheet" href="/v1/resources/css/common.css">
+<link rel="stylesheet" href="/v1/resources/css/sweetalert2.min.css">
+<script src="/v1/resources/js/sweetalert2.min.js"></script>
+<script src="/v1/resources/js/jquery-3.3.1.min.js"></script>
+<script src="/v1/resources/js/common.js"></script>
+		<link rel="stylesheet" href="/v1/resources/css/docs.css">
+	</head>
+	<body>
+		<header>
+	<div class="top-bar content">
+	<div class="left-links">
+		<a href="/"><img src="/v1/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
+	</div>
+	<nav class="right-links links">
+		<a href="/v1/download">Download</a>
+		<a href="/v1/docs">Docs</a>
+		<a href="/v1/stats">Stats</a>
+		<a href="https://caddy.community">Forum</a>
+		<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
+		<a href="/v1/account/login">Log In</a>
+	</nav>
+</div>
+<a href="/" id="v2-banner">
+	This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
+</a>
+	<div class="content">
+		<h1>User Guide</h1>
+	</div>
+</header>
+
+<nav class="main">
+	<div class="content">
+		<a href="/v1/docs" class="current">Documentation</a>
+		<a href="/v1/tutorial">Tutorials</a>
+		<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
+	</div>
+</nav>
+
+
+		<div class="content-container">
+			<nav class="side">
+	<!-- TODO: Consider using Maven Pro or Muli as font... -->
+	<h3>Using Caddy</h3>
+	<ul>
+		<li><a href="/v1/tutorial">Getting Started &rarr;</a></li>
+		<li><a href="/v1/docs/cli">Command Line Interface</a></li>
+		<li><a href="/v1/docs/caddyfile">Caddyfile Syntax</a></li>
+		<li><a href="/v1/docs/telemetry">Telemetry</a></li>
+	</ul>
+
+	<h3>HTTP Server</h3>
+	<ul>
+		<li><a href="/v1/docs/http-caddyfile">HTTP Caddyfile</a></li>
+		<li><a href="/v1/docs/automatic-https">Automatic HTTPS</a></li>
+		<li><a href="/v1/docs/mitm-detection">MITM Detection</a></li>
+		<li><a href="/v1/docs/placeholders">Placeholders</a></li>
+		<li><a href="/v1/docs/template-actions">Template Actions</a></li>
+	</ul>
+
+	<h4>Standard HTTP Directives</h4>
+	<ul>
+		<li><a href="/v1/docs/basicauth">basicauth</a></li>
+		<li><a href="/v1/docs/bind">bind</a></li>
+		<li><a href="/v1/docs/browse">browse</a></li>
+		<li><a href="/v1/docs/errors">errors</a></li>
+		<li><a href="/v1/docs/expvar">expvar</a></li>
+		<li><a href="/v1/docs/ext">ext</a></li>
+		<li><a href="/v1/docs/fastcgi">fastcgi</a></li>
+		<li><a href="/v1/docs/gzip">gzip</a></li>
+		<li><a href="/v1/docs/header">header</a></li>
+		<li><a href="/v1/docs/import">import</a></li>
+		<li><a href="/v1/docs/index">index</a></li>
+		<li><a href="/v1/docs/internal">internal</a></li>
+		<li><a href="/v1/docs/limits">limits</a></li>
+		<li><a href="/v1/docs/log">log</a></li>
+		<li><a href="/v1/docs/markdown">markdown</a></li>
+		<li><a href="/v1/docs/mime">mime</a></li>
+		<li><a href="/v1/docs/on">on</a></li>
+		<li><a href="/v1/docs/pprof">pprof</a></li>
+		<li><a href="/v1/docs/proxy">proxy</a></li>
+		<li><a href="/v1/docs/push">push</a></li>
+		<li><a href="/v1/docs/redir">redir</a></li>
+		<li><a href="/v1/docs/request_id">request_id</a></li>
+		<li><a href="/v1/docs/rewrite">rewrite</a></li>
+		<li><a href="/v1/docs/root">root</a></li>
+		<li><a href="/v1/docs/status">status</a></li>
+		<li><a href="/v1/docs/templates">templates</a></li>
+		<li><a href="/v1/docs/timeouts">timeouts</a></li>
+		<li><a href="/v1/docs/tls">tls</a></li>
+		<li><a href="/v1/docs/websocket">websocket</a></li>
+	</ul>
+
+	<h3>Plugins</h3>
+	<ul>
+		<li><a href="https://github.com/caddyserver/caddy/wiki" class="external-link">Writing a Caddy Plugin</a></li>
+	</ul>
+
+	
+		<h4>Caddyfile Loaders</h4>
+		<ul>
+				<li><a href="/v1/docs/docker">docker</a></li>
+		</ul>
+	
+		<h4>DNS Providers</h4>
+		<ul>
+				<li><a href="/v1/docs/tls.dns.auroradns">tls.dns.auroradns</a></li>
+				<li><a href="/v1/docs/tls.dns.azure">tls.dns.azure</a></li>
+				<li><a href="/v1/docs/tls.dns.cloudflare">tls.dns.cloudflare</a></li>
+				<li><a href="/v1/docs/tls.dns.cloudxns">tls.dns.cloudxns</a></li>
+				<li><a href="/v1/docs/tls.dns.digitalocean">tls.dns.digitalocean</a></li>
+				<li><a href="/v1/docs/tls.dns.dnsimple">tls.dns.dnsimple</a></li>
+				<li><a href="/v1/docs/tls.dns.dnsmadeeasy">tls.dns.dnsmadeeasy</a></li>
+				<li><a href="/v1/docs/tls.dns.dnspod">tls.dns.dnspod</a></li>
+				<li><a href="/v1/docs/tls.dns.duckdns">tls.dns.duckdns</a></li>
+				<li><a href="/v1/docs/tls.dns.dyn">tls.dns.dyn</a></li>
+				<li><a href="/v1/docs/tls.dns.exoscale">tls.dns.exoscale</a></li>
+				<li><a href="/v1/docs/tls.dns.gandi">tls.dns.gandi</a></li>
+				<li><a href="/v1/docs/tls.dns.gandiv5">tls.dns.gandiv5</a></li>
+				<li><a href="/v1/docs/tls.dns.godaddy">tls.dns.godaddy</a></li>
+				<li><a href="/v1/docs/tls.dns.googlecloud">tls.dns.googlecloud</a></li>
+				<li><a href="/v1/docs/tls.dns.lightsail">tls.dns.lightsail</a></li>
+				<li><a href="/v1/docs/tls.dns.linode">tls.dns.linode</a></li>
+				<li><a href="/v1/docs/tls.dns.namecheap">tls.dns.namecheap</a></li>
+				<li><a href="/v1/docs/tls.dns.namedotcom">tls.dns.namedotcom</a></li>
+				<li><a href="/v1/docs/tls.dns.namesilo">tls.dns.namesilo</a></li>
+				<li><a href="/v1/docs/tls.dns.ns1">tls.dns.ns1</a></li>
+				<li><a href="/v1/docs/tls.dns.otc">tls.dns.otc</a></li>
+				<li><a href="/v1/docs/tls.dns.ovh">tls.dns.ovh</a></li>
+				<li><a href="/v1/docs/tls.dns.powerdns">tls.dns.powerdns</a></li>
+				<li><a href="/v1/docs/tls.dns.rackspace">tls.dns.rackspace</a></li>
+				<li><a href="/v1/docs/tls.dns.rfc2136">tls.dns.rfc2136</a></li>
+				<li><a href="/v1/docs/tls.dns.route53">tls.dns.route53</a></li>
+				<li><a href="/v1/docs/tls.dns.vultr">tls.dns.vultr</a></li>
+		</ul>
+	
+		<h4>Directives/Middleware</h4>
+		<ul>
+				<li><a href="/v1/docs/dyndns">dyndns</a></li>
+				<li><a href="/v1/docs/http.authz">http.authz</a></li>
+				<li><a href="/v1/docs/http.awses">http.awses</a></li>
+				<li><a href="/v1/docs/http.awslambda">http.awslambda</a></li>
+				<li><a href="/v1/docs/http.cache">http.cache</a></li>
+				<li><a href="/v1/docs/http.cgi">http.cgi</a></li>
+				<li><a href="/v1/docs/http.cors">http.cors</a></li>
+				<li><a href="/v1/docs/http.datadog">http.datadog</a></li>
+				<li><a href="/v1/docs/http.expires">http.expires</a></li>
+				<li><a href="/v1/docs/http.filter">http.filter</a></li>
+				<li><a href="/v1/docs/http.forwardproxy">http.forwardproxy</a></li>
+				<li><a href="/v1/docs/http.geoip">http.geoip</a></li>
+				<li><a href="/v1/docs/http.git">http.git</a></li>
+				<li><a href="/v1/docs/http.gomods">http.gomods</a></li>
+				<li><a href="/v1/docs/http.gopkg">http.gopkg</a></li>
+				<li><a href="/v1/docs/http.grpc">http.grpc</a></li>
+				<li><a href="/v1/docs/http.ipfilter">http.ipfilter</a></li>
+				<li><a href="/v1/docs/http.jwt">http.jwt</a></li>
+				<li><a href="/v1/docs/http.locale">http.locale</a></li>
+				<li><a href="/v1/docs/http.login">http.login</a></li>
+				<li><a href="/v1/docs/http.mailout">http.mailout</a></li>
+				<li><a href="/v1/docs/http.minify">http.minify</a></li>
+				<li><a href="/v1/docs/http.nobots">http.nobots</a></li>
+				<li><a href="/v1/docs/http.permission">http.permission</a></li>
+				<li><a href="/v1/docs/http.prometheus">http.prometheus</a></li>
+				<li><a href="/v1/docs/http.proxyprotocol">http.proxyprotocol</a></li>
+				<li><a href="/v1/docs/http.pubsub">http.pubsub</a></li>
+				<li><a href="/v1/docs/http.ratelimit">http.ratelimit</a></li>
+				<li><a href="/v1/docs/http.realip">http.realip</a></li>
+				<li><a href="/v1/docs/http.reauth">http.reauth</a></li>
+				<li><a href="/v1/docs/http.recaptcha">http.recaptcha</a></li>
+				<li><a href="/v1/docs/http.restic">http.restic</a></li>
+				<li><a href="/v1/docs/http.s3browser">http.s3browser</a></li>
+				<li><a href="/v1/docs/http.supervisor">http.supervisor</a></li>
+				<li><a href="/v1/docs/http.torproxy">http.torproxy</a></li>
+				<li><a href="/v1/docs/http.webdav">http.webdav</a></li>
+				<li><a href="/v1/docs/http.webp">http.webp</a></li>
+		</ul>
+	
+		<h4>Event Hooks</h4>
+		<ul>
+				<li><a href="/v1/docs/hook.service">hook.service</a></li>
+		</ul>
+	
+		<h4>Server Types</h4>
+		<ul>
+				<li><a href="/v1/docs/dns">dns</a></li>
+				<li><a href="/v1/docs/net">net</a></li>
+				<li><a href="/v1/docs/supervisor">supervisor</a></li>
+		</ul>
+	
+		<h4>TLS Clustering</h4>
+		<ul>
+				<li><a href="/v1/docs/consul">consul</a></li>
+				<li><a href="/v1/docs/redis">redis</a></li>
+		</ul>
+	
+	</ul>
+</nav>
+
+			<article>
+				<h2>Placeholders</h2>
+
+				<p>Some directives allow you to use placeholders in your Caddyfile to fill out a value differently for every request. For example, the value <code>{path}</code> would be replaced by the path portion of the request URL. These are also called replaceable values.</p>
+
+				<mark class="block">These placeholders only work on directives that support them. Check the documentation for your directive to see if placeholders are supported.</mark>
+
+				<h3 id="request">Request Placeholders</h3>
+
+				<p>These values are obtained from the request.</p>
+
+				<table>
+					<tr>
+						<th>Placeholder</th>
+						<th>Value</th>
+					</tr>
+					<tr>
+						<td><b>{~cookie}</b></td>
+						<td>The value of a cookie, where "cookie" is the cookie name</td>
+					</b>
+					<tr>
+						<td><b>{dir}</b></td>
+						<td>The directory of the requested file (from request URI)</td>
+					</tr>
+					<tr>
+						<td><b>{file}</b></td>
+						<td>The name of the requested file (from request URI)</td>
+					</tr>
+					<tr>
+						<td><b>{fragment}</b></td>
+						<td>The last part of the URL starting with "#"</td>
+					</tr>
+					<tr>
+						<td><b>{&gt;Header}</b></td>
+						<td>Any <i>request</i> header, where "Header" is the header field name</td>
+					</b>
+					<tr>
+						<td><b>{host}</b></td>
+						<td>The host value on the request</td>
+					</tr>
+					<tr>
+						<td><b>{hostname}</b></td>
+						<td>The name of the host machine that is processing the request</td>
+					</tr>
+					<tr>
+						<td><b>{hostonly}</b></td>
+						<td>Same as {host} but without port information</td>
+					</tr>
+					<tr>
+						<td><b>{labelN}</b></td>
+						<td>The Nth label of the host (where N is an integer, at least 1); examples: {label2} of "sub.example.com" is "example". {label1} of "*.example.com" is the subdomain portion only.</td>
+					</tr>
+					<tr>
+						<td><b>{method}</b></td>
+						<td>The request method (GET, POST, etc.)</td>
+					</tr>
+					<tr>
+						<td><b>{mitm}</b></td>
+						<td>Whether <a href="/v1/docs/mitm-detection">HTTPS interception</a> is likely, unlikely, or unknown</
+					</tr>
+
+					<tr>
+						<td><b>{path}</b></td>
+						<td>The path portion of the original request URI (does not include query string or fragment)</td>
+					</tr>
+					<tr>
+						<td><b>{path_escaped}</b></td>
+						<td>Query-escaped variant of {path}</td>
+					</tr>
+					<tr>
+						<td><b>{port}</b></td>
+						<td>The client's port</td>
+					</tr>
+					<tr>
+						<td><b>{proto}</b></td>
+						<td>The protocol string (e.g. "HTTP/1.1")</td>
+					</tr>
+					<tr>
+						<td><b>{query}</b></td>
+						<td>The query string portion of the URL, without leading "?"</td>
+					</tr>
+					<tr>
+						<td><b>{query_escaped}</b></td>
+						<td>The query-escaped variant of {query}</td>
+					</tr>
+					<tr>
+						<td><b>{?key}</b></td>
+						<td>The value of the "key" argument from the query string</td>
+					</tr>
+					<tr>
+						<td><b>{remote}</b></td>
+						<td>The client's IP address</td>
+					</tr>
+					<tr>
+						<td><b>{request}</b></td>
+						<td>The entire HTTP request (sans body), compacted to one line</td>
+					</tr>					
+					<tr>
+						<td><b>{request_id}</b></td>
+						<td>The request_id UUID.  Will be blank unless <a href="request_id"><code>request_id</code></a> directive is used in Caddyfile</td>
+					</tr>
+					<tr>
+						<td><b>{request_body}</b></td>
+						<td>The request body, compacted to one line (max length 100 KB; JSON or XML only)</td>
+					</tr>
+					<tr>
+						<td><b>{rewrite_path}</b></td>
+						<td>Same as {path}, but is the value of the path after rewrites</td>
+					</tr>
+					<tr>
+						<td><b>{rewrite_path_escaped}</b></td>
+						<td>Query-escaped variant of {rewrite_path}</td>
+					</tr>
+ 					<tr>
+						<td><b>{rewrite_uri}</b></td>
+						<td>The request URI after any rewrite has occured (includes path, query string, and fragment)</td>
+					</tr>
+					<tr>
+						<td><b>{rewrite_uri_escaped}</b></td>
+						<td>The query-escaped variant of {rewrite_uri}</td>
+					</tr>
+					<tr>
+						<td><b>{scheme}</b></td>
+						<td>The protocol/scheme used (usually http or https)</td>
+					</tr>
+					<tr>
+						<td><b>{server_port}</b></td>
+						<td>The port the server is listening on</td>
+					</tr>
+					<tr>
+						<td><b>{tls_client_escaped_cert}</b></td>
+						<td>The client certificate in PEM format (url-encoded)</td>
+					</tr>
+					<tr>
+						<td><b>{tls_client_fingerprint}</b></td>
+						<td>The SHA-1 fingerprint of the client certificate</td>
+					</tr>
+					<tr>
+						<td><b>{tls_client_i_dn}</b></td>
+						<td>The "issuer DN" string of the client certificate</td>
+					</tr>
+					<tr>
+						<td><b>{tls_client_raw_cert}</b></td>
+						<td>The client certificate in PEM format</td>
+					</tr>
+					<tr>
+						<td><b>{tls_client_s_dn}</b></td>
+						<td>The "subject DN" string of the client certificate</td>
+					</tr>
+					<tr>
+						<td><b>{tls_client_serial}</b></td>
+						<td>The serial number of the client certificate</td>
+					</tr>
+					<tr>
+						<td><b>{tls_client_v_end}</b></td>
+						<td>The end date of the client certificate</td>
+					</tr>
+					<tr>
+						<td><b>{tls_client_v_remain}</b></td>
+						<td>The number of days remaining before the client's certificate end date</td>
+					</tr>
+					<tr>
+						<td><b>{tls_client_v_start}</b></td>
+						<td>The start date of the client certificate</td>
+					</tr>
+					<tr>
+						<td><b>{tls_cipher}</b></td>
+						<td>The cipher suite used for the TLS connection</td>
+					</tr>
+					<tr>
+						<td><b>{tls_protocol}</b></td>
+						<td>The protocol (with version) used to secure the connection</td>
+					</tr>
+					<tr>
+						<td><b>{uri}</b></td>
+						<td>The request URI (includes path, query string, and fragment)</td>
+					</tr>
+					<tr>
+						<td><b>{uri_escaped}</b></td>
+						<td>The query-escaped variant of {uri}</td>
+					</tr>
+					<tr>
+						<td><b>{user}</b></td>
+						<td>The username authorized by basicauth (HTTP Basic Authentication)</td>
+					</tr>
+					<tr>
+						<td><b>{when}</b></td>
+						<td>Timestamp in the format <code>02/Jan/2006:15:04:05 -0700</code> in local time</td>
+					</tr>
+					<tr>
+						<td><b>{when_iso}</b></td>
+						<td>Timestamp in the format <code>2006-01-02T15:04:05Z</code> in UTC</td>
+					</tr>
+					<tr>
+						<td><b>{when_unix}</b></td>
+						<td>Unix timestamp in the format <code>1136214252</code>(seconds since epoch)</td>
+					</tr>
+					<tr>
+						<td><b>{when_unix_ms}</b></td>
+						<td>Unix timestamp but with millisecond precision</td>
+					</tr>
+				</table>
+
+				<h3 id="response">Response Placeholders</h3>
+
+				<p>These values are obtained from the response, and are only implemented with some directives. Make sure your directive supports response placeholders before attempting to use them.</p>
+
+				<table>
+					<tr>
+						<th>Placeholder</th>
+						<th>Value</th>
+					</tr>
+					<tr>
+						<td><b>{&lt;Header}</b></td>
+						<td>Any <i>response</i> header, where "Header" is the header field name</td>
+					</b>
+					<tr>
+						<td><b>{latency}</b></td>
+						<td>Approximate time in a human-readable format the server spent handling the request</td>
+					</tr>
+					<tr>
+						<td><b>{latency_ms}</b></td>
+						<td>Approximate time in milliseconds the server spent handling the request</td>
+					</tr>
+					<tr>
+						<td><b>{size}</b></td>
+						<td>The size of the response body</td>
+					</tr>
+					<tr>
+						<td><b>{status}</b></td>
+						<td>The HTTP status code of the response</td>
+					</tr>
+				</table>
+
+
+			</article>
+		</div>
+
+		<footer>
+	<div class="nav-container">
+		<div class="flex content">
+			<div class="col">
+				<img src="/v1/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
+				<br>
+				A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
+				<br>
+				as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
+				<br>
+				in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
+			</div>
+			<nav>
+				<h6>The Project</h6>
+				<a href="/v1/download">Download</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="/v1/docs">Docs</a>
+				<a href="/v1/brand">Brand Kit</a>
+			</nav>
+			<nav>
+				<h6>Account</h6>
+				<a href="/v1/account/login">Log In</a>
+				<a href="/v1/account/register">Sign Up</a>
+				<a href="/v1/legal/terms-of-service">Terms of Service</a>
+			</nav>
+			<nav>
+				<h6>Community</h6>
+				<a href="https://caddy.community/">Forum</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="https://twitter.com/caddyserver">Twitter</a>
+				<a href="/v1/blog/">Blog</a>
+			</nav>
+			<div class="col">
+				<h6>Hey, You.</h6>
+                Be notified of new releases!
+                <form id="footer-signup-form">
+                    <input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
+                    <button class="subscribe" type="submit">Subscribe</button>
+                </form>
+			</div>
+		</div>
+		<div class="copyright">
+			&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
+		</div>
+	</div>
+</footer>
+
+	</body>
+</head>

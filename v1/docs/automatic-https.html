@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<head>
+	<head>
+		<title>Automatic HTTPS - Caddy</title>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
+<link rel="icon" href="/v1/resources/images/favicon.png">
+<link rel="stylesheet" href="/v1/resources/css/common.css">
+<link rel="stylesheet" href="/v1/resources/css/sweetalert2.min.css">
+<script src="/v1/resources/js/sweetalert2.min.js"></script>
+<script src="/v1/resources/js/jquery-3.3.1.min.js"></script>
+<script src="/v1/resources/js/common.js"></script>
+		<link rel="stylesheet" href="/v1/resources/css/docs.css">
+	</head>
+	<body>
+		<header>
+	<div class="top-bar content">
+	<div class="left-links">
+		<a href="/"><img src="/v1/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
+	</div>
+	<nav class="right-links links">
+		<a href="/v1/download">Download</a>
+		<a href="/v1/docs">Docs</a>
+		<a href="/v1/stats">Stats</a>
+		<a href="https://caddy.community">Forum</a>
+		<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
+		<a href="/v1/account/login">Log In</a>
+	</nav>
+</div>
+<a href="/" id="v2-banner">
+	This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
+</a>
+	<div class="content">
+		<h1>User Guide</h1>
+	</div>
+</header>
+
+<nav class="main">
+	<div class="content">
+		<a href="/v1/docs" class="current">Documentation</a>
+		<a href="/v1/tutorial">Tutorials</a>
+		<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
+	</div>
+</nav>
+
+
+		<div class="content-container">
+			<nav class="side">
+	<!-- TODO: Consider using Maven Pro or Muli as font... -->
+	<h3>Using Caddy</h3>
+	<ul>
+		<li><a href="/v1/tutorial">Getting Started &rarr;</a></li>
+		<li><a href="/v1/docs/cli">Command Line Interface</a></li>
+		<li><a href="/v1/docs/caddyfile">Caddyfile Syntax</a></li>
+		<li><a href="/v1/docs/telemetry">Telemetry</a></li>
+	</ul>
+
+	<h3>HTTP Server</h3>
+	<ul>
+		<li><a href="/v1/docs/http-caddyfile">HTTP Caddyfile</a></li>
+		<li><a href="/v1/docs/automatic-https">Automatic HTTPS</a></li>
+		<li><a href="/v1/docs/mitm-detection">MITM Detection</a></li>
+		<li><a href="/v1/docs/placeholders">Placeholders</a></li>
+		<li><a href="/v1/docs/template-actions">Template Actions</a></li>
+	</ul>
+
+	<h4>Standard HTTP Directives</h4>
+	<ul>
+		<li><a href="/v1/docs/basicauth">basicauth</a></li>
+		<li><a href="/v1/docs/bind">bind</a></li>
+		<li><a href="/v1/docs/browse">browse</a></li>
+		<li><a href="/v1/docs/errors">errors</a></li>
+		<li><a href="/v1/docs/expvar">expvar</a></li>
+		<li><a href="/v1/docs/ext">ext</a></li>
+		<li><a href="/v1/docs/fastcgi">fastcgi</a></li>
+		<li><a href="/v1/docs/gzip">gzip</a></li>
+		<li><a href="/v1/docs/header">header</a></li>
+		<li><a href="/v1/docs/import">import</a></li>
+		<li><a href="/v1/docs/index">index</a></li>
+		<li><a href="/v1/docs/internal">internal</a></li>
+		<li><a href="/v1/docs/limits">limits</a></li>
+		<li><a href="/v1/docs/log">log</a></li>
+		<li><a href="/v1/docs/markdown">markdown</a></li>
+		<li><a href="/v1/docs/mime">mime</a></li>
+		<li><a href="/v1/docs/on">on</a></li>
+		<li><a href="/v1/docs/pprof">pprof</a></li>
+		<li><a href="/v1/docs/proxy">proxy</a></li>
+		<li><a href="/v1/docs/push">push</a></li>
+		<li><a href="/v1/docs/redir">redir</a></li>
+		<li><a href="/v1/docs/request_id">request_id</a></li>
+		<li><a href="/v1/docs/rewrite">rewrite</a></li>
+		<li><a href="/v1/docs/root">root</a></li>
+		<li><a href="/v1/docs/status">status</a></li>
+		<li><a href="/v1/docs/templates">templates</a></li>
+		<li><a href="/v1/docs/timeouts">timeouts</a></li>
+		<li><a href="/v1/docs/tls">tls</a></li>
+		<li><a href="/v1/docs/websocket">websocket</a></li>
+	</ul>
+
+	<h3>Plugins</h3>
+	<ul>
+		<li><a href="https://github.com/caddyserver/caddy/wiki" class="external-link">Writing a Caddy Plugin</a></li>
+	</ul>
+
+	
+		<h4>Caddyfile Loaders</h4>
+		<ul>
+				<li><a href="/v1/docs/docker">docker</a></li>
+		</ul>
+	
+		<h4>DNS Providers</h4>
+		<ul>
+				<li><a href="/v1/docs/tls.dns.auroradns">tls.dns.auroradns</a></li>
+				<li><a href="/v1/docs/tls.dns.azure">tls.dns.azure</a></li>
+				<li><a href="/v1/docs/tls.dns.cloudflare">tls.dns.cloudflare</a></li>
+				<li><a href="/v1/docs/tls.dns.cloudxns">tls.dns.cloudxns</a></li>
+				<li><a href="/v1/docs/tls.dns.digitalocean">tls.dns.digitalocean</a></li>
+				<li><a href="/v1/docs/tls.dns.dnsimple">tls.dns.dnsimple</a></li>
+				<li><a href="/v1/docs/tls.dns.dnsmadeeasy">tls.dns.dnsmadeeasy</a></li>
+				<li><a href="/v1/docs/tls.dns.dnspod">tls.dns.dnspod</a></li>
+				<li><a href="/v1/docs/tls.dns.duckdns">tls.dns.duckdns</a></li>
+				<li><a href="/v1/docs/tls.dns.dyn">tls.dns.dyn</a></li>
+				<li><a href="/v1/docs/tls.dns.exoscale">tls.dns.exoscale</a></li>
+				<li><a href="/v1/docs/tls.dns.gandi">tls.dns.gandi</a></li>
+				<li><a href="/v1/docs/tls.dns.gandiv5">tls.dns.gandiv5</a></li>
+				<li><a href="/v1/docs/tls.dns.godaddy">tls.dns.godaddy</a></li>
+				<li><a href="/v1/docs/tls.dns.googlecloud">tls.dns.googlecloud</a></li>
+				<li><a href="/v1/docs/tls.dns.lightsail">tls.dns.lightsail</a></li>
+				<li><a href="/v1/docs/tls.dns.linode">tls.dns.linode</a></li>
+				<li><a href="/v1/docs/tls.dns.namecheap">tls.dns.namecheap</a></li>
+				<li><a href="/v1/docs/tls.dns.namedotcom">tls.dns.namedotcom</a></li>
+				<li><a href="/v1/docs/tls.dns.namesilo">tls.dns.namesilo</a></li>
+				<li><a href="/v1/docs/tls.dns.ns1">tls.dns.ns1</a></li>
+				<li><a href="/v1/docs/tls.dns.otc">tls.dns.otc</a></li>
+				<li><a href="/v1/docs/tls.dns.ovh">tls.dns.ovh</a></li>
+				<li><a href="/v1/docs/tls.dns.powerdns">tls.dns.powerdns</a></li>
+				<li><a href="/v1/docs/tls.dns.rackspace">tls.dns.rackspace</a></li>
+				<li><a href="/v1/docs/tls.dns.rfc2136">tls.dns.rfc2136</a></li>
+				<li><a href="/v1/docs/tls.dns.route53">tls.dns.route53</a></li>
+				<li><a href="/v1/docs/tls.dns.vultr">tls.dns.vultr</a></li>
+		</ul>
+	
+		<h4>Directives/Middleware</h4>
+		<ul>
+				<li><a href="/v1/docs/dyndns">dyndns</a></li>
+				<li><a href="/v1/docs/http.authz">http.authz</a></li>
+				<li><a href="/v1/docs/http.awses">http.awses</a></li>
+				<li><a href="/v1/docs/http.awslambda">http.awslambda</a></li>
+				<li><a href="/v1/docs/http.cache">http.cache</a></li>
+				<li><a href="/v1/docs/http.cgi">http.cgi</a></li>
+				<li><a href="/v1/docs/http.cors">http.cors</a></li>
+				<li><a href="/v1/docs/http.datadog">http.datadog</a></li>
+				<li><a href="/v1/docs/http.expires">http.expires</a></li>
+				<li><a href="/v1/docs/http.filter">http.filter</a></li>
+				<li><a href="/v1/docs/http.forwardproxy">http.forwardproxy</a></li>
+				<li><a href="/v1/docs/http.geoip">http.geoip</a></li>
+				<li><a href="/v1/docs/http.git">http.git</a></li>
+				<li><a href="/v1/docs/http.gomods">http.gomods</a></li>
+				<li><a href="/v1/docs/http.gopkg">http.gopkg</a></li>
+				<li><a href="/v1/docs/http.grpc">http.grpc</a></li>
+				<li><a href="/v1/docs/http.ipfilter">http.ipfilter</a></li>
+				<li><a href="/v1/docs/http.jwt">http.jwt</a></li>
+				<li><a href="/v1/docs/http.locale">http.locale</a></li>
+				<li><a href="/v1/docs/http.login">http.login</a></li>
+				<li><a href="/v1/docs/http.mailout">http.mailout</a></li>
+				<li><a href="/v1/docs/http.minify">http.minify</a></li>
+				<li><a href="/v1/docs/http.nobots">http.nobots</a></li>
+				<li><a href="/v1/docs/http.permission">http.permission</a></li>
+				<li><a href="/v1/docs/http.prometheus">http.prometheus</a></li>
+				<li><a href="/v1/docs/http.proxyprotocol">http.proxyprotocol</a></li>
+				<li><a href="/v1/docs/http.pubsub">http.pubsub</a></li>
+				<li><a href="/v1/docs/http.ratelimit">http.ratelimit</a></li>
+				<li><a href="/v1/docs/http.realip">http.realip</a></li>
+				<li><a href="/v1/docs/http.reauth">http.reauth</a></li>
+				<li><a href="/v1/docs/http.recaptcha">http.recaptcha</a></li>
+				<li><a href="/v1/docs/http.restic">http.restic</a></li>
+				<li><a href="/v1/docs/http.s3browser">http.s3browser</a></li>
+				<li><a href="/v1/docs/http.supervisor">http.supervisor</a></li>
+				<li><a href="/v1/docs/http.torproxy">http.torproxy</a></li>
+				<li><a href="/v1/docs/http.webdav">http.webdav</a></li>
+				<li><a href="/v1/docs/http.webp">http.webp</a></li>
+		</ul>
+	
+		<h4>Event Hooks</h4>
+		<ul>
+				<li><a href="/v1/docs/hook.service">hook.service</a></li>
+		</ul>
+	
+		<h4>Server Types</h4>
+		<ul>
+				<li><a href="/v1/docs/dns">dns</a></li>
+				<li><a href="/v1/docs/net">net</a></li>
+				<li><a href="/v1/docs/supervisor">supervisor</a></li>
+		</ul>
+	
+		<h4>TLS Clustering</h4>
+		<ul>
+				<li><a href="/v1/docs/consul">consul</a></li>
+				<li><a href="/v1/docs/redis">redis</a></li>
+		</ul>
+	
+	</ul>
+</nav>
+
+			<article>
+				<h2>Automatic HTTPS</h2>
+
+				<p>Caddy <a href="https://github.com/mholt/certmagic">automatically enables HTTPS</a> for all your sites, given that some reasonable criteria are met:</p>
+
+				<ul>
+					<li>The hostname:
+						<ul class="smaller">
+							<li>is not empty</li>
+							<li>is not localhost</li>
+							<li>is not an IP address</li>
+							<li>has no more than 1 wildcard (<code>*</code>)</li>
+							<li>wildcard must be left-most label</li>
+						</ul>
+					</li>
+					<li>The port is not explicitly 80</li>
+					<li>The scheme is not explicitly http</li>
+					<li>TLS is not turned off in site's definition</li>
+					<li>Certificates and keys are not provided by you</li>
+					<li>Caddy is able to bind to ports 80 and 443 (unless you use the DNS challenge)</li>
+				</ul>
+
+				<p>Caddy will also redirect all HTTP requests to their HTTPS equivalent if the plaintext variant of the hostname is not defined in the Caddyfile.</p>
+
+				<p>All pertinent assets are fully managed, including renewals&mdash;no action is required by you. Here's a 28-second <a href="https://www.youtube.com/watch?v=nk4EWHvvZtI">video</a> showing how it works:</p>
+
+				<iframe width="100%" height="480" src="https://www.youtube-nocookie.com/embed/nk4EWHvvZtI?rel=0" frameborder="0" allowfullscreen=""></iframe>
+				<br><br><br>
+
+				<h4>Topics:</h4>
+				<ol>
+					<li>
+						<a href="#faq">Things to Know / FAQ</a>
+						<ul class="smaller">
+							<li><a href="#ports">Ports 80 and 443</a></li>
+							<li><a href="#dot-caddy">The .caddy folder</a></li>
+							<li><a href="#testing">Testing, developing and advanced setups</a></li>
+							<li><a href="#proxying">Behind a load balancer or proxy</a></li>
+							<li><a href="#fleet">Sharing certificates between Caddy instances</a></li>
+							<li><a href="#wildcards">Wildcard certificates</a></li>
+							<li><a href="#transparency">Transparency reports</a></li>
+						</ul>
+					</li>
+					<li><a href="#dns-challenge">DNS Challenge</a></li>
+					<li><a href="#on-demand">On-Demand TLS</a></li>
+					<li><a href="#obtaining-certificates">Obtaining Certificates</a></li>
+					<li><a href="#renewing-certificates">Renewing Certificates</a></li>
+					<li><a href="#revoking-certificates">Revoking Certificates</a></li>
+					<li><a href="#ocsp-stapling">OCSP Stapling</a></li>
+					<li><a href="#hsts">HTTP Strict Transport Security</a></li>
+				</ol>
+
+				<h3 id="faq">Things to Know / FAQ</h3>
+
+				<p>In order to fully enjoy this flagship feature, please read the following.</p>
+
+				<h4 id="ports">Ports 80 and 443 must be externally open</h4>
+
+				<p>By default, Caddy will bind to ports 80 and 443 to serve HTTPS and redirect HTTP to HTTPS. This usually requires privilege escalation. On Linux systems, you can give Caddy permission to bind to port 80 and 443 without being root using <a href="http://man7.org/linux/man-pages/man8/setcap.8.html">setcap</a>, like so: <code>setcap cap_net_bind_service=+ep caddy</code>. Don't forget to configure all relevant firewalls to allow Caddy to use these ports for incoming and outgoing connections! Caddy must have claim on at least one of these ports to obtain certificates unless you enable the DNS challenge OR forward ports 80 and 443 to different ports internally (in which case you can change the HTTP and HTTPS ports using <a href="/v1/docs/cli">CLI flags</a>). Although technically only one of these ports is absolutely required, unavailability of one port may result in temporarily-degraded certificate management results unless the associated ACME challenge is disabled, but should not ultimately affect uptime.</p>
+
+				<h4 id="dot-caddy">The .caddy folder</h4>
+
+				<p>Caddy will create a folder in your home directory called <code>.caddy</code>. It uses this to store and manage cryptographic assets required to serve your site privately over HTTPS. <mark>Your sites' certificates and private keys are stored here. Take care to back up and protect this folder.</mark> If there is no home folder, the .caddy folder is created in the current working directory unless <code>$CADDYPATH</code> is set. The home folder is learned from the environment (<code>$HOME</code> or <code>%HOMEPATH%</code>). Multiple Caddy instances can use or mount the <code>acme</code> subfolder as a disk and Caddy will automatically share the certificates and coordinate maintenance between them.</p>
+
+				<h4 id="testing">Testing, developing, and advanced setups</h4>
+
+				<p>To test or experiment with your Caddy configuration, make sure you use the <code>-ca</code> flag to change the ACME endpoint to a staging or development URL, otherwise you are likely to hit rate limits which can block your access to HTTPS for up to a week. This is especially common when using process managers or containers. Caddy's default CA is <a href="https://letsencrypt.org">Let's Encrypt</a>, which has <a href="https://letsencrypt.org/docs/staging-environment/">a staging endpoint</a> that is not subject to the same rate limits.</p>
+
+				<h4 id="proxying">Behind a load balancer or proxy</h4>
+
+				<p>If Caddy is behind other infrastructure like a load balancer, it may have trouble obtaining certificates. It is your responsibility, then, to ensure SSL certificates are obtained and properly set up on all machines. In most cases like these, we recommend using the DNS challenge (described below) to obtain certificates. It's not used by default, but it's very easy to configure. If you have a fleet of Caddy instances, they will automatically coordinate certificate management as long as they share (mount) the same $CADDYPATH/acme folder.</p>
+
+				<h4 id="fleet">Sharing certificates between multiple Caddy instances</h4>
+
+				<p>As of version 0.10.12, Caddy supports using automatic HTTPS in a fleet/cluster configuration. As of version 0.11.2, this is done via clustering plugins. For example, Caddy can join a cluster by using the file system, Amazon S3, Consul, and others through these plugins. Simply build Caddy with your desired clustering plugin and set the <code>CADDY_CLUSTERING</code> environment variable. See the docs for your clustering plugin to learn how to configure it. Also <a href="https://github.com/mholt/certmagic/wiki/Storage-Implementations">see which storage backends Caddy supports</a> for TLS assets.</p>
+
+				<h4 id="wildcards">Wildcard certificates</h4>
+
+				<p>Caddy can obtain and manage wildcard certificates when it is configured to serve a site with a qualifying wildcard name. A site name qualifies for a wildcard if only its left-most domain label is a wildcard. For example, <code>*.example.com</code> qualifies, but these do not: <code>sub.*.example.com</code>, <code>foo*.example.com</code>, <code>*bar.example.com</code>, <code>*.*.example.com</code>, etc. To get a wildcard, you simply need to enable the DNS challenge (described below; it's very easy). We recommend using wildcards <i>only</i> when you have so many subdomains that you would encounter CA rate limits trying to obtain certificates for them all. If you have many subdomains configured differently in your Caddyfile, you can also force a wildcard for them by using the <code>wildcard</code> subdirective of the <a href="/v1/docs/tls">tls</a> directive.</p>
+
+				<h4 id="transparency">Transparency reports</h4>
+
+				<p>When Caddy obtains a certificate from a CA that publishes certificate transparency logs, it is requisite that your domain name and/or IP address will be included in those logs, as they are not considered private information. (Let's Encrypt is one such CA.) This is a good thing; certificate transparency reports <a href="https://googleonlinesecurity.blogspot.com/2015/10/sustaining-digital-certificate-security.html">keep the CAs accountable</a>.</p>
+
+
+
+				<h3 id="dns-challenge">DNS Challenge</h3>
+
+				<p>There are multiple challenge types by which Caddy can obtain certificates. Caddy uses all but one of them without any configuration; another one&mdash;the DNS challenge&mdash;requires configuration and can be used when the other challenge types would fail. <a href="https://github.com/caddyserver/dnsproviders">Caddy supports many DNS providers.</a></p>
+
+				<p>To use the DNS challenge, you must do three things. <b>1)</b> Download Caddy with your provider plugged in. <b>2)</b> Tell Caddy which provider to use; this is done in the Caddyfile. <b>3)</b> Give Caddy credentials to access your account to solve the challenge; this is done with environment variables.</p>
+
+				<h4 id="enabling-the-dns-challenge">Enabling the DNS Challenge</h4>
+
+				<p>In your Caddyfile, you will use the <a href="/v1/docs/tls">tls</a> directive with the dns keyword like so:</p>
+
+				<code class="block"><span class="cf-dir">tls</span> {
+    <span class="cf-subdir">dns</span> <i>provider</i>
+}</code>
+
+				<p>Replace &quot;provider&quot; with the name of your DNS provider (in the table below). You will also need to set environment variables with your account credentials:</p>
+
+				<table>
+					<tr>
+						<th>Provider</th>
+						<th>Name to Use<br>in Caddyfile</th>
+						<th>Environment Variables to Set</th>
+					</tr>
+					<tr>
+						<td>Aurora DNS by PCExtreme</td>
+						<td>auroradns</td>
+						<td>AURORA_USER_ID<br>AURORA_KEY<br>AURORA_ENDPOINT (optional)</td>
+					</tr>
+					<tr>
+						<td>Azure DNS</td>
+						<td>azure</td>
+						<td>AZURE_CLIENT_ID<br>AZURE_CLIENT_SECRET<br>AZURE_SUBSCRIPTION_ID<br>AZURE_TENANT_ID</td>
+					</tr>
+					<tr>
+						<td>Cloudflare</td>
+						<td>cloudflare</td>
+						<td>CLOUDFLARE_EMAIL<br>CLOUDFLARE_API_KEY</td>
+					</tr>
+					<tr>
+						<td>CloudXNS</td>
+						<td>cloudxns</td>
+						<td>CLOUDXNS_API_KEY<br>CLOUDXNS_SECRET_KEY</td>
+					</tr>
+					<tr>
+						<td>DigitalOcean</td>
+						<td>digitalocean</td>
+						<td>DO_AUTH_TOKEN</td>
+					</tr>
+					<tr>
+						<td>DNSimple</td>
+						<td>dnsimple</td>
+						<td>DNSIMPLE_EMAIL<br>DNSIMPLE_OAUTH_TOKEN</td>
+					</tr>
+					<tr>
+						<td>DNS Made Easy</td>
+						<td>dnsmadeeasy</td>
+						<td>DNSMADEEASY_API_KEY<br>DNSMADEEASY_API_SECRET<br>DNSMADEEASY_SANDBOX (true/false)</td>
+					</tr>
+					<tr>
+						<td>DNSPod</td>
+						<td>dnspod</td>
+						<td>DNSPOD_API_KEY</td>
+					</tr>
+					<tr>
+						<td>DynDNS</td>
+						<td>dyn</td>
+						<td>DYN_CUSTOMER_NAME<br>DYN_USER_NAME<br>DYN_PASSWORD</td>
+					</tr>
+					<tr>
+						<td>Gandi</td>
+						<td>gandi / gandiv5</td>
+						<td>GANDI_API_KEY / GANDIV5_API_KEY</td>
+					</tr>
+					<tr>
+						<td>GoDaddy</td>
+						<td>godaddy</td>
+						<td>GODADDY_API_KEY<br>GODADDY_API_SECRET</td>
+					</tr>
+					<tr>
+						<td>Google Cloud DNS</td>
+						<td>googlecloud</td>
+						<td>GCE_PROJECT<br>GCE_DOMAIN<br>GOOGLE_APPLICATION_CREDENTIALS<br>(or GCE_SERVICE_ACCOUNT_FILE)</td>
+					</tr>
+					<tr>
+						<td>Lightsail by AWS</td>
+						<td>lightsail</td>
+						<td>AWS_ACCESS_KEY_ID<br>AWS_SECRET_ACCESS_KEY<br>AWS_SESSION_TOKEN (optional)<br>DNS_ZONE (optional)</td>
+					</tr>
+					<tr>
+						<td>Linode</td>
+						<td>linode</td>
+						<td>LINODE_API_KEY</td>
+					</tr>
+					<tr>
+						<td>Namecheap</td>
+						<td>namecheap</td>
+						<td>NAMECHEAP_API_USER<br>NAMECHEAP_API_KEY</td>
+					</tr>
+					<tr>
+						<td>NS1.</td>
+						<td>ns1</td>
+						<td>NS1_API_KEY</td>
+					</tr>
+					<tr>
+						<td>Name.com</td>
+						<td>namedotcom</td>
+						<td>NAMECOM_USERNAME<br>NAMECOM_API_TOKEN</td>
+					</tr>
+					<tr>
+						<td>OVH</td>
+						<td>ovh</td>
+						<td>OVH_ENDPOINT<br>OVH_APPLICATION_KEY<br>OVH_APPLICATION_SECRET<br>OVH_CONSUMER_KEY</td>
+					</tr>
+					<tr>
+						<td>Open Telekom Cloud<br>Managed DNS</td>
+						<td>otc</td>
+						<td>OTC_DOMAIN_NAME<br>OTC_USER_NAME<br>OTC_PASSWORD<br>OTC_PROJECT_NAME<br>OTC_IDENTITY_ENDPOINT (optional)</td>
+					</tr>
+					<tr>
+						<td>PowerDNS</td>
+						<td>pdns</td>
+						<td>PDNS_API_URL<br>PDNS_API_KEY</td>
+					</tr>
+					<tr>
+						<td>Rackspace</td>
+						<td>rackspace</td>
+						<td>RACKSPACE_USER<br>RACKSPACE_API_KEY</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>rfc2136</td>
+						<td>RFC2136_NAMESERVER<br>RFC2136_TSIG_ALGORITHM<br>RFC2136_TSIG_KEY<br>RFC2136_TSIG_SECRET</td>
+					</tr>
+					<tr>
+						<td>Route53 by AWS</td>
+						<td>route53</td>
+						<td>AWS_ACCESS_KEY_ID<br>AWS_SECRET_ACCESS_KEY</td>
+					</tr>
+					<tr>
+						<td>Vultr</td>
+						<td>vultr</td>
+						<td>VULTR_API_KEY</td>
+					</tr>
+				</table>
+
+				<p>When you configure the DNS challenge, Caddy will use that challenge type exclusively. Note that some providers may be slow to apply changes (on the order of minutes).</p>
+
+				<h3 id="on-demand">On-Demand TLS</h3>
+
+				<p>Caddy pilots a new technology called On-Demand TLS. This means Caddy can obtain a certificate for your site during the first TLS handshake for a hostname that does not yet have a certificate.</p>
+
+				<p>To enable on-demand TLS, use the <code>tls</code> directive with either <code>max_certs</code> or <code>ask</code>. For example, your Caddyfile might look like this:</p>
+
+				<code class="block"><span class="cf-addr">*.example.com</span>
+<span class="cf-dir">proxy</span> <span class="cf-arg">/ localhost:4001 localhost:4002</span>
+<span class="cf-dir">tls</span> {
+    <span class="cf-subdir">max_certs</span> 10
+}</code>
+
+				<p>This Caddyfile will proxy all requests on subdomains to <code>example.com</code> to your backends for the first 10 unique hostnames. This means you can dynamically provision new DNS records, and they will just start working with HTTPS. Unlike wildcard certificates, on-demand certificates are not limited to subdomains.</p>
+
+				<p>You could also use <code>ask</code> to query a local backend whether a hostname should be allowed to get a certificate:</p>
+
+				<code class="block"><span class="cf-dir">tls</span> {
+    <span class="cf-subdir">ask</span> http://localhost:9005/allowed
+}</code>
+
+				<p>If the HTTP request returns 200, a certificate will be requested, on-demand, from the CA. At least one of <code>max_certs</code> or <code>ask</code> is required for On-Demand TLS.</p>
+
+				<mark class="block"><strong>Mitigating abuse:</strong> This feature is intentionally rate-limited. The <em>max_certs</em> property of the <a href="/v1/docs/tls">tls</a> directive sets a hard limit on how many new certificates are issued this way, so that even over a long period of time, attackers cannot issue unlimited certificates and fill up your disk space. If this rate limiting as a safeguard is unacceptable in your case, you can alternatively use the <em>ask</em> subdirective to specify an internal URL from which Caddy can ask if a certain hostname is authorized for a certificate (Caddy's built-in rate limits do not apply when using <em>ask</em>!)</mark>
+
+				<p>On-Demand TLS is a special kind of managed TLS, so all the requirements above still apply except for the one about not providing your own certificate and key: you may supplement on-demand TLS with your own certificates. And like regular managed TLS, HTTP will be redirected to HTTPS.</p>
+
+				<mark class="block"><strong>Future support:</strong> This feature relies on the CA issuing certificates without delay. If instantaneous issuance becomes uncommon among ACME CAs, we may discontinue this feature in Caddy.</mark>
+
+				<p>Once a certificate is obtained on-demand, it is stored on disk just like any other managed certificates. It is also stored in memory for quick retrieval during future handshakes.</p>
+
+				<p>On-Demand TLS is subject to these rate limits:</p>
+
+				<ul>
+					<li>At most one certificate challenge happens at a time.</li>
+					<li>After 10 certificates are successfully obtained, new certificate challenges will not happen until 10 minutes after the last successful challenge.</li>
+					<li>A name that fails a challenge will not be allowed to be attempted again for 5 minutes.</li>
+				</ul>
+
+				<p>Note that rate limits are reset when the process exits. Using the <code>-log</code> flag is recommended, since all certificate challenges are logged. <b>Note that these built-in rate limits do not apply if an <i>ask</i> URL is specified in the configuration.</b> When using <i>ask</i>, your endpoint must return a 200 status code for the name in order for a certificate validation to be performed.</p>
+
+				<mark class="block"><strong>Testing your configuration:</strong> If your CA has a staging endpoint, it is <em>strongly</em> recommended that you use it to test your configuration. Let's Encrypt is Caddy's default CA, and <a href="https://letsencrypt.org/docs/staging-environment/">it has a staging endpoint</a> that is not subject to tight rate limits.</mark>
+
+				<p>The rest of this page explains more details about automatic HTTPS, but it is not required knowledge for using Caddy.</p>
+
+				<h3 id="obtaining-certificates">Obtaining Certificates</h3>
+
+				<p>To serve a site over HTTPS, a valid SSL certificate is required from a trusted certificate authority (CA). When Caddy starts, it obtains certificates for eligible sites from <a href="https://letsencrypt.org">Let's Encrypt</a>. The following process is nearly entirely <em>automatic</em> and <em>on by default</em>.</p>
+
+				<p>If necessary, Caddy creates an account on the CA's server with (or without) your email address. Caddy may have to prompt you for an email address if it is not able to find one from the Caddyfile, in the command line flags, or on disk from a previous run. Use the <code>-agree</code> flag along with providing an email address to ensure you are not prompted to agree to terms, when using in automated environments. But that should only be needed the first time automatic HTTPS is used.</p>
+
+				<p>Once the formalities are taken care of, Caddy generates a private key and a Certificate Signing Request (CSR) for each site. The private keys never leave the server and are safely stored on your file system.</p>
+
+				<p>Caddy establishes a link with the CA's server. A brief cryptographic transaction takes place to prove that Caddy really is serving the sites it says it is. Once the CA server verifies this, it sends the certificate for that site over the wire to Caddy, which tucks it neatly away in the .caddy folder.</p>
+
+				<p>This process usually takes a few seconds per domain, so once a certificate has been obtained for a site, it is simply loaded from disk and reused the next time Caddy is run. In other words, this delayed startup is a one-time event. If an existing certificate needs to be renewed, Caddy takes care of it right away.</p>
+
+				<p>Caddy synchronizes the obtaining of certificates between multiple instances as long as they share the same .caddy/acme folder on disk. This means multiple instances requiring the same certificate will not both request one from the CA, and they will share the same copy from disk.</p>
+
+				<h3 id="renewing-certificates">Renewing Certificates</h3>
+
+				<p>Certificates are only valid for a limited time, so Caddy checks each certificate on a regular basis and automatically renews certificates that expire soon (30 days). If renewal fails, Caddy will keep trying.</p>
+
+				<p>Once Caddy gets the new certificate, it swaps out the old certificate with the new one. This replacement incurs zero downtime.</p>
+
+				<p>As with obtaining certificates, Caddy coordinates renewals when used in a cluster, as long as the instances share the same .caddy/acme folder. Only one instance will actually perform the renewal, then the others will reload the updated certificate.</p>
+
+				<h3 id="revoking-certificates">Revoking Certificates</h3>
+
+				<p>Caddy does not automatically revoke a certificate, but you can do this with the <code>-revoke</code> option, specifying the domain name. This is only necessary if your site's private key or the certificate authority was compromised. Upon revocation, Caddy deletes the certificate file from disk to prevent it from being used at next run.</p>
+
+				<h3 id="ocsp-stapling">OCSP Stapling</h3>
+
+				<p>Caddy staples OCSP information of all certificates containing an OCSP link to protect the privacy of your sites' clients and reduce stress on OCSP servers. The cached OCSP status is checked on a regular basis, and if there is a change, the server will staple the new response.</p>
+
+				<p>When new OCSP responses are obtained, Caddy persists the staple to disk so that it can weather long OCSP responder outages. Like certificates, persisted OCSP responses are fully maintained within the .caddy folder.</p>
+				
+				<h3 id="hsts">HTTP Strict Transport Security</h3>
+				
+				<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism which helps to protect websites against protocol downgrade attacks and cookie hijacking. Enabling HSTS declares that web browsers should only interact with the server using a secure HTTPS connection, and never via an insecure HTTP connection. The policy specifies a period of time during which the server must be accessed in a secure fashion.</p>
+				
+				<p>Caddy does not enable HSTS by default, because if you wish to use the domain without HTTPS, HSTS having been enabled and remembered by a browser means the browser will not allow connections to your server. HSTS should only be enabled in a production environment when you know that you won't want to disable HTTPS in the future. It can easily be enabled by adding the header below to your Caddyfile.</p>
+				
+				<p><code class="block"><span class="cf-dir">header</span> <span class="cf-arg">/ Strict-Transport-Security "max-age=31536000;"</span></code></p>
+
+			</article>
+		</div>
+
+		<footer>
+	<div class="nav-container">
+		<div class="flex content">
+			<div class="col">
+				<img src="/v1/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
+				<br>
+				A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
+				<br>
+				as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
+				<br>
+				in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
+			</div>
+			<nav>
+				<h6>The Project</h6>
+				<a href="/v1/download">Download</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="/v1/docs">Docs</a>
+				<a href="/v1/brand">Brand Kit</a>
+			</nav>
+			<nav>
+				<h6>Account</h6>
+				<a href="/v1/account/login">Log In</a>
+				<a href="/v1/account/register">Sign Up</a>
+				<a href="/v1/legal/terms-of-service">Terms of Service</a>
+			</nav>
+			<nav>
+				<h6>Community</h6>
+				<a href="https://caddy.community/">Forum</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="https://twitter.com/caddyserver">Twitter</a>
+				<a href="/v1/blog/">Blog</a>
+			</nav>
+			<div class="col">
+				<h6>Hey, You.</h6>
+                Be notified of new releases!
+                <form id="footer-signup-form">
+                    <input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
+                    <button class="subscribe" type="submit">Subscribe</button>
+                </form>
+			</div>
+		</div>
+		<div class="copyright">
+			&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
+		</div>
+	</div>
+</footer>
+
+	</body>
+</head>

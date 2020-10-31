@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<head>
+	<head>
+		<title>Detecting HTTPS Interception - Caddy</title>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
+<link rel="icon" href="/v1/resources/images/favicon.png">
+<link rel="stylesheet" href="/v1/resources/css/common.css">
+<link rel="stylesheet" href="/v1/resources/css/sweetalert2.min.css">
+<script src="/v1/resources/js/sweetalert2.min.js"></script>
+<script src="/v1/resources/js/jquery-3.3.1.min.js"></script>
+<script src="/v1/resources/js/common.js"></script>
+		<link rel="stylesheet" href="/v1/resources/css/docs.css">
+		<link rel="stylesheet" href="/v1/resources/css/mitm.css">
+		<script src="/v1/resources/js/mitm.js"></script>
+	</head>
+	<body>
+		<header>
+	<div class="top-bar content">
+	<div class="left-links">
+		<a href="/"><img src="/v1/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
+	</div>
+	<nav class="right-links links">
+		<a href="/v1/download">Download</a>
+		<a href="/v1/docs">Docs</a>
+		<a href="/v1/stats">Stats</a>
+		<a href="https://caddy.community">Forum</a>
+		<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
+		<a href="/v1/account/login">Log In</a>
+	</nav>
+</div>
+<a href="/" id="v2-banner">
+	This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
+</a>
+	<div class="content">
+		<h1>User Guide</h1>
+	</div>
+</header>
+
+<nav class="main">
+	<div class="content">
+		<a href="/v1/docs" class="current">Documentation</a>
+		<a href="/v1/tutorial">Tutorials</a>
+		<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
+	</div>
+</nav>
+
+
+		<div class="content-container">
+			<nav class="side">
+	<!-- TODO: Consider using Maven Pro or Muli as font... -->
+	<h3>Using Caddy</h3>
+	<ul>
+		<li><a href="/v1/tutorial">Getting Started &rarr;</a></li>
+		<li><a href="/v1/docs/cli">Command Line Interface</a></li>
+		<li><a href="/v1/docs/caddyfile">Caddyfile Syntax</a></li>
+		<li><a href="/v1/docs/telemetry">Telemetry</a></li>
+	</ul>
+
+	<h3>HTTP Server</h3>
+	<ul>
+		<li><a href="/v1/docs/http-caddyfile">HTTP Caddyfile</a></li>
+		<li><a href="/v1/docs/automatic-https">Automatic HTTPS</a></li>
+		<li><a href="/v1/docs/mitm-detection">MITM Detection</a></li>
+		<li><a href="/v1/docs/placeholders">Placeholders</a></li>
+		<li><a href="/v1/docs/template-actions">Template Actions</a></li>
+	</ul>
+
+	<h4>Standard HTTP Directives</h4>
+	<ul>
+		<li><a href="/v1/docs/basicauth">basicauth</a></li>
+		<li><a href="/v1/docs/bind">bind</a></li>
+		<li><a href="/v1/docs/browse">browse</a></li>
+		<li><a href="/v1/docs/errors">errors</a></li>
+		<li><a href="/v1/docs/expvar">expvar</a></li>
+		<li><a href="/v1/docs/ext">ext</a></li>
+		<li><a href="/v1/docs/fastcgi">fastcgi</a></li>
+		<li><a href="/v1/docs/gzip">gzip</a></li>
+		<li><a href="/v1/docs/header">header</a></li>
+		<li><a href="/v1/docs/import">import</a></li>
+		<li><a href="/v1/docs/index">index</a></li>
+		<li><a href="/v1/docs/internal">internal</a></li>
+		<li><a href="/v1/docs/limits">limits</a></li>
+		<li><a href="/v1/docs/log">log</a></li>
+		<li><a href="/v1/docs/markdown">markdown</a></li>
+		<li><a href="/v1/docs/mime">mime</a></li>
+		<li><a href="/v1/docs/on">on</a></li>
+		<li><a href="/v1/docs/pprof">pprof</a></li>
+		<li><a href="/v1/docs/proxy">proxy</a></li>
+		<li><a href="/v1/docs/push">push</a></li>
+		<li><a href="/v1/docs/redir">redir</a></li>
+		<li><a href="/v1/docs/request_id">request_id</a></li>
+		<li><a href="/v1/docs/rewrite">rewrite</a></li>
+		<li><a href="/v1/docs/root">root</a></li>
+		<li><a href="/v1/docs/status">status</a></li>
+		<li><a href="/v1/docs/templates">templates</a></li>
+		<li><a href="/v1/docs/timeouts">timeouts</a></li>
+		<li><a href="/v1/docs/tls">tls</a></li>
+		<li><a href="/v1/docs/websocket">websocket</a></li>
+	</ul>
+
+	<h3>Plugins</h3>
+	<ul>
+		<li><a href="https://github.com/caddyserver/caddy/wiki" class="external-link">Writing a Caddy Plugin</a></li>
+	</ul>
+
+	
+		<h4>Caddyfile Loaders</h4>
+		<ul>
+				<li><a href="/v1/docs/docker">docker</a></li>
+		</ul>
+	
+		<h4>DNS Providers</h4>
+		<ul>
+				<li><a href="/v1/docs/tls.dns.auroradns">tls.dns.auroradns</a></li>
+				<li><a href="/v1/docs/tls.dns.azure">tls.dns.azure</a></li>
+				<li><a href="/v1/docs/tls.dns.cloudflare">tls.dns.cloudflare</a></li>
+				<li><a href="/v1/docs/tls.dns.cloudxns">tls.dns.cloudxns</a></li>
+				<li><a href="/v1/docs/tls.dns.digitalocean">tls.dns.digitalocean</a></li>
+				<li><a href="/v1/docs/tls.dns.dnsimple">tls.dns.dnsimple</a></li>
+				<li><a href="/v1/docs/tls.dns.dnsmadeeasy">tls.dns.dnsmadeeasy</a></li>
+				<li><a href="/v1/docs/tls.dns.dnspod">tls.dns.dnspod</a></li>
+				<li><a href="/v1/docs/tls.dns.duckdns">tls.dns.duckdns</a></li>
+				<li><a href="/v1/docs/tls.dns.dyn">tls.dns.dyn</a></li>
+				<li><a href="/v1/docs/tls.dns.exoscale">tls.dns.exoscale</a></li>
+				<li><a href="/v1/docs/tls.dns.gandi">tls.dns.gandi</a></li>
+				<li><a href="/v1/docs/tls.dns.gandiv5">tls.dns.gandiv5</a></li>
+				<li><a href="/v1/docs/tls.dns.godaddy">tls.dns.godaddy</a></li>
+				<li><a href="/v1/docs/tls.dns.googlecloud">tls.dns.googlecloud</a></li>
+				<li><a href="/v1/docs/tls.dns.lightsail">tls.dns.lightsail</a></li>
+				<li><a href="/v1/docs/tls.dns.linode">tls.dns.linode</a></li>
+				<li><a href="/v1/docs/tls.dns.namecheap">tls.dns.namecheap</a></li>
+				<li><a href="/v1/docs/tls.dns.namedotcom">tls.dns.namedotcom</a></li>
+				<li><a href="/v1/docs/tls.dns.namesilo">tls.dns.namesilo</a></li>
+				<li><a href="/v1/docs/tls.dns.ns1">tls.dns.ns1</a></li>
+				<li><a href="/v1/docs/tls.dns.otc">tls.dns.otc</a></li>
+				<li><a href="/v1/docs/tls.dns.ovh">tls.dns.ovh</a></li>
+				<li><a href="/v1/docs/tls.dns.powerdns">tls.dns.powerdns</a></li>
+				<li><a href="/v1/docs/tls.dns.rackspace">tls.dns.rackspace</a></li>
+				<li><a href="/v1/docs/tls.dns.rfc2136">tls.dns.rfc2136</a></li>
+				<li><a href="/v1/docs/tls.dns.route53">tls.dns.route53</a></li>
+				<li><a href="/v1/docs/tls.dns.vultr">tls.dns.vultr</a></li>
+		</ul>
+	
+		<h4>Directives/Middleware</h4>
+		<ul>
+				<li><a href="/v1/docs/dyndns">dyndns</a></li>
+				<li><a href="/v1/docs/http.authz">http.authz</a></li>
+				<li><a href="/v1/docs/http.awses">http.awses</a></li>
+				<li><a href="/v1/docs/http.awslambda">http.awslambda</a></li>
+				<li><a href="/v1/docs/http.cache">http.cache</a></li>
+				<li><a href="/v1/docs/http.cgi">http.cgi</a></li>
+				<li><a href="/v1/docs/http.cors">http.cors</a></li>
+				<li><a href="/v1/docs/http.datadog">http.datadog</a></li>
+				<li><a href="/v1/docs/http.expires">http.expires</a></li>
+				<li><a href="/v1/docs/http.filter">http.filter</a></li>
+				<li><a href="/v1/docs/http.forwardproxy">http.forwardproxy</a></li>
+				<li><a href="/v1/docs/http.geoip">http.geoip</a></li>
+				<li><a href="/v1/docs/http.git">http.git</a></li>
+				<li><a href="/v1/docs/http.gomods">http.gomods</a></li>
+				<li><a href="/v1/docs/http.gopkg">http.gopkg</a></li>
+				<li><a href="/v1/docs/http.grpc">http.grpc</a></li>
+				<li><a href="/v1/docs/http.ipfilter">http.ipfilter</a></li>
+				<li><a href="/v1/docs/http.jwt">http.jwt</a></li>
+				<li><a href="/v1/docs/http.locale">http.locale</a></li>
+				<li><a href="/v1/docs/http.login">http.login</a></li>
+				<li><a href="/v1/docs/http.mailout">http.mailout</a></li>
+				<li><a href="/v1/docs/http.minify">http.minify</a></li>
+				<li><a href="/v1/docs/http.nobots">http.nobots</a></li>
+				<li><a href="/v1/docs/http.permission">http.permission</a></li>
+				<li><a href="/v1/docs/http.prometheus">http.prometheus</a></li>
+				<li><a href="/v1/docs/http.proxyprotocol">http.proxyprotocol</a></li>
+				<li><a href="/v1/docs/http.pubsub">http.pubsub</a></li>
+				<li><a href="/v1/docs/http.ratelimit">http.ratelimit</a></li>
+				<li><a href="/v1/docs/http.realip">http.realip</a></li>
+				<li><a href="/v1/docs/http.reauth">http.reauth</a></li>
+				<li><a href="/v1/docs/http.recaptcha">http.recaptcha</a></li>
+				<li><a href="/v1/docs/http.restic">http.restic</a></li>
+				<li><a href="/v1/docs/http.s3browser">http.s3browser</a></li>
+				<li><a href="/v1/docs/http.supervisor">http.supervisor</a></li>
+				<li><a href="/v1/docs/http.torproxy">http.torproxy</a></li>
+				<li><a href="/v1/docs/http.webdav">http.webdav</a></li>
+				<li><a href="/v1/docs/http.webp">http.webp</a></li>
+		</ul>
+	
+		<h4>Event Hooks</h4>
+		<ul>
+				<li><a href="/v1/docs/hook.service">hook.service</a></li>
+		</ul>
+	
+		<h4>Server Types</h4>
+		<ul>
+				<li><a href="/v1/docs/dns">dns</a></li>
+				<li><a href="/v1/docs/net">net</a></li>
+				<li><a href="/v1/docs/supervisor">supervisor</a></li>
+		</ul>
+	
+		<h4>TLS Clustering</h4>
+		<ul>
+				<li><a href="/v1/docs/consul">consul</a></li>
+				<li><a href="/v1/docs/redis">redis</a></li>
+		</ul>
+	
+	</ul>
+</nav>
+
+			<article>
+				<h2>Detecting HTTPS Interception</h2>
+
+				<p>Caddy has the ability to detect certain Man-in-the-Middle (MITM) attacks on HTTPS connections that may otherwise be invisible to the browser and the end user. This means Caddy can determine whether it is &quot;likely&quot; or &quot;unlikely&quot; that a TLS proxy is actively intercepting an HTTPS connection.</p>
+
+				<div class="demo">
+					<div class="demo-title">This Connection</div>
+					<div class="demo-result">(Loading)</div>
+					<div class="demo-explanations">
+						<div class="demo-explanation demo-mitm-likely">
+							It seems likely that your connection is actively being intercepted by a TLS proxy. Your connection is probably NOT private! (Read the rest of this page to learn about possible false positives.)
+						</div>
+						<div class="demo-explanation demo-mitm-unlikely">
+							Phew! It looks like your connection to this website is not being intercepted. (Read the rest of this page to learn about possible false negatives.)
+						</div>
+						<div class="demo-explanation demo-unavailable">
+							Your connection is not over HTTPS, so Caddy cannot detect if there is a Man-in-the-Middle, although without encryption there probably is one.
+						</div>
+					</div>
+				</div>
+
+				<p>All incoming HTTPS connections are automatically checked for tampering using techniques described by Durumeric, Halderman, et. al. in their <a href="https://jhalderm.com/pub/papers/interception-ndss17.pdf">NDSS '17 paper</a>. The results of the inspection are exposed in various ways throughout Caddy so you can choose how to handle a suspected MITM attack on your clients. (Keep in mind that many TLS proxies take the form of &quot;benevolent&quot; antivirus or firewall products.)</p>
+
+				<p>TLS connections that are being intercepted are NOT secure, despite software vendor advertisements to the contrary. The degree to which you respond to a suspected MITM attack is up to you and depends on the nature of your site, your audience, and political circumstances. You might respond to suspected HTTPS interception in any of these ways (in order of increasing ostentatiousness):</p>
+
+				<ul>
+				<li><a href="/v1/docs/log">Log</a> that it happened using the <code>{mitm}</code> <a href="/v1/docs/placeholders">placeholder</a> and a custom log format.</li>
+				<li>If proxying to an upstream application, <a href="/v1/docs/proxy">add a request header</a> using header_upstream in the <code>proxy</code> directive with a value that has <code>{mitm}</code>.</li>
+				<li>If you're using <a href="/v1/docs/templates">templates</a>, display a warning to the user on your website using the <code>&#x7B;&#x7B;.IsMITM&#x7D;&#x7D;</code> <a href="/v1/docs/template-actions">template action</a>.</li>
+				<li>Perform an <a href="/v1/docs/rewrite">internal rewrite</a> of the URI to a dedicated warning, error, or informational page.</li>
+				<li><a href="/v1/docs/redir">Redirect</a> the user to another page or site.</li>
+				<li>Close the connection immediately with an empty response (coming soon, maybe).</li>
+				</ul>
+
+				<p>Please read this entire page before implementing any measures that might be considered extreme.</p>
+
+				<h3 id="disclaimer">Disclaimer</h3>
+
+				<p>The Caddy authors, maintainers, and contributors will make a good-faith attempt to keep this feature working correctly with commonly-used versions of mainstream browsers, but cannot guarantee perfect accuracy. This feature relies on hard-coded heuristics that attempt to identify browsers from the TLS handshake. Browser and OS updates may render the heuristics obsolete at any time. The Caddy developers are not responsible for any damages, costs, miscommunications, or misunderstandings, or other consequences that may result from using this feature. Use with wisdom and at your own risk.</p>
+
+				<h3 id="supported-clients">Supported Clients</h3>
+
+				<p>Caddy is programmed to protect recent versions of Chrome, Firefox, IE/Edge, and Safari. Bleeding-edge development versions of these browsers may not yet be recognized (let us know if they're not!). We also experimentally attempt to recognize and support the Tor browser.</p>
+
+				<h3 id="false-positives">False Positives</h3>
+
+				<p>Caddy may, on occasion, incorrectly flag a connection as &quot;likely&quot; intercepted even if it is not. This usually happens when clients spoof their User-Agent string. For the best possible protection, we recommend that users do not change their User-Agent header and that site owners keep Caddy updated.</p>
+
+				<p>It is also possible that there is a browser/platform combination that is not yet considered. To report a false positive, please <a href="https://github.com/caddyserver/caddy/issues/new">file an issue</a> with your real, unmodified User-Agent string, browser version, OS/platform details, the raw ClientHello bytes, and any other relevant build information. You must also be certain that your connection was made on a trusted network that is NOT being firewalled or proxied and that all OS &quot;security&quot; products are completely disabled on your machine and the local network. (You <em>must</em> convince us that the connection was actually secure, and we have to be able to reproduce your report.)</p>
+
+				<h3 id="false-negatives">False Negatives</h3>
+
+				<p>When HTTPS interception is occurring but Caddy is not able to detect it (an &quot;unlikely&quot; classification), there could be a number of reasons. From least to most ominous:</p>
+
+				<ul>
+					<li>It could simply be that Caddy's detection heuristics are not comprehensive enough. Please <a href="https://github.com/caddyserver/caddy/issues/new">file an issue</a> as long as you can provide enough information to catch the interception, including the ClientHello bytes and as many details about the MITM software that are known.</li>
+					<li>The client is not sending a recognized User-Agent header. Except for a few limited exceptions, Caddy only checks for MITM with major browsers.</li>
+					<li>The TLS proxy is preserving the original properties of the TLS handshake between the client and the server. This scenario is not the worst false negative because at least the browser will be able to show a warning if the TLS connection is weak.</li>
+					<li>A TLS proxy is modifying or stripping the User-Agent header, perhaps in an attempt to hide. However, any TLS proxy that modifies HTTP requests runs the risk of breaking HTTP, which would expose its presence (similar to how gravity exposes black holes).</li>
+				</ul>
+
+				<p>Caddy's MITM detection features work mainly because TLS proxies are implemented carelessly, documented poorly, and updated sparingly.</p>
+
+
+			</article>
+		</div>
+
+		<footer>
+	<div class="nav-container">
+		<div class="flex content">
+			<div class="col">
+				<img src="/v1/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
+				<br>
+				A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
+				<br>
+				as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
+				<br>
+				in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
+			</div>
+			<nav>
+				<h6>The Project</h6>
+				<a href="/v1/download">Download</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="/v1/docs">Docs</a>
+				<a href="/v1/brand">Brand Kit</a>
+			</nav>
+			<nav>
+				<h6>Account</h6>
+				<a href="/v1/account/login">Log In</a>
+				<a href="/v1/account/register">Sign Up</a>
+				<a href="/v1/legal/terms-of-service">Terms of Service</a>
+			</nav>
+			<nav>
+				<h6>Community</h6>
+				<a href="https://caddy.community/">Forum</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="https://twitter.com/caddyserver">Twitter</a>
+				<a href="/v1/blog/">Blog</a>
+			</nav>
+			<div class="col">
+				<h6>Hey, You.</h6>
+                Be notified of new releases!
+                <form id="footer-signup-form">
+                    <input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
+                    <button class="subscribe" type="submit">Subscribe</button>
+                </form>
+			</div>
+		</div>
+		<div class="copyright">
+			&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
+		</div>
+	</div>
+</footer>
+
+	</body>
+</head>

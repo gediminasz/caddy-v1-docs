@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<head>
+	<head>
+		<title>http.proxy - Caddy User Guide</title>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
+<link rel="icon" href="/v1/resources/images/favicon.png">
+<link rel="stylesheet" href="/v1/resources/css/common.css">
+<link rel="stylesheet" href="/v1/resources/css/sweetalert2.min.css">
+<script src="/v1/resources/js/sweetalert2.min.js"></script>
+<script src="/v1/resources/js/jquery-3.3.1.min.js"></script>
+<script src="/v1/resources/js/common.js"></script>
+		<link rel="stylesheet" href="/v1/resources/css/docs.css">
+	</head>
+	<body>
+		<header>
+	<div class="top-bar content">
+	<div class="left-links">
+		<a href="/"><img src="/v1/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
+	</div>
+	<nav class="right-links links">
+		<a href="/v1/download">Download</a>
+		<a href="/v1/docs">Docs</a>
+		<a href="/v1/stats">Stats</a>
+		<a href="https://caddy.community">Forum</a>
+		<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
+		<a href="/v1/account/login">Log In</a>
+	</nav>
+</div>
+<a href="/" id="v2-banner">
+	This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
+</a>
+	<div class="content">
+		<h1>User Guide</h1>
+	</div>
+</header>
+
+<nav class="main">
+	<div class="content">
+		<a href="/v1/docs" class="current">Documentation</a>
+		<a href="/v1/tutorial">Tutorials</a>
+		<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
+	</div>
+</nav>
+
+
+		<div class="content-container">
+			<nav class="side">
+	<!-- TODO: Consider using Maven Pro or Muli as font... -->
+	<h3>Using Caddy</h3>
+	<ul>
+		<li><a href="/v1/tutorial">Getting Started &rarr;</a></li>
+		<li><a href="/v1/docs/cli">Command Line Interface</a></li>
+		<li><a href="/v1/docs/caddyfile">Caddyfile Syntax</a></li>
+		<li><a href="/v1/docs/telemetry">Telemetry</a></li>
+	</ul>
+
+	<h3>HTTP Server</h3>
+	<ul>
+		<li><a href="/v1/docs/http-caddyfile">HTTP Caddyfile</a></li>
+		<li><a href="/v1/docs/automatic-https">Automatic HTTPS</a></li>
+		<li><a href="/v1/docs/mitm-detection">MITM Detection</a></li>
+		<li><a href="/v1/docs/placeholders">Placeholders</a></li>
+		<li><a href="/v1/docs/template-actions">Template Actions</a></li>
+	</ul>
+
+	<h4>Standard HTTP Directives</h4>
+	<ul>
+		<li><a href="/v1/docs/basicauth">basicauth</a></li>
+		<li><a href="/v1/docs/bind">bind</a></li>
+		<li><a href="/v1/docs/browse">browse</a></li>
+		<li><a href="/v1/docs/errors">errors</a></li>
+		<li><a href="/v1/docs/expvar">expvar</a></li>
+		<li><a href="/v1/docs/ext">ext</a></li>
+		<li><a href="/v1/docs/fastcgi">fastcgi</a></li>
+		<li><a href="/v1/docs/gzip">gzip</a></li>
+		<li><a href="/v1/docs/header">header</a></li>
+		<li><a href="/v1/docs/import">import</a></li>
+		<li><a href="/v1/docs/index">index</a></li>
+		<li><a href="/v1/docs/internal">internal</a></li>
+		<li><a href="/v1/docs/limits">limits</a></li>
+		<li><a href="/v1/docs/log">log</a></li>
+		<li><a href="/v1/docs/markdown">markdown</a></li>
+		<li><a href="/v1/docs/mime">mime</a></li>
+		<li><a href="/v1/docs/on">on</a></li>
+		<li><a href="/v1/docs/pprof">pprof</a></li>
+		<li><a href="/v1/docs/proxy">proxy</a></li>
+		<li><a href="/v1/docs/push">push</a></li>
+		<li><a href="/v1/docs/redir">redir</a></li>
+		<li><a href="/v1/docs/request_id">request_id</a></li>
+		<li><a href="/v1/docs/rewrite">rewrite</a></li>
+		<li><a href="/v1/docs/root">root</a></li>
+		<li><a href="/v1/docs/status">status</a></li>
+		<li><a href="/v1/docs/templates">templates</a></li>
+		<li><a href="/v1/docs/timeouts">timeouts</a></li>
+		<li><a href="/v1/docs/tls">tls</a></li>
+		<li><a href="/v1/docs/websocket">websocket</a></li>
+	</ul>
+
+	<h3>Plugins</h3>
+	<ul>
+		<li><a href="https://github.com/caddyserver/caddy/wiki" class="external-link">Writing a Caddy Plugin</a></li>
+	</ul>
+
+	
+		<h4>Caddyfile Loaders</h4>
+		<ul>
+				<li><a href="/v1/docs/docker">docker</a></li>
+		</ul>
+	
+		<h4>DNS Providers</h4>
+		<ul>
+				<li><a href="/v1/docs/tls.dns.auroradns">tls.dns.auroradns</a></li>
+				<li><a href="/v1/docs/tls.dns.azure">tls.dns.azure</a></li>
+				<li><a href="/v1/docs/tls.dns.cloudflare">tls.dns.cloudflare</a></li>
+				<li><a href="/v1/docs/tls.dns.cloudxns">tls.dns.cloudxns</a></li>
+				<li><a href="/v1/docs/tls.dns.digitalocean">tls.dns.digitalocean</a></li>
+				<li><a href="/v1/docs/tls.dns.dnsimple">tls.dns.dnsimple</a></li>
+				<li><a href="/v1/docs/tls.dns.dnsmadeeasy">tls.dns.dnsmadeeasy</a></li>
+				<li><a href="/v1/docs/tls.dns.dnspod">tls.dns.dnspod</a></li>
+				<li><a href="/v1/docs/tls.dns.duckdns">tls.dns.duckdns</a></li>
+				<li><a href="/v1/docs/tls.dns.dyn">tls.dns.dyn</a></li>
+				<li><a href="/v1/docs/tls.dns.exoscale">tls.dns.exoscale</a></li>
+				<li><a href="/v1/docs/tls.dns.gandi">tls.dns.gandi</a></li>
+				<li><a href="/v1/docs/tls.dns.gandiv5">tls.dns.gandiv5</a></li>
+				<li><a href="/v1/docs/tls.dns.godaddy">tls.dns.godaddy</a></li>
+				<li><a href="/v1/docs/tls.dns.googlecloud">tls.dns.googlecloud</a></li>
+				<li><a href="/v1/docs/tls.dns.lightsail">tls.dns.lightsail</a></li>
+				<li><a href="/v1/docs/tls.dns.linode">tls.dns.linode</a></li>
+				<li><a href="/v1/docs/tls.dns.namecheap">tls.dns.namecheap</a></li>
+				<li><a href="/v1/docs/tls.dns.namedotcom">tls.dns.namedotcom</a></li>
+				<li><a href="/v1/docs/tls.dns.namesilo">tls.dns.namesilo</a></li>
+				<li><a href="/v1/docs/tls.dns.ns1">tls.dns.ns1</a></li>
+				<li><a href="/v1/docs/tls.dns.otc">tls.dns.otc</a></li>
+				<li><a href="/v1/docs/tls.dns.ovh">tls.dns.ovh</a></li>
+				<li><a href="/v1/docs/tls.dns.powerdns">tls.dns.powerdns</a></li>
+				<li><a href="/v1/docs/tls.dns.rackspace">tls.dns.rackspace</a></li>
+				<li><a href="/v1/docs/tls.dns.rfc2136">tls.dns.rfc2136</a></li>
+				<li><a href="/v1/docs/tls.dns.route53">tls.dns.route53</a></li>
+				<li><a href="/v1/docs/tls.dns.vultr">tls.dns.vultr</a></li>
+		</ul>
+	
+		<h4>Directives/Middleware</h4>
+		<ul>
+				<li><a href="/v1/docs/dyndns">dyndns</a></li>
+				<li><a href="/v1/docs/http.authz">http.authz</a></li>
+				<li><a href="/v1/docs/http.awses">http.awses</a></li>
+				<li><a href="/v1/docs/http.awslambda">http.awslambda</a></li>
+				<li><a href="/v1/docs/http.cache">http.cache</a></li>
+				<li><a href="/v1/docs/http.cgi">http.cgi</a></li>
+				<li><a href="/v1/docs/http.cors">http.cors</a></li>
+				<li><a href="/v1/docs/http.datadog">http.datadog</a></li>
+				<li><a href="/v1/docs/http.expires">http.expires</a></li>
+				<li><a href="/v1/docs/http.filter">http.filter</a></li>
+				<li><a href="/v1/docs/http.forwardproxy">http.forwardproxy</a></li>
+				<li><a href="/v1/docs/http.geoip">http.geoip</a></li>
+				<li><a href="/v1/docs/http.git">http.git</a></li>
+				<li><a href="/v1/docs/http.gomods">http.gomods</a></li>
+				<li><a href="/v1/docs/http.gopkg">http.gopkg</a></li>
+				<li><a href="/v1/docs/http.grpc">http.grpc</a></li>
+				<li><a href="/v1/docs/http.ipfilter">http.ipfilter</a></li>
+				<li><a href="/v1/docs/http.jwt">http.jwt</a></li>
+				<li><a href="/v1/docs/http.locale">http.locale</a></li>
+				<li><a href="/v1/docs/http.login">http.login</a></li>
+				<li><a href="/v1/docs/http.mailout">http.mailout</a></li>
+				<li><a href="/v1/docs/http.minify">http.minify</a></li>
+				<li><a href="/v1/docs/http.nobots">http.nobots</a></li>
+				<li><a href="/v1/docs/http.permission">http.permission</a></li>
+				<li><a href="/v1/docs/http.prometheus">http.prometheus</a></li>
+				<li><a href="/v1/docs/http.proxyprotocol">http.proxyprotocol</a></li>
+				<li><a href="/v1/docs/http.pubsub">http.pubsub</a></li>
+				<li><a href="/v1/docs/http.ratelimit">http.ratelimit</a></li>
+				<li><a href="/v1/docs/http.realip">http.realip</a></li>
+				<li><a href="/v1/docs/http.reauth">http.reauth</a></li>
+				<li><a href="/v1/docs/http.recaptcha">http.recaptcha</a></li>
+				<li><a href="/v1/docs/http.restic">http.restic</a></li>
+				<li><a href="/v1/docs/http.s3browser">http.s3browser</a></li>
+				<li><a href="/v1/docs/http.supervisor">http.supervisor</a></li>
+				<li><a href="/v1/docs/http.torproxy">http.torproxy</a></li>
+				<li><a href="/v1/docs/http.webdav">http.webdav</a></li>
+				<li><a href="/v1/docs/http.webp">http.webp</a></li>
+		</ul>
+	
+		<h4>Event Hooks</h4>
+		<ul>
+				<li><a href="/v1/docs/hook.service">hook.service</a></li>
+		</ul>
+	
+		<h4>Server Types</h4>
+		<ul>
+				<li><a href="/v1/docs/dns">dns</a></li>
+				<li><a href="/v1/docs/net">net</a></li>
+				<li><a href="/v1/docs/supervisor">supervisor</a></li>
+		</ul>
+	
+		<h4>TLS Clustering</h4>
+		<ul>
+				<li><a href="/v1/docs/consul">consul</a></li>
+				<li><a href="/v1/docs/redis">redis</a></li>
+		</ul>
+	
+	</ul>
+</nav>
+
+			<article>
+				<h2>http.proxy</h2>
+
+				<p>proxy facilitates both a basic reverse proxy and a robust load balancer. The proxy has support for multiple backends and adding custom headers. The load balancing features include multiple policies, health checks, and failovers. Caddy can also proxy WebSocket connections.</p>
+
+				<p>This middleware adds a <a href="/v1/docs/placeholders">placeholder</a> that can be used in <a href="/v1/docs/log">log</a> formats: <strong>{upstream}</strong> - the name of the upstream host to which the request was proxied.</p>
+
+				<h3 id="syntax">Syntax</h3>
+
+				<p>In its most basic form, a simple reverse proxy uses this syntax:</p>
+
+				<p><code class="block"><span class="cf-dir">proxy</span> <span class="cf-arg"><i>from to</i></span></code></p>
+
+				<ul>
+				<li><strong>from</strong> is the base path to match for the request to be proxied</li>
+				<li><strong>to</strong> is the destination endpoint to proxy to (may include a port range)</li>
+				</ul>
+
+				<p>However, advanced features including load balancing can be utilized with an expanded syntax:</p>
+
+				<p><code class="block"><span class="cf-dir">proxy</span> <span class="cf-arg"><i>from to...</i></span> {
+	<span class="cf-subdir">policy</span> <i>name</i> <i>[value]</i>
+	<span class="cf-subdir">fail_timeout</span> <i>duration</i>
+	<span class="cf-subdir">max_fails</span> <i>integer</i>
+	<span class="cf-subdir">max_conns</span> <i>in≈teger</i>
+	<span class="cf-subdir">try_duration</span> <i>duration</i>
+	<span class="cf-subdir">try_interval</span> <i>duration</i>
+	<span class="cf-subdir">health_check</span> <i>path</i>
+	<span class="cf-subdir">health_check_port</span> <i>port</i>
+	<span class="cf-subdir">health_check_interval</span> <i>interval_duration</i>
+	<span class="cf-subdir">health_check_timeout</span> <i>timeout_duration</i>
+	<span class="cf-subdir">health_check_contains</span> <i>substring</i>
+	<span class="cf-subdir">fallback_delay</span> <i>delay_duration</i>
+	<span class="cf-subdir">header_upstream</span> <i>name value</i>
+	<span class="cf-subdir">header_downstream</span> <i>name value</i>
+	<span class="cf-subdir">keepalive</span> <i>number</i>
+	<span class="cf-subdir">timeout</span> <i>duration</i>
+	<span class="cf-subdir">without</span> <i>prefix</i>
+	<span class="cf-subdir">except</span> <i>ignored_paths...</i>
+	<span class="cf-subdir">upstream</span> <i>to</i>
+	<span class="cf-subdir">ca_certificates</span> <i>certs...</i>
+	<span class="cf-subdir">insecure_skip_verify</span>
+	<span class="cf-subdir"><i>preset</i></span>
+}</code></p>
+
+				<ul>
+					<li><strong>from</strong> is the base path to match for the request to be proxied.</li>
+					<li><strong>to</strong> is the destination endpoint to proxy to. At least one is required, but multiple may be specified. If a scheme (http/https/quic/srv) is not specified, http is used. Unix sockets may also be used by prefixing "unix:". QUIC connections are experimental, but to try it, just use "quic://" for the scheme. Service discovery using SRV lookup is supported. If the endpoint starts with <code>srv://</code> or <code>srv+https://</code> it will be considered as a service locator and Caddy will attempt to resolve available services via SRV DNS lookup.</li>
+					<li><strong>policy</strong> is the load balancing policy to use; applies only with multiple backends. May be one of random, least_conn, round_robin, first, ip_hash, uri_hash, or header. If header is chosen, the header name must also be provided. Default is random. This setting is not applicable if destination is a service locator.</li>
+					<li><strong>fail_timeout</strong> specifies how long to remember a failed request to a backend. A timeout &gt; 0 enables request failure counting and is required for load balancing between backends in case of failures. If the number of failed requests accumulates to the max_fails value, the host will be considered down and no requests will be routed to it until failed requests begin to be forgotten. By default, this is disabled (0s), meaning that failed requests will not be remembered and the backend will always be considered available. Must be a duration value (like "10s" or "1m").</li>
+					<li><strong>max_fails</strong> is the number of failed requests within fail_timeout that are needed before considering a backend to be down. Not used if fail_timeout is 0. Must be at least 1. Default is 1.</li>
+					<li><strong>max_conns</strong> is the maximum number of concurrent requests to each backend. 0 means no limit. When the limit is reached, additional requests will fail with Bad Gateway (502). Default is 0.</li>
+					<li><strong>try_duration</strong> is how long to try selecting available upstream hosts for each request. By default, this retry is disabled ("0s"). Clients may hang for this long while the proxy tries to find an available upstream host. This value is only used if a request to the initially-selected upstream host fails.</li>
+					<li><strong>try_interval</strong> is how long to wait between selecting another upstream host to handle a request. Default is 250ms. Only relevant when a request to an upstream host fails. Be aware that setting this to 0 with a non-zero try_duration can result in very tight looping and spin the CPU if all hosts stay down.</li>
+					<li><strong>health_check</strong> will use <em>path</em> to check the health of each backend. If a backend returns a status code of 200-399, then that backend is considered healthy. If it doesn't, the backend is marked as unhealthy for at least <em>health_check_interval</em> and no requests are routed to it. If this option is not provided then health checks are disabled.</li>
+					<li><strong>health_check_port</strong> will use <em>port</em> to perform the health check instead of the port provided for the upstream. This is useful if you use an internal port for debug purposes where your health check endpoint is hidden from public view. This setting is not supported when destination is a service locator.</li>
+					<li><strong>health_check_interval</strong> specifies the time between each health check on unhealthy backends. The default interval is 30 seconds ("30s").</li>
+					<li><strong>health_check_timeout</strong> sets a deadline for health check requests. If a health check does not respond within <em>health_check_timeout</em>, the health check is considered failed. The default is 60 seconds ("60s").</li>
+					<li><strong>health_check_contains</strong> requires that the response of the health check contains the given substring to be considered healthy.</li>
+					<li><strong>fallback_delay</strong> sets the duration between dual stack fallback attempts. Default 300ms.</li>
+					<li><strong>header_upstream</strong> sets headers to be passed to the backend. The field name is <em>name</em> and the value is <em>value</em>. This option can be specified multiple times for multiple headers, and dynamic values can also be inserted using <a href="/v1/docs/placeholders">request placeholders</a>. By default, existing header fields will be replaced, but you can add/merge field values by prefixing the field name with a plus sign (+). You can remove fields by prefixing the header name with a minus sign (-) and leaving the value blank.</li>
+					<li><strong>header_downstream</strong> modifies response headers coming back from the backend. It works the same way header_upstream does.</li>
+					<li><strong>keepalive</strong> is the maximum number of idle connections to keep open to the backend. Enabled by default; set to 0 to disable keepalives. Set to a higher value on busy servers that are properly tuned.</li>
+					<li><strong>timeout</strong> is the duration before timing out the connection to upstream; default is 30s.</li>
+					<li><strong>without</strong> is a URL prefix to trim before proxying the request upstream. A request to /api/foo without /api, for example, will result in a proxy request to /foo.</li>
+					<li><strong>except</strong> is a space-separated list of paths to exclude from proxying. Requests that match any of <em>ignored_paths</em> will be passed thru.</li>
+					<li><strong>upstream</strong> specifies another backend. It may use a port range like ":8080-8085" if desired. It is often used multiple times when there are many backends to route to. This subdirective is not supported if backend target specified by <code>to</code> is a service locator.</li>
+					<li><strong>ca_certificates</strong> is a list of CA certificates to allow when connecting to a backend using TLS. This allows you to trust certificates signed by the CAs for whom certificates are listed here, rather than disabling TLS certificate verification entirely or modifying the system root store.</li>
+					<li><strong>insecure_skip_verify</strong> overrides verification of the backend TLS certificate, essentially disabling security features over HTTPS.</li>
+					<li><strong>preset</strong> is an optional shorthand way of configuring the proxy to meet certain conditions. See presets below.</li>
+				</ul>
+
+				<p><mark class="block">Note that in order to do proper, redundant load balancing in the event of failures, you <strong>must</strong> set fail_timeout and try_duration to values &gt; 0.</mark></p>
+
+				<p>Everything after the first <em>to</em> is optional, including the block of properties enclosed by curly braces.</p>
+
+				<h3 id="presets">Presets</h3>
+
+				<p>The following presets are available:</p>
+
+				<ul>
+				<li><p><strong>websocket</strong><br />
+				Indicates this proxy is forwarding WebSocket connections. It is shorthand for: <code class="block"><span class="cf-subdir">header_upstream</span> Connection {&gt;Connection}
+<span class="cf-subdir">header_upstream</span> Upgrade {&gt;Upgrade}</code>
+				<mark class="block">HTTP/2 does not support protocol upgrade.</mark></p></li>
+
+				<li><p><strong>transparent</strong><br />
+				Passes thru host information from the original request as most backend apps would expect. Shorthand for: <code class="block"><span class="cf-subdir">header_upstream</span> Host {host}
+<span class="cf-subdir">header_upstream</span> X-Real-IP {remote}
+<span class="cf-subdir">header_upstream</span> X-Forwarded-For {remote}
+<span class="cf-subdir">header_upstream</span> X-Forwarded-Port {server_port}
+<span class="cf-subdir">header_upstream</span> X-Forwarded-Proto {scheme}</code></p></li>
+				</ul>
+
+				<h3 id="policies">Policies</h3>
+
+				<p>There are several load balancing policies available:</p>
+
+				<ul>
+				<li><strong>random</strong> (default) - Randomly select a backend</li>
+				<li><strong>least_conn</strong> - Select backend with the fewest active connections</li>
+				<li><strong>round_robin</strong> - Select backend in round-robin fashion</li>
+				<li><strong>first</strong> - Select the first available backend in the order they are defined in the Caddyfile</li>
+				<li><strong>ip_hash</strong> - Select backend by hashing the request IP, distributing evenly over the hash space based on the total number of backends</li>
+				<li><strong>uri_hash</strong> - Select backend by hashing the request URI, distributing evenly over the hash space based on the total number of backends</li>
+				<li><strong>header</strong> - Select by hashing the value of a given header, specified by the <i>[value]</i> after the policy name, distributing evenly over the hash space based on the total number of backends</li>
+				</ul>
+
+				<h3 id="examples">Examples</h3>
+
+				<p>Proxy all requests within /api to a backend system:</p>
+
+				<p><code class="block"><span class="cf-dir">proxy</span> <span class="cf-arg">/api localhost:9005</span></code></p>
+
+				<p>Load-balance all requests between three backends (using random policy):</p>
+
+				<p><code class="block"><span class="cf-dir">proxy</span> <span class="cf-arg">/ web1.local:80 web2.local:90 web3.local:100</span></code></p>
+
+				<p>Same as above, with header affinity:</p>
+
+				<p><code class="block"><span class="cf-dir">proxy</span> <span class="cf-arg">/ web1.local:80 web2.local:90 web3.local:100</span> {
+	<span class="cf-subdir">policy</span> header X-My-Header
+}</code></p>
+
+				<p>Round-robin style:</p>
+
+				<p><code class="block"><span class="cf-dir">proxy</span> <span class="cf-arg">/ web1.local:80 web2.local:90 web3.local:100</span> {
+	<span class="cf-subdir">policy</span> round_robin
+}</code></p>
+
+				<p>With health checks and proxy headers to pass hostname, IP, and scheme upstream:</p>
+
+				<p><code class="block"><span class="cf-dir">proxy</span> <span class="cf-arg">/ web1.local:80 web2.local:90 web3.local:100</span> {
+	<span class="cf-subdir">policy</span> round_robin
+	<span class="cf-subdir">health_check</span> /health
+	<span class="cf-subdir">transparent</span>
+}</code></p>
+
+				<p>Proxy WebSocket connections:</p>
+
+				<p><code class="block"><span class="cf-dir">proxy</span> <span class="cf-arg">/stream localhost:8080</span> {
+	<span class="cf-subdir">websocket</span>
+}</code></p>
+
+				<p>Proxy everything except requests to /static or /robots.txt:</p>
+
+				<p><code class="block"><span class="cf-dir">proxy</span> <span class="cf-arg">/ backend:1234</span> {
+	<span class="cf-subdir">except</span> /static /robots.txt
+}</code></p>
+
+				<p>Proxy to a backend with HTTPS on the standard HTTPS port:</p>
+
+				<p><code class="block"><span class="cf-dir">proxy</span> <span class="cf-arg">/ https://backend</span></code></p>
+
+				<p>To have Caddy retry when an upstream connection fails once in a while (EOF errors, for instance):</p>
+
+				<p><code class="block"><span class="cf-dir">proxy</span> <span class="cf-arg">/ backend:1234</span> {
+	<span class="cf-subdir">try_duration</span> 5s
+}</code></p>
+
+			</article>
+		</div>
+		<footer>
+	<div class="nav-container">
+		<div class="flex content">
+			<div class="col">
+				<img src="/v1/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
+				<br>
+				A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
+				<br>
+				as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
+				<br>
+				in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
+			</div>
+			<nav>
+				<h6>The Project</h6>
+				<a href="/v1/download">Download</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="/v1/docs">Docs</a>
+				<a href="/v1/brand">Brand Kit</a>
+			</nav>
+			<nav>
+				<h6>Account</h6>
+				<a href="/v1/account/login">Log In</a>
+				<a href="/v1/account/register">Sign Up</a>
+				<a href="/v1/legal/terms-of-service">Terms of Service</a>
+			</nav>
+			<nav>
+				<h6>Community</h6>
+				<a href="https://caddy.community/">Forum</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="https://twitter.com/caddyserver">Twitter</a>
+				<a href="/v1/blog/">Blog</a>
+			</nav>
+			<div class="col">
+				<h6>Hey, You.</h6>
+                Be notified of new releases!
+                <form id="footer-signup-form">
+                    <input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
+                    <button class="subscribe" type="submit">Subscribe</button>
+                </form>
+			</div>
+		</div>
+		<div class="copyright">
+			&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
+		</div>
+	</div>
+</footer>
+
+	</body>
+</head>

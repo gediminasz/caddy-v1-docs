@@ -1,0 +1,651 @@
+.content-container {
+	display: flex;
+}
+
+.content-container article {
+	margin-top: 1rem;
+}
+
+.ref-header {
+	display: flex;
+}
+
+.ref-header img {
+	max-height: 130px;
+	margin-right: 2rem;
+}
+
+.ref-intro h2 {
+	font-family: inherit;
+	font-size: 5rem;
+	font-weight: bold;
+	line-height: 1em;
+	margin-top: 0;
+}
+
+.ref-intro {
+	flex-grow: 1;
+	max-width: 600px;
+}
+
+.ref-intro p {
+	font-size: 20px;
+	line-height: 1.5em;
+	margin: .75rem auto;
+}
+
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 2rem;
+	padding-bottom: 0;
+	justify-content: center;
+}
+
+.card {
+	padding: 2rem;
+	transition: all .25s ease;
+	color: #444;
+	display: flex;
+	flex-basis: 50%;
+	flex-grow: 1;
+}
+
+.card:hover {
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,.30);
+	color: #444;
+	transform: translateY(-1px);
+}
+
+.card:active {
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,.30) inset;
+	transform: translateY(1px);
+	transition: none;
+}
+
+.card aside {
+	margin-right: 2rem;
+}
+
+.card img {
+	max-width: 110px;
+}
+
+.card .title {
+	font-size: 2rem;
+	color: #168ff9;
+	font-weight: bold;
+}
+
+.card p {
+	margin: 0;
+}
+
+section.no-bottom-padding {
+	padding-bottom: 0;
+}
+
+.directive-help {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	padding-top: 0;
+	font-size: 18px;
+	line-height: 1.5em;
+	justify-content: center;
+}
+
+.directive-help > div {
+	flex-basis: 50%;
+	flex-grow: 1;
+}
+
+.directive-help > div:last-child {
+	text-align: center;
+	padding-left: 2rem;
+}
+
+.directive-help img {
+	width: 100%;
+	max-width: 400px;
+	min-width: 300px;
+	margin: 2rem auto;
+}
+
+h3 + p,
+h4 + p {
+	margin-top: 1rem;
+}
+
+article h4 {
+	margin-top: 2rem;
+}
+
+.tab-box + h3,
+code.block + h3 {
+	margin-top: 2rem;
+}
+
+.tab-box .tabs {
+	margin-bottom: -1px;
+}
+
+.tab-box .tab {
+	display: inline-block;
+	cursor: pointer;
+	padding: 10px 1rem;
+}
+
+.tab-box .tab.active,
+.tab-box .tab-box-body {
+	border: 1px solid #888;
+}
+
+.tab-box .tab.active {
+	font-weight: bold;
+	border-bottom: 1px solid white;
+	border-top-width: 2px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.tab-box .tab-box-body {
+	display: none;
+	padding: 1rem;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	line-height: 1.5em;
+}
+
+
+
+.clr-teal { color: #4ED388; }
+.clr-coral { color: #F4734E; }
+.clr-blue { color: #4383D2; }
+.bg-gray { background-color: #F5F5F5; }
+.text-center { text-align: center; }
+
+
+.other-help-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.other-help {
+	padding: 1rem;
+	flex-grow: 1;
+	width: 33.33%;
+}
+
+.other-help img {
+	height: 150px;
+	margin: 1rem auto;
+	display: block;
+}
+
+.other-help h3 {
+	font-family: 'Helvetica Neue', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	margin: 1rem auto;
+	font-size: 1.75rem;
+}
+
+.other-help .button {
+	margin: 0 auto;
+}
+
+.button.teal { background-color: #4ED388; color: #FFF; }
+.button.coral { background-color: #F4734E; color: #FFF; }
+.button.blue { background-color: #4383D2; color: #FFF; }
+
+
+main {
+	display: flex;
+}
+
+main > aside {
+	margin-top: 1rem;
+	margin-right: 5rem;
+}
+
+main > aside nav a {
+	display: block;
+	line-height: 2.5rem;
+	color: #888;
+	font-size: 1.2rem;
+}
+
+main > aside nav a:hover {
+	color: #666;
+}
+
+main > aside nav a.current {
+	color: black;
+	font-weight: 600;
+}
+
+article {
+	padding: 0 3rem;
+	max-width: 750px;
+	width: 100%;
+	min-width: 0; /* weird flexbox hack: http://codepen.io/aj-foster/pen/emBYPW */
+}
+
+article p,
+article li {
+	font-size: 1.1rem;
+	line-height: 1.7rem;
+}
+
+article li p {
+	margin: 1rem 0;
+}
+
+article img {
+	max-width: 100%;
+}
+
+.note {
+	padding: 1rem;
+	border: 2px solid #dff2f7;
+	border-top-width: 10px;
+	margin: 1rem auto;
+	line-height: 1.5rem;
+}
+
+.note .title {
+	display: inline;
+	font-weight: bold;
+	margin-right: .5rem;
+}
+
+.plugin-tag {
+	display: inline;
+	font-size: 12px;
+	vertical-align: middle;
+	font-weight: normal;
+	font-family: 'Source Sans Pro';
+	padding: 5px 10px;
+	background: #DBFFEA;
+	color: #00945d;
+	margin-left: 10px;
+	border-radius: 5px;
+	text-transform: uppercase;
+}
+
+h5 {
+	font-size: 18px;
+	margin: -.5rem 0 .5rem;
+}
+
+h3 + h5 { margin-top: 2rem; }
+h5 + p { margin-top: 0; }
+code.block + h5 { margin-top: 2rem; }
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 1rem 0 2rem;
+}
+th {
+	text-align: left;
+	background: #F2F2F2;
+}
+th, td {
+	vertical-align: top;
+	padding: 7px;
+	border-bottom: 1px solid #E0E0E0;
+	font-size: 14px;
+}
+
+mark {
+	background: #FFFFCC;
+	color: #CC0000;
+	padding: 4px;
+	font-size: 14px;
+}
+
+mark.block {
+	padding: 10px;
+	margin: 1rem auto 2rem;
+	line-height: 1.25em;
+}
+
+
+
+.cf-label-bg,
+.cf-block-bg {
+	width: 100%;
+	color: #fff;
+	position: relative;
+	z-index: 2;
+	display: inline-block;
+	text-align: center;
+	margin-bottom: 1rem;
+	font-weight: bold;
+}
+
+.cf-label-bg {
+	max-width: 250px;
+	margin-top: 1rem;
+}
+
+.cf-block-bg {
+	margin-top: .5rem;
+	margin-bottom: 1.5rem;
+	padding-top: 20px;
+	padding-bottom: .5rem;
+	max-width: 350px;
+}
+
+.cf-block-bg.indent {
+	margin-left: 2rem;
+}
+
+.cf-label-bg:after,
+.cf-block-bg:after {
+	color: #FFF;
+	font-weight: normal;
+	padding: 5px;
+	filter: blur(5px);
+	font-size: 20px;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	left: -5px;
+	top: -5px;
+	z-index: -1;
+}
+
+.cf-label-bg:after {
+	background: #D22500;
+	content: 'list of labels filler text';
+}
+
+.cf-block-bg:after {
+	background: #006C96;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	content: 'definition body filler text';
+}
+
+.cf-bigbrace {
+	font-size: 26px;
+	font-weight: bold;
+}
+
+
+
+
+
+
+nav.side {
+	width: 25%;
+	max-width: 300px;
+	background: #F8F8F8;
+	border-right: 1px solid #E0E0E0;
+	padding-bottom: 2rem;
+	word-wrap: break-word;
+}
+
+nav.side h3,
+nav.side h4 {
+	padding: 1rem;
+}
+
+nav.side h3 {
+	font-size: 20px;
+	margin-top: 1rem;
+}
+
+nav.side h3:first-child {
+	margin-top: 0;
+}
+
+nav.side ul {
+	margin: 0;
+	list-style: none;
+}
+
+nav.side li {
+}
+
+nav.side li a {
+	padding: .15rem 1.8rem; /* 1.8rem to compensate for width of the :before */
+	display: block;
+	color: #555;
+	transition: color .15s;
+}
+
+nav.side li a:hover {
+	color: #168ff9;
+	background: #F0F0F0;
+}
+
+nav.side a:before {
+	content: '\203A';
+	/*content: '\2022';*/
+	font-weight: bold;
+	position: relative;
+	opacity: 0;
+	left: 0;
+	transition: left .15s, opacity .15s;
+}
+
+nav.side a:hover:before {
+	opacity: 1;
+	left: -5px;
+}
+
+nav.side h4 {
+	font-size: 14px;
+}
+
+nav.side a.current,
+nav.side a.current:hover {
+	background: #168ff9;
+	color: #FFF;
+}
+
+nav.side a.current:before {
+	visibility: hidden;
+}
+
+
+
+.help-box {
+	border: 1px solid #ffc55b;
+	background: #feffed;
+	margin: 1rem 0;
+	border-radius: 5px;
+	padding: 1rem;
+}
+
+.help-box h3 {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.help-box p {
+	font-size: 14px;
+	margin: .5rem 0;
+	line-height: 1.2rem;
+}
+
+article aside {
+	float: right;
+	max-width: 300px;
+	margin: 1rem 0 1rem 1rem;
+}
+
+.examples {
+	margin-bottom: 3rem;
+}
+
+.example p {
+	margin: 1rem 0;
+}
+
+.example-title {
+	font-weight: bold;
+	margin-top: 2rem;
+	font-size: 1.25rem;
+}
+
+
+.plugin-message {
+	border: 1px dashed #AAA;
+	color: #555;
+	padding: 1rem;
+	font-size: 14px;
+}
+
+
+.springboard-header {
+	clear: both;
+	border: 2px solid #EAEAEA;
+	border-bottom: none;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	text-align: center;
+	padding: 1rem;
+	font-weight: bold;
+	color: #555;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.springboard {
+	clear: both;
+	background: #EAEAEA;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.springboard-point {
+	padding: 1rem;
+	border-right: 1px solid #CCC;
+	width: 33.333%;
+	text-align: center;
+}
+
+.springboard-point:last-child {
+	border: none;
+}
+
+.springboard-point p {
+	margin: 0;
+	font-size: .9rem;
+	line-height: 1.25rem;
+}
+
+.springboard-point b {
+	display: block;
+	font-size: 1.1rem;
+	margin-bottom: .5rem;
+}
+
+.springboard-point button,
+.springboard-point .button {
+	margin-top: 1rem;
+}
+
+.plugin-meta {
+	display: flex;
+	margin-top: 1rem;
+	flex-wrap: wrap;
+}
+
+.meta-left,
+.meta-right {
+	width: 50%;
+}
+
+.meta-right {
+	text-align: right;
+}
+
+.plugin-notice {
+	color: #CC0000;
+	font-size: 14px;
+	text-align: center;
+	max-width: 400px;
+	margin: 3rem auto;
+}
+
+
+
+@media (max-width: 900px) {
+	main > aside {
+		margin-right: 2rem;
+	}
+
+	article {
+		padding: 0 2rem;
+	}
+
+	.other-help {
+		width: 100%;
+	}
+
+	.ref-intro h2 {
+		font-size: 3rem;
+	}
+
+	.ref-intro p {
+		font-size: 16px;
+	}
+
+	.springboard {
+		flex-direction: column;
+	}
+
+	.springboard-point {
+		width: 100%;
+		border-right: 0;
+		border-bottom: 1px solid #CCC;
+	}
+}
+
+@media (max-width: 750px) {
+	main {
+		flex-direction: column;
+	}
+
+	main > aside {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.content-container {
+		flex-direction: column-reverse;
+	}
+
+	.ref-header {
+		flex-direction: column;
+	}
+
+	.ref-intro h2 {
+		text-align: center;
+	}
+
+	nav.side {
+		width: 100%;
+		max-width: none;
+		border-right: 0;
+	}
+
+	nav.side li a {
+		padding: .4rem 1.5rem;
+	}
+
+	article {
+		padding: 0 1rem;
+	}
+
+	article p {
+		font-size: 16px;
+		line-height: 1.5rem;
+	}
+}

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<head>
+	<head>
+		<title>Caddyfile Tutorial - How to Configure Caddy</title>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
+<link rel="icon" href="/v1/resources/images/favicon.png">
+<link rel="stylesheet" href="/v1/resources/css/common.css">
+<link rel="stylesheet" href="/v1/resources/css/sweetalert2.min.css">
+<script src="/v1/resources/js/sweetalert2.min.js"></script>
+<script src="/v1/resources/js/jquery-3.3.1.min.js"></script>
+<script src="/v1/resources/js/common.js"></script>
+		<link rel="stylesheet" href="/v1/resources/css/docs.css">
+	</head>
+	<body>
+		<header>
+	<div class="top-bar content">
+	<div class="left-links">
+		<a href="/"><img src="/v1/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
+	</div>
+	<nav class="right-links links">
+		<a href="/v1/download">Download</a>
+		<a href="/v1/docs">Docs</a>
+		<a href="/v1/stats">Stats</a>
+		<a href="https://caddy.community">Forum</a>
+		<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
+		<a href="/v1/account/login">Log In</a>
+	</nav>
+</div>
+<a href="/" id="v2-banner">
+	This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
+</a>
+	<div class="content">
+		<h1>User Guide</h1>
+	</div>
+</header>
+
+<nav class="main">
+	<div class="content">
+		<a href="/v1/docs">Documentation</a>
+		<a href="/v1/tutorial" class="current">Tutorials</a>
+		<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
+	</div>
+</nav>
+
+
+		<main class="content">
+			<aside>
+	<nav>
+		
+		<a href="/v1/tutorial">Quick Start</a>
+		<a href="/v1/tutorial/beginner">Beginner Tutorial</a>
+		<a href="/v1/tutorial/caddyfile" class="current">The Caddyfile</a>
+		<br>
+		<a href="/v1/docs">&laquo; Back to docs</a>
+	</nav>
+</aside>
+			<article>
+				<h2>Caddyfile Primer</h2>
+				<p>
+					This tutorial will show you how easy it is to configure Caddy with the Caddyfile.
+				</p>
+				<p>
+					The Caddyfile is a text file that configures how Caddy runs.
+				</p>
+				<p>
+					<b>The first line of the Caddyfile is <i>always</i> the address of the site to serve.</b> For example:
+				</p>
+				<code class="block"><span class="cf-addr">localhost:8080</span></code>
+				<p>
+					When you save that in a file called Caddyfile, Caddy will automatically find it when you start it:
+				</p>
+
+				<div class="tab-box os-tabs">
+					<div class="tabs">
+						<div class="tab tab-windows" data-tab="windows">Windows</div>
+						<div class="tab tab-mac" data-tab="mac">macOS</div>
+						<div class="tab tab-linux" data-tab="linux">Linux</div>
+					</div>
+					<div class="tab-box-body tab-windows">
+						<code class="block cmd">caddy</code>
+					</div>
+					<div class="tab-box-body tab-mac tab-linux">
+						<code class="block cmd bash">caddy</code>
+					</div>
+				</div>
+
+				<p>
+					If the Caddyfile is in a different location or has a different name, tell Caddy where it is:
+				</p>
+
+				<div class="tab-box os-tabs">
+					<div class="tabs">
+						<div class="tab tab-windows" data-tab="windows">Windows</div>
+						<div class="tab tab-mac" data-tab="mac">macOS</div>
+						<div class="tab tab-linux" data-tab="linux">Linux</div>
+					</div>
+					<div class="tab-box-body tab-windows">
+						<code class="block cmd">caddy -conf C:\path\to\Caddyfile</code>
+					</div>
+					<div class="tab-box-body tab-mac tab-linux">
+						<code class="block cmd bash">caddy -conf ../path/to/Caddyfile</code>
+					</div>
+				</div>
+
+				<p>
+					The lines following a site address start with a directive. Directives are <a href="/v1/docs">keywords that Caddy recognizes</a>. For example, <a href="/v1/docs/gzip">gzip</a> is an HTTP directive:
+				</p>
+				<code class="block"><span class="cf-addr">localhost:8080</span>
+<span class="cf-dir">gzip</span></code>
+				<p>
+					Directives might have one or more arguments after them:
+				</p>
+				<code class="block"><span class="cf-addr">localhost:8080</span>
+<span class="cf-dir">gzip</span>
+<span class="cf-dir">log</span> <span class="cf-arg">../access.log</span></code>
+				<p>
+					Some directives require more configuration than can fit on one line. For those directives, you can open a <i>block</i> and set more parameters. The open curly brace must be at the end of a line:
+				</p>
+				<code class="block"><span class="cf-addr">localhost:8080</span>
+<span class="cf-dir">gzip</span>
+<span class="cf-dir">log</span> <span class="cf-arg">../access.log</span>
+<span class="cf-dir">markdown</span> <span class="cf-arg">/blog</span> {
+    <span class="cf-subdir">css</span> /blog.css
+    <span class="cf-subdir">js</span>  /scripts.js
+}</code>
+				<p>
+					If the directive block is left empty, you should omit the curly braces entirely.
+				</p>
+				<p>
+					Arguments that contain whitespace must be enclosed in quotes <code>&quot;</code>.
+				</p>
+				<p>
+					The Caddyfile can also have comments starting with the <code>#</code> character:
+				</p>
+				<code class="block"><span class="cf-comment"># Comments can start a line</span>
+<span class="cf-dir">foobar</span> <span class="cf-comment"># or go at the end</span></code>
+				<p>
+					To configure multiple sites with a single Caddyfile, you <b>must</b> use curly braces around each one to separate their configurations:
+				</p>
+				<code class="block"><span class="cf-addr">mysite.com</span> {
+    <span class="cf-dir">root</span> <span class="cf-arg">/www/mysite.com</span>
+}<br>
+<span class="cf-addr">sub.mysite.com</span> {
+    <span class="cf-dir">root</span> <span class="cf-arg">/www/sub.mysite.com</span>
+    <span class="cf-dir">gzip</span>
+    <span class="cf-dir">log</span> <span class="cf-arg">../access.log</span>
+}</code>
+				<p>
+					As with directives, the opening curly brace must be at the end of the same line. The closing curly brace must be on its own line. <b>All directives must appear inside a site's definition.</b>
+				</p>
+				<p>
+					For sites which share the same configuration, specify multiple addresses:
+				</p>
+				<code class="block"><span class="cf-addr">localhost:8080, https://site.com, http://mysite.com</span> {
+    ...
+}</code>
+				<p>
+					Site addresses can also be defined under a specific path or have wildcards in place of individual domain labels from the left side:
+				</p>
+				<code class="block"><span class="cf-addr">example.com/static, *.example.com</span> {
+    ...
+}</code>
+
+<p>Note that using a path in your site address will route requests by longest matching prefix. If your base path is a directory, you may wish to suffix the path with a forward slash <code>/</code>.</p>
+
+<p>Use of environment variables is allowed in addresses and arguments. They must be enclosed in curly braces, and you can use either Unix or Windows variable formats:</p>
+
+<p><code class="block"><span class="cf-addr">localhost:{$PORT}</span>
+<span class="cf-dir">root</span> <span class="cf-arg">{%SITE_ROOT%}</span></code></p>
+
+				<p>Either syntax works on any platform. A single environment variable does not expand out into multiple arguments/values.</p>
+
+				<p>
+					There is <b>no inheritence or scripting</b> in the Caddyfile and <b>you may not specify the same site address more than once</b>. Yes, sometimes that means you copy+paste a few repeated lines. If you have many repeated lines, you can use the <a href="/v1/docs/import">import</a> directive to reduce repetition.
+				</p>
+
+				<p>
+					Alrighty, that should be more than enough to make you literate in the <a href="/v1/docs">Caddy docs</a>. Go forth and conquer!
+				</p>
+			</article>
+		</main>
+
+		<footer>
+	<div class="nav-container">
+		<div class="flex content">
+			<div class="col">
+				<img src="/v1/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
+				<br>
+				A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
+				<br>
+				as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
+				<br>
+				in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
+			</div>
+			<nav>
+				<h6>The Project</h6>
+				<a href="/v1/download">Download</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="/v1/docs">Docs</a>
+				<a href="/v1/brand">Brand Kit</a>
+			</nav>
+			<nav>
+				<h6>Account</h6>
+				<a href="/v1/account/login">Log In</a>
+				<a href="/v1/account/register">Sign Up</a>
+				<a href="/v1/legal/terms-of-service">Terms of Service</a>
+			</nav>
+			<nav>
+				<h6>Community</h6>
+				<a href="https://caddy.community/">Forum</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="https://twitter.com/caddyserver">Twitter</a>
+				<a href="/v1/blog/">Blog</a>
+			</nav>
+			<div class="col">
+				<h6>Hey, You.</h6>
+                Be notified of new releases!
+                <form id="footer-signup-form">
+                    <input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
+                    <button class="subscribe" type="submit">Subscribe</button>
+                </form>
+			</div>
+		</div>
+		<div class="copyright">
+			&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
+		</div>
+	</div>
+</footer>
+
+	</body>
+</head>

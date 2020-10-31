@@ -1,0 +1,123 @@
+header {
+	background-image: linear-gradient(0deg, #111 0%, #2a9def 100%);
+}
+
+article {
+	background: #F5F5F5;
+}
+
+article h1 {
+	font-weight: 300;
+	font-size: 4rem;
+	text-align: center;
+	padding: 4rem 0;
+}
+
+article h2 {
+	font-family: inherit;
+	font-weight: 300;
+	font-size: 2rem;
+	margin: 0 0 2rem 0;
+}
+
+article h3 {
+	font-size: 1.25rem;
+	margin-bottom: 1rem;
+}
+
+article h4 {
+	font-size: 1rem;
+	margin-bottom: .5rem;
+}
+
+article p {
+	margin: 0 0 1rem 0;
+}
+
+section {
+	display: flex;
+	padding: 0;
+}
+
+main,
+aside {
+	padding: 4rem 8%;
+}
+
+main {
+	width: 60%;
+	background: #fff;
+}
+
+aside {
+	width: 40%;
+	padding: 8.5rem 8% 0 2%;
+}
+
+section + section main { padding-top: 0; }
+section + section aside { padding-top: 4.5rem; }
+
+
+article p,
+article li {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5rem;
+	text-align: justify;
+}
+
+@media (max-width: 700px) {
+	article h1 {
+		font-size: 3rem;
+	}
+
+	main {
+		width: 100%;
+	}
+
+	aside {
+		display: none;
+	}
+}
+
+@media print {
+	header,
+	nav.main,
+	aside,
+	.footer-sponsors,
+	footer {
+		display: none;
+	}
+
+	article h1 {
+		padding: 0;
+	}
+
+	h1,
+	article h2 {
+		zoom: .8;
+	}
+
+	h1,
+	article h2,
+	article h3,
+	article h4 {
+		margin-top: .2in;
+		margin-bottom: .1in;
+	}
+
+	article p,
+	article li {
+		line-height: 1.25rem;
+		margin: 0 0 .5rem 0;
+	}
+
+	main {
+		padding: 0;
+	}
+
+	p {
+		margin: 0;
+		padding: 0;
+	}
+}

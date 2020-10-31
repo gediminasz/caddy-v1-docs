@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<head>
+	<head>
+		<title>The HTTP Caddyfile</title>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
+<link rel="icon" href="/v1/resources/images/favicon.png">
+<link rel="stylesheet" href="/v1/resources/css/common.css">
+<link rel="stylesheet" href="/v1/resources/css/sweetalert2.min.css">
+<script src="/v1/resources/js/sweetalert2.min.js"></script>
+<script src="/v1/resources/js/jquery-3.3.1.min.js"></script>
+<script src="/v1/resources/js/common.js"></script>
+		<link rel="stylesheet" href="/v1/resources/css/docs.css">
+	</head>
+	<body>
+		<header>
+	<div class="top-bar content">
+	<div class="left-links">
+		<a href="/"><img src="/v1/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
+	</div>
+	<nav class="right-links links">
+		<a href="/v1/download">Download</a>
+		<a href="/v1/docs">Docs</a>
+		<a href="/v1/stats">Stats</a>
+		<a href="https://caddy.community">Forum</a>
+		<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
+		<a href="/v1/account/login">Log In</a>
+	</nav>
+</div>
+<a href="/" id="v2-banner">
+	This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
+</a>
+	<div class="content">
+		<h1>User Guide</h1>
+	</div>
+</header>
+
+<nav class="main">
+	<div class="content">
+		<a href="/v1/docs" class="current">Documentation</a>
+		<a href="/v1/tutorial">Tutorials</a>
+		<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
+	</div>
+</nav>
+
+
+		<div class="content-container">
+			<nav class="side">
+	<!-- TODO: Consider using Maven Pro or Muli as font... -->
+	<h3>Using Caddy</h3>
+	<ul>
+		<li><a href="/v1/tutorial">Getting Started &rarr;</a></li>
+		<li><a href="/v1/docs/cli">Command Line Interface</a></li>
+		<li><a href="/v1/docs/caddyfile">Caddyfile Syntax</a></li>
+		<li><a href="/v1/docs/telemetry">Telemetry</a></li>
+	</ul>
+
+	<h3>HTTP Server</h3>
+	<ul>
+		<li><a href="/v1/docs/http-caddyfile">HTTP Caddyfile</a></li>
+		<li><a href="/v1/docs/automatic-https">Automatic HTTPS</a></li>
+		<li><a href="/v1/docs/mitm-detection">MITM Detection</a></li>
+		<li><a href="/v1/docs/placeholders">Placeholders</a></li>
+		<li><a href="/v1/docs/template-actions">Template Actions</a></li>
+	</ul>
+
+	<h4>Standard HTTP Directives</h4>
+	<ul>
+		<li><a href="/v1/docs/basicauth">basicauth</a></li>
+		<li><a href="/v1/docs/bind">bind</a></li>
+		<li><a href="/v1/docs/browse">browse</a></li>
+		<li><a href="/v1/docs/errors">errors</a></li>
+		<li><a href="/v1/docs/expvar">expvar</a></li>
+		<li><a href="/v1/docs/ext">ext</a></li>
+		<li><a href="/v1/docs/fastcgi">fastcgi</a></li>
+		<li><a href="/v1/docs/gzip">gzip</a></li>
+		<li><a href="/v1/docs/header">header</a></li>
+		<li><a href="/v1/docs/import">import</a></li>
+		<li><a href="/v1/docs/index">index</a></li>
+		<li><a href="/v1/docs/internal">internal</a></li>
+		<li><a href="/v1/docs/limits">limits</a></li>
+		<li><a href="/v1/docs/log">log</a></li>
+		<li><a href="/v1/docs/markdown">markdown</a></li>
+		<li><a href="/v1/docs/mime">mime</a></li>
+		<li><a href="/v1/docs/on">on</a></li>
+		<li><a href="/v1/docs/pprof">pprof</a></li>
+		<li><a href="/v1/docs/proxy">proxy</a></li>
+		<li><a href="/v1/docs/push">push</a></li>
+		<li><a href="/v1/docs/redir">redir</a></li>
+		<li><a href="/v1/docs/request_id">request_id</a></li>
+		<li><a href="/v1/docs/rewrite">rewrite</a></li>
+		<li><a href="/v1/docs/root">root</a></li>
+		<li><a href="/v1/docs/status">status</a></li>
+		<li><a href="/v1/docs/templates">templates</a></li>
+		<li><a href="/v1/docs/timeouts">timeouts</a></li>
+		<li><a href="/v1/docs/tls">tls</a></li>
+		<li><a href="/v1/docs/websocket">websocket</a></li>
+	</ul>
+
+	<h3>Plugins</h3>
+	<ul>
+		<li><a href="https://github.com/caddyserver/caddy/wiki" class="external-link">Writing a Caddy Plugin</a></li>
+	</ul>
+
+	
+		<h4>Caddyfile Loaders</h4>
+		<ul>
+				<li><a href="/v1/docs/docker">docker</a></li>
+		</ul>
+	
+		<h4>DNS Providers</h4>
+		<ul>
+				<li><a href="/v1/docs/tls.dns.auroradns">tls.dns.auroradns</a></li>
+				<li><a href="/v1/docs/tls.dns.azure">tls.dns.azure</a></li>
+				<li><a href="/v1/docs/tls.dns.cloudflare">tls.dns.cloudflare</a></li>
+				<li><a href="/v1/docs/tls.dns.cloudxns">tls.dns.cloudxns</a></li>
+				<li><a href="/v1/docs/tls.dns.digitalocean">tls.dns.digitalocean</a></li>
+				<li><a href="/v1/docs/tls.dns.dnsimple">tls.dns.dnsimple</a></li>
+				<li><a href="/v1/docs/tls.dns.dnsmadeeasy">tls.dns.dnsmadeeasy</a></li>
+				<li><a href="/v1/docs/tls.dns.dnspod">tls.dns.dnspod</a></li>
+				<li><a href="/v1/docs/tls.dns.duckdns">tls.dns.duckdns</a></li>
+				<li><a href="/v1/docs/tls.dns.dyn">tls.dns.dyn</a></li>
+				<li><a href="/v1/docs/tls.dns.exoscale">tls.dns.exoscale</a></li>
+				<li><a href="/v1/docs/tls.dns.gandi">tls.dns.gandi</a></li>
+				<li><a href="/v1/docs/tls.dns.gandiv5">tls.dns.gandiv5</a></li>
+				<li><a href="/v1/docs/tls.dns.godaddy">tls.dns.godaddy</a></li>
+				<li><a href="/v1/docs/tls.dns.googlecloud">tls.dns.googlecloud</a></li>
+				<li><a href="/v1/docs/tls.dns.lightsail">tls.dns.lightsail</a></li>
+				<li><a href="/v1/docs/tls.dns.linode">tls.dns.linode</a></li>
+				<li><a href="/v1/docs/tls.dns.namecheap">tls.dns.namecheap</a></li>
+				<li><a href="/v1/docs/tls.dns.namedotcom">tls.dns.namedotcom</a></li>
+				<li><a href="/v1/docs/tls.dns.namesilo">tls.dns.namesilo</a></li>
+				<li><a href="/v1/docs/tls.dns.ns1">tls.dns.ns1</a></li>
+				<li><a href="/v1/docs/tls.dns.otc">tls.dns.otc</a></li>
+				<li><a href="/v1/docs/tls.dns.ovh">tls.dns.ovh</a></li>
+				<li><a href="/v1/docs/tls.dns.powerdns">tls.dns.powerdns</a></li>
+				<li><a href="/v1/docs/tls.dns.rackspace">tls.dns.rackspace</a></li>
+				<li><a href="/v1/docs/tls.dns.rfc2136">tls.dns.rfc2136</a></li>
+				<li><a href="/v1/docs/tls.dns.route53">tls.dns.route53</a></li>
+				<li><a href="/v1/docs/tls.dns.vultr">tls.dns.vultr</a></li>
+		</ul>
+	
+		<h4>Directives/Middleware</h4>
+		<ul>
+				<li><a href="/v1/docs/dyndns">dyndns</a></li>
+				<li><a href="/v1/docs/http.authz">http.authz</a></li>
+				<li><a href="/v1/docs/http.awses">http.awses</a></li>
+				<li><a href="/v1/docs/http.awslambda">http.awslambda</a></li>
+				<li><a href="/v1/docs/http.cache">http.cache</a></li>
+				<li><a href="/v1/docs/http.cgi">http.cgi</a></li>
+				<li><a href="/v1/docs/http.cors">http.cors</a></li>
+				<li><a href="/v1/docs/http.datadog">http.datadog</a></li>
+				<li><a href="/v1/docs/http.expires">http.expires</a></li>
+				<li><a href="/v1/docs/http.filter">http.filter</a></li>
+				<li><a href="/v1/docs/http.forwardproxy">http.forwardproxy</a></li>
+				<li><a href="/v1/docs/http.geoip">http.geoip</a></li>
+				<li><a href="/v1/docs/http.git">http.git</a></li>
+				<li><a href="/v1/docs/http.gomods">http.gomods</a></li>
+				<li><a href="/v1/docs/http.gopkg">http.gopkg</a></li>
+				<li><a href="/v1/docs/http.grpc">http.grpc</a></li>
+				<li><a href="/v1/docs/http.ipfilter">http.ipfilter</a></li>
+				<li><a href="/v1/docs/http.jwt">http.jwt</a></li>
+				<li><a href="/v1/docs/http.locale">http.locale</a></li>
+				<li><a href="/v1/docs/http.login">http.login</a></li>
+				<li><a href="/v1/docs/http.mailout">http.mailout</a></li>
+				<li><a href="/v1/docs/http.minify">http.minify</a></li>
+				<li><a href="/v1/docs/http.nobots">http.nobots</a></li>
+				<li><a href="/v1/docs/http.permission">http.permission</a></li>
+				<li><a href="/v1/docs/http.prometheus">http.prometheus</a></li>
+				<li><a href="/v1/docs/http.proxyprotocol">http.proxyprotocol</a></li>
+				<li><a href="/v1/docs/http.pubsub">http.pubsub</a></li>
+				<li><a href="/v1/docs/http.ratelimit">http.ratelimit</a></li>
+				<li><a href="/v1/docs/http.realip">http.realip</a></li>
+				<li><a href="/v1/docs/http.reauth">http.reauth</a></li>
+				<li><a href="/v1/docs/http.recaptcha">http.recaptcha</a></li>
+				<li><a href="/v1/docs/http.restic">http.restic</a></li>
+				<li><a href="/v1/docs/http.s3browser">http.s3browser</a></li>
+				<li><a href="/v1/docs/http.supervisor">http.supervisor</a></li>
+				<li><a href="/v1/docs/http.torproxy">http.torproxy</a></li>
+				<li><a href="/v1/docs/http.webdav">http.webdav</a></li>
+				<li><a href="/v1/docs/http.webp">http.webp</a></li>
+		</ul>
+	
+		<h4>Event Hooks</h4>
+		<ul>
+				<li><a href="/v1/docs/hook.service">hook.service</a></li>
+		</ul>
+	
+		<h4>Server Types</h4>
+		<ul>
+				<li><a href="/v1/docs/dns">dns</a></li>
+				<li><a href="/v1/docs/net">net</a></li>
+				<li><a href="/v1/docs/supervisor">supervisor</a></li>
+		</ul>
+	
+		<h4>TLS Clustering</h4>
+		<ul>
+				<li><a href="/v1/docs/consul">consul</a></li>
+				<li><a href="/v1/docs/redis">redis</a></li>
+		</ul>
+	
+	</ul>
+</nav>
+
+			<article>
+				<h2>The HTTP Caddyfile</h2>
+
+				<p>
+					This page documents how the HTTP server uses the Caddyfile. If you haven't already, take the <a href="/v1/tutorial/caddyfile">Caddyfile tutorial</a> or read up on the <a href="/v1/docs/caddyfile">Caddyfile syntax</a> first.
+				</p>
+
+				<h4>Topics</h4>
+				<ol>
+					<li><a href="#addresses">Site Addresses</a></li>
+					<li><a href="#path-matching">Path Matching</a></li>
+					<li><a href="#directives">Directives</a></li>
+					<li><a href="#placeholders">Placeholders</a></li>
+				</ol>
+
+				<h3 id="addresses">Site Addresses</h3>
+				<p>
+					The HTTP server uses site addresses for <a href="/v1/docs/caddyfile#structure">labels</a>. Addresses are specified in the form <code><span class="cf-addr">scheme</span>://<span class="cf-addr">host</span>:<span class="cf-addr">port</span>/<span class="cf-addr">path</span></code>, where all but one are optional.
+				</p>
+				<p>
+					The host portion is usually localhost or the domain name. The default port is 2015 (unless the site qualifies for <a href="/v1/docs/automatic-https">automatic HTTPS</a>, in which case it's changed to 443 for you). The scheme portion is another way to specify a port. Valid schemes are &quot;http&quot; or &quot;https&quot; which represent, respectively, ports 80 and 443. If both a scheme and port are specified, the port takes precedence. For example (this table assumes automatic HTTPS is applied where it qualifies):</p>
+
+<p><code class="block"><span class="cf-addr">:2015</span>                    <span class="cf-comment"># Host: (any), Port: 2015</span>
+<span class="cf-addr">localhost</span>                <span class="cf-comment"># Host: localhost; Port: 2015</span>
+<span class="cf-addr">localhost:8080</span>           <span class="cf-comment"># Host: localhost; Port: 8080</span>
+<span class="cf-addr">example.com</span>              <span class="cf-comment"># Host: example.com; Ports: 80-&gt;443</span>
+<span class="cf-addr">http://example.com</span>       <span class="cf-comment"># Host: example.com; Port: 80</span>
+<span class="cf-addr">https://example.com</span>      <span class="cf-comment"># Host: example.com; Ports: 80-&gt;443</span>
+<span class="cf-addr">http://example.com:1234</span>  <span class="cf-comment"># Host: example.com; Port: 1234</span>
+<span class="cf-addr">https://example.com:80</span>   <span class="cf-comment"># Error! HTTPS on port 80</span>
+<span class="cf-addr">*</span>                        <span class="cf-comment"># Hosts: *; Port: 2015</span>
+<span class="cf-addr">*.example.com</span>            <span class="cf-comment"># Hosts: *.example.com; Port: 443</span>
+<span class="cf-addr">*.*.example.com</span>          <span class="cf-comment"># Hosts: *.*.example.com; Port: 2015</span>
+<span class="cf-addr">example.com/foo/</span>         <span class="cf-comment"># Host: example.com; Ports: 80, 443; Path: /foo/</span>
+<span class="cf-addr">/foo/</span>                    <span class="cf-comment"># Host: (any), Port: 2015, Path: /foo/</span>
+</code></p>
+				<p>
+					Site addresses must be unique; all configuration for a site must be grouped in the same definition.
+				</p>
+
+				<p>
+					Wildcard characters <code>*</code> can be used in a hostname. A wildcard must take the place of an entire domain label: <code>*.example.com</code> is valid but <code>foo*.example.com</code> is not. Hostnames may have more than one wildcard label, but they must be the left-most labels. (Note that to obtain a wildcard certificate, only one wildcard label is allowed; this special case allows automatic HTTPS to stay on.) A site defined as <code>*</code> matches only one-label names like "localhost" but not "example.com". To match all hosts, leave the hostname empty.
+				</p>
+
+
+				<h3 id="path-matching">Path Matching</h3>
+
+				<p>
+					Some directives accept an argument that specifies a <i>base path</i> to match. A base path is a prefix. If the URL starts with the base path, it will be a match. For example, a base path of <code>/foo</code> will match requests to <code>/foo</code>, <code>/foo.html</code>, <code>/foobar</code>, and <code>/foo/bar.html</code>. If you want to limit a base path to match a specific directory only, then suffix it with a forward slash like <code>/foo/</code>, which will <i>not</i> match <code>/foobar</code>.
+				</p>
+
+
+				<h3 id="directives">Directives</h3>
+				<p>
+					Most directives invoke a layer of middleware. Middleware is a small layer in the application that handles HTTP requests and does one thing really well. Middleware are chained together (pre-compiled, if you will) at startup. Only middleware handlers which are invoked from the Caddyfile will be chained in, so small Caddyfiles are very fast and efficient.
+				</p>
+				<p>
+					The syntax of arguments varies from directive to directive. Some have required arguments, others don't. Consult the documentation of each directive for their signatures.
+				</p>
+				<p>
+					For directives which are registered as plugins, the documentation pages will show the directive name prefixed with the server type, for example, "http.realip" or "dns.dnssec". When using them in the Caddyfile, drop the prefix ("http."). The prefix is just to assure unique naming, but is not used in the Caddyfile.
+				</p>
+
+				<h3 id="placeholders">Placeholders</h3>
+				<p>
+					In some cases, directives will accept <a href="/v1/docs/placeholders">placeholders</a> (replaceable values). These are words that are enclosed by curly braces <code>{ }</code> and interpreted by the HTTP server at request-time. For example, <code>{query}</code> or <code>{>Referer}</code>. Think of them like variables. These placeholders have no relationship to the environment variables you can use in Caddyfiles, except we borrowed the syntax for familiarity. 
+				</p>
+
+
+
+
+			</article>
+		</div>
+
+		<footer>
+	<div class="nav-container">
+		<div class="flex content">
+			<div class="col">
+				<img src="/v1/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
+				<br>
+				A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
+				<br>
+				as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
+				<br>
+				in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
+			</div>
+			<nav>
+				<h6>The Project</h6>
+				<a href="/v1/download">Download</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="/v1/docs">Docs</a>
+				<a href="/v1/brand">Brand Kit</a>
+			</nav>
+			<nav>
+				<h6>Account</h6>
+				<a href="/v1/account/login">Log In</a>
+				<a href="/v1/account/register">Sign Up</a>
+				<a href="/v1/legal/terms-of-service">Terms of Service</a>
+			</nav>
+			<nav>
+				<h6>Community</h6>
+				<a href="https://caddy.community/">Forum</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="https://twitter.com/caddyserver">Twitter</a>
+				<a href="/v1/blog/">Blog</a>
+			</nav>
+			<div class="col">
+				<h6>Hey, You.</h6>
+                Be notified of new releases!
+                <form id="footer-signup-form">
+                    <input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
+                    <button class="subscribe" type="submit">Subscribe</button>
+                </form>
+			</div>
+		</div>
+		<div class="copyright">
+			&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
+		</div>
+	</div>
+</footer>
+
+	</body>
+</head>

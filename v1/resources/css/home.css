@@ -1,0 +1,440 @@
+h1,
+header h2 {
+	color: #FFF;
+}
+
+header {
+	overflow: hidden;
+	background-image: url('/v1/resources/images/stream.png'), linear-gradient(0deg, #00e888 0%, #098fef 100%);
+	background-size: 100%;
+	background-blend-mode: multiply;
+	background-repeat: no-repeat;
+}
+
+.banner {
+	display: flex;
+}
+
+.banner > div {
+	position: relative;
+	width: 50%;
+}
+
+h1 {
+	margin: 3rem 0;
+	top: 0;
+}
+
+h1 span {
+	display: block;
+	line-height: 1em;
+}
+
+h1 .every,
+h1 .https {
+	font-family: 'Archivo Black';
+	font-size: 8rem;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+
+h1 .site-on {
+	font-family: 'Source Sans Pro';
+	font-weight: bold;
+	font-size: 8rem;
+	color: #FFFFFF;
+	text-transform: lowercase;
+}
+
+header h2 {
+	font-size: 2rem;
+	font-weight: normal;
+	max-width: 30rem;
+	margin: 2rem 0;
+	font-family: inherit;
+	text-align: left;
+}
+
+#biglock {
+	position: absolute;
+	z-index: 1;
+	top: 5rem;
+	right: 0;
+	height: 125%;
+}
+
+iframe.github-stars {
+	margin-left: 2rem;
+	vertical-align: middle;
+}
+
+header button,
+header .button {
+	line-height: 3rem;
+	padding: 0 25px;
+	font-size: 1.1rem;
+}
+
+h2 {
+	font-size: 5rem;
+	font-family: inherit;
+	font-weight: 300;
+	margin: 3rem auto;
+	text-align: center;
+	line-height: 1.1em;
+}
+
+h3 {
+	font-size: 25px;
+}
+
+p {
+	margin: 1rem 0;
+}
+
+.experts {
+	background: linear-gradient(#d5f3ff, white);
+}
+
+.experts h2 {
+	color: #013d69;
+}
+
+.experts .call-to-action {
+	padding-top: 5rem;
+}
+
+.experts .call-to-action .button {
+	font-size: 16px;
+	margin: .5rem;
+	padding: 1rem;
+}
+
+p.headline {
+	font-size: 32px;
+	max-width: 750px;
+	line-height: 1.5em;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.citations {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 4rem;
+}
+
+.citations h3 {
+	font-size: 24px;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.citation {
+	display: block;
+	color: #000;
+	width: 33.333%;
+	padding: 1rem;
+	margin: 0 auto;
+}
+
+.citation:hover {
+	background: rgba(28, 182, 241, 0.15);
+}
+
+.citation p {
+	font-size: 18px;
+	color: #000;
+	line-height: 1.5em;
+}
+
+.citation p.cite {
+	margin-top: -1rem;
+	font-size: 16px;
+	line-height: 1em;
+	font-style: italic;
+	text-align: right;
+}
+
+.citation img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	max-height: 250px;
+}
+
+.howto-section h2 {
+	margin-top: 0;
+}
+
+.howto {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.howto-step {
+	padding: 0 1rem;
+	flex-basis: 50%;
+	flex-grow: 1;
+	min-width: 400px;
+}
+
+.howto-step .cmd.bash {
+	padding: 1.5rem;
+	border-top: 25px solid #BBB;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.howto-step img {
+	max-width: 100%;
+	border-radius: 3px;
+}
+
+.howto-visual {
+	margin-bottom: 3rem;
+}
+
+.howto-step p {
+	max-width: 410px;
+}
+
+.quotes-container {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin-top: 4rem;
+}
+
+.quotes-container h2 {
+	text-shadow: 2px 2px 2px rgba(0,0,0,.4);
+}
+
+.quotes-background {
+	background: #6d36d8; /* #08a900 */
+	position: absolute;
+	width: 200%;
+	height: 250%;
+	left: -50%;
+	border-top-right-radius: 50%;
+	border-top-left-radius: 50%;
+}
+
+.quotes-content {
+	padding-top: 50px;
+	color: #fff;
+	width: 100%;
+	position: relative;
+}
+
+.quotes {
+	display: flex;
+	align-items: center;
+	margin-top: 5rem;
+}
+
+blockquote {
+	margin: 0 auto;
+	line-height: 1.5em;
+	max-width: 700px;
+	font-size: 24px;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+}
+
+blockquote:before,
+blockquote:after {
+	font-size: 10rem;
+	opacity: .2;
+	position: absolute;
+	z-index: -1;
+	filter: blur(2px);
+}
+
+blockquote:before {
+	content: '“';
+	left: -1.75rem;
+	top: 1.5rem;
+}
+
+blockquote:after {
+	content: '”';
+	right: 0rem;
+	bottom: 2rem;
+}
+
+blockquote:nth-child(2) {
+	margin-left: 10%;
+}
+
+blockquote cite {
+	display: block;
+	text-align: right;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 1.25em;
+	margin-top: .5rem;
+}
+
+blockquote cite:before {
+	content: '—';
+}
+
+blockquote cite a {
+	color: #fff;
+	text-decoration: underline;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+blockquote cite a:hover {
+	color: #fff;
+}
+
+.call-to-action {
+	padding-top: 0;
+	text-align: center;
+}
+
+.call-to-action .button {
+	font-size: 20px;
+	margin: 1rem;
+	padding: 1rem 3rem;
+}
+
+.call-to-action .button.pricing {
+	color: #08a900;
+}
+
+.call-to-action .button.opensource {
+	color: #333;
+}
+
+.footer-sponsors {
+	border-top: none;
+	background: #fff;
+	padding-bottom: 0;
+}
+
+@media (max-width: 1200px) {
+	h1 .every,
+	h1 .https {
+		font-size: 6rem;
+	}
+
+	h1 .site-on {
+		font-size: 5rem;
+	}
+}
+
+@media (max-width: 1000px) {
+	header {
+		background-size: 150% 100%;
+	}
+
+	.banner {
+		flex-direction: column;
+	}
+
+	.banner > div {
+		width: 100%;
+		text-align: center;
+	}
+
+	#biglock {
+		position: relative;
+		width: 60%;
+		height: auto;
+		margin-top: -8rem;
+		top: 10rem;
+	}
+
+	h1,
+	header h2 {
+		text-align: center;
+		max-width: none;
+	}
+
+	header h2 {
+		padding: 1rem 0;
+	}
+
+	.howto-step p {
+		max-width: none;
+	}
+}
+
+@media (max-width: 700px) {
+	.citation {
+		width: 100%;
+	}
+
+	.quotes {
+		flex-direction: column;
+	}
+
+	.quotes-background {
+		height: 100%;
+	}
+
+	blockquote {
+		text-align: left;
+		margin-bottom: 4rem;
+		font-size: 20px;
+	}
+
+	blockquote:nth-child(2) {
+		margin-left: 0;
+	}
+}
+
+@media (max-width: 600px) {
+	h1 .every,
+	h1 .site-on,
+	h1 .https {
+		font-size: 18vw;
+	}
+
+	header h2 {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
+
+	h2 {
+		font-size: 3rem;
+		font-weight: bold;
+	}
+
+	.banner a.button {
+		display: block;
+		max-width: 250px;
+		margin: 0 auto 1rem;
+	}
+
+	.howto-step {
+		overflow: hidden; /* Flexbox hack: http://stackoverflow.com/a/35609992/1048862 */
+		min-width: 0;
+		flex-basis: 100%;
+		padding: 0;
+	}
+
+	img.shadowed {
+		box-shadow: none;
+	}
+}
+
+@media (max-width: 500px) {
+	#biglock {
+		margin-top: -3rem;
+		top: 6rem;
+	}
+
+	iframe.github-stars {
+		margin-left: 0;
+	}
+}

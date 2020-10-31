@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<head>
+	<head>
+		<title>Caddy - The HTTP/2 Web Server with Automatic HTTPS</title>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
+<link rel="icon" href="/v1/resources/images/favicon.png">
+<link rel="stylesheet" href="/v1/resources/css/common.css">
+<link rel="stylesheet" href="/v1/resources/css/sweetalert2.min.css">
+<script src="/v1/resources/js/sweetalert2.min.js"></script>
+<script src="/v1/resources/js/jquery-3.3.1.min.js"></script>
+<script src="/v1/resources/js/common.js"></script>
+		<link rel="stylesheet" href="/v1/resources/css/home.css">
+	</head>
+	<body>
+		<header>
+			<div class="top-bar content">
+	<div class="left-links">
+		<a href="/"><img src="/v1/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
+	</div>
+	<nav class="right-links links">
+		<a href="/v1/download">Download</a>
+		<a href="/v1/docs">Docs</a>
+		<a href="/v1/stats">Stats</a>
+		<a href="https://caddy.community">Forum</a>
+		<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
+		<a href="/v1/account/login">Log In</a>
+	</nav>
+</div>
+<a href="/" id="v2-banner">
+	This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
+</a>
+
+			<div class="banner content">
+				<div>
+					<h1>
+						<span class="every">Every</span>
+						<span class="site-on">Site on</span>
+						<span class="https">HTTPS</span>
+					</h1>
+
+					<h2>
+						Caddy is the HTTP/2 web server
+						with automatic HTTPS.
+					</h2>
+
+					<a href="/v1/download" class="button">Download</a>
+					<iframe src="https://ghbtns.com/github-btn.html?user=caddyserver&repo=caddy&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px" class="github-stars"></iframe>
+				</div>
+				<div>
+					<img src="/v1/resources/images/lock.png" id="biglock">
+				</div>
+			</div>
+		</header>
+
+		<section class="experts">
+			<div class="content">
+				<h2>Recommended by Experts</h2>
+				<p class="headline">
+					Caddy is praised by researchers and industry experts for its <b>security defaults</b> and <b>unparalleled usability</b>.
+				</p>
+				<div class="citations">
+					<a href="https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/krombholz" class="citation">
+						<h3>USENIX 2017</h3>
+						<p>"TLS must be enabled by default ... and the Caddy web server is a good and usable example..."</p>
+						<img src="/v1/resources/images/usenix-2017-paper.png">
+					</a>
+					<a href="https://www.youtube.com/watch?v=OE5UhQGg_Fo" class="citation">
+						<h3>NY LUG 2016</h3>
+						<p>"Caddy is impressive. This is what we want, setting up a secure website."</p>
+						<p class="cite">&mdash;Josh Aas<br><small>Executive Director, ISRG</small></p>
+						<img src="/v1/resources/images/josh-aas-demos-caddy.png">
+					</a>
+					<a href="https://dl.acm.org/citation.cfm?id=2987480" class="citation">
+						<h3>ACM IMC 2016</h3>
+						<p>"No popular server software does [session ticket key rotation], with the exception of the most recent release of Caddy."</p>
+						<img src="/v1/resources/images/acm-imc-2016-paper.png">
+					</a>
+				</div>
+			</div>
+			<div class="call-to-action">
+				<a href="/v1/download" class="button">Download</a>
+				<a href="https://github.com/caddyserver/caddy" class="button opensource">GitHub</a>
+			</div>
+		</section>
+
+		<section class="content howto-section">
+			<h2>How to Use Caddy</h2>
+
+			<div class="howto">
+				<div class="howto-step">
+					<h3>1. Make a Caddyfile</h3>
+					<p>
+						The <a href="/v1/tutorial/caddyfile">Caddyfile</a> is a text file that configures Caddy. It's designed to be easy to type and hard to get wrong.
+					</p>
+					<p>
+						The first line of the Caddyfile is always the address(es) of the site to serve.
+					</p>
+					<p>
+						You can define as many sites as you want; Caddy supports virtual hosting and lots of other features!
+					</p>
+				</div>
+				<div class="howto-step howto-visual">
+					<code class="block"><span class="cf-addr">matt.life</span>   <span class="cf-comment"># Your site's address</span>
+
+<span class="cf-dir">ext</span> <span class="cf-arg">.html</span>   <span class="cf-comment"># Clean URLs</span>
+<span class="cf-dir">errors</span> <span class="cf-arg">error.log</span> {       <span class="cf-comment"># Error log</span>
+    <span class="cf-subdir">404</span> error-404.html   <span class="cf-comment"># Custom error page</span>
+}
+
+<span class="cf-comment"># PHP backend</span>
+<span class="cf-dir">fastcgi</span> <span class="cf-arg">/blog localhost:9000 php</span>
+
+<span class="cf-comment"># API load balancer</span>
+<span class="cf-dir">proxy</span> <span class="cf-arg">/api localhost:5001 localhost:5002</span>
+</code>
+				</div>
+				<div class="howto-step">
+					<h3>2. Run Caddy</h3>
+					<p>
+						All you have to do is run <code class="cmd">caddy</code> and voilà! Caddy automatically loads your Caddyfile if it's in the same folder. For production sites, <b>HTTPS is <a href="/v1/docs/automatic-https">on by default</a>!</b>
+					</p>
+				</div>
+				<div class="howto-step howto-visual">
+					<code class="block cmd bash">caddy
+Activating privacy features... done.
+http://matt.life
+https://matt.life
+<span class="blink">_</span></code>
+				</div>
+				<div class="howto-step">
+					<h3>3. Open your Browser</h3>
+					<p>
+						Type your site's address to see it in action. Live sites are redirected to HTTPS for you.
+					</p>
+					<p>
+						Caddy is great for building sites at home or work, and for serving sites in production. Try it out!
+					</p>
+					<p>
+						<a href="/v1/download" class="button blue-border">Download Caddy</a>
+					</p>
+				</div>
+				<div class="howto-step visual">
+					<img src="/v1/resources/images/open-your-browser.png" class="shadowed" alt="Caddy automatically sets up HTTPS for your site">
+				</div>
+			</div>
+		</section>
+
+		<div class="quotes-container">
+			<div class="quotes-background"></div>
+			<section class="content quotes-content">
+				<h2>The Most Beloved Server</h2>
+				<div class="quotes">
+					<blockquote>
+						Caddy and Let's Encrypt is pretty incredible. A 3-line config file yields a fully A-rated SSL site. Trivial!
+						<cite>
+							John Resig
+							<br>
+							Creator of jQuery
+							<br>
+							<a href="https://twitter.com/jeresig/status/821768122017398785" target="_blank">Link</a>
+						</cite>
+					</blockquote>
+					<blockquote>
+						With Caddy, site developers can enjoy a simplified setup and configuration process that maximizes implementation and infrastructure efficiency.
+						<cite>
+							Laura Bernheim
+							<br>
+							Contributing Editor, HostingAdvice
+							<br>
+							<a href="https://www.hostingadvice.com/blog/caddy-automatic-https-implementation-reinvents-web-servers/" target="_blank">Link</a>
+						</cite>
+					</blockquote>
+					<!--
+					TODO: Get the quotes in some sort of rotation
+					
+					<blockquote>
+						I both love and hate how my website has a better TLS setup than my bank because of Caddy.
+						<cite>
+							Kevin Froman
+							<br>
+							<a href="https://twitter.com/beardog108/status/909097827976056834" target="_blank">Link</a>
+						</cite>
+					</blockquote>
+					<blockquote>
+						Caddy is an amazing server project. Auto-HTTPS, GitHub integration, etc. ... Caddy is a perfect solution. ... Two thumbs up. I'm going to use it for all the things.
+						<cite>
+							Mike West
+							<br>
+							<a href="https://twitter.com/mikewest/status/817961519627509760" target="_blank">Link</a>
+						</cite>
+					</blockquote>
+					<blockquote>
+						This is a brilliant piece of software. ... Even on first install, the defaults are pretty sane. Truly, great work.
+						<cite>
+							Kenn White
+							<br>
+							<a href="https://twitter.com/kennwhite/status/674023537380724736" target="_blank">Link</a>
+						</cite>
+					</blockquote>
+
+					<blockquote>
+						If you don't use Caddy, you are working too hard. End of story.
+						<cite>
+							Brian Ketelsen
+							<br>
+							<a href="https://twitter.com/bketelsen/status/849406493531283461" target="_blank">Link</a>
+						</cite>
+					</blockquote>
+
+					<blockquote>
+						I both love and hate how my website has a better TLS setup than my bank because of Caddy.
+						<cite>
+							Kevin Froman
+							<br>
+							<a href="https://twitter.com/beardog108/status/909097827976056834" target="_blank">Link</a>
+						</cite>
+					</blockquote>
+					-->
+				</div>
+			</section>
+			<section class="content call-to-action">
+				<a href="/v1/download" class="button">Download Caddy</a>
+			</section>
+        </div>
+        
+        <footer>
+	<div class="nav-container">
+		<div class="flex content">
+			<div class="col">
+				<img src="/v1/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
+				<br>
+				A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
+				<br>
+				as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
+				<br>
+				in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
+			</div>
+			<nav>
+				<h6>The Project</h6>
+				<a href="/v1/download">Download</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="/v1/docs">Docs</a>
+				<a href="/v1/brand">Brand Kit</a>
+			</nav>
+			<nav>
+				<h6>Account</h6>
+				<a href="/v1/account/login">Log In</a>
+				<a href="/v1/account/register">Sign Up</a>
+				<a href="/v1/legal/terms-of-service">Terms of Service</a>
+			</nav>
+			<nav>
+				<h6>Community</h6>
+				<a href="https://caddy.community/">Forum</a>
+				<a href="https://github.com/caddyserver/caddy">GitHub</a>
+				<a href="https://twitter.com/caddyserver">Twitter</a>
+				<a href="/v1/blog/">Blog</a>
+			</nav>
+			<div class="col">
+				<h6>Hey, You.</h6>
+                Be notified of new releases!
+                <form id="footer-signup-form">
+                    <input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
+                    <button class="subscribe" type="submit">Subscribe</button>
+                </form>
+			</div>
+		</div>
+		<div class="copyright">
+			&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
+		</div>
+	</div>
+</footer>
+
+	</body>
+</html>
