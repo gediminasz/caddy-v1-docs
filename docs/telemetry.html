@@ -1,481 +1,484 @@
 <!DOCTYPE html>
+
 <head>
+
 	<head>
 		<title>Caddy Telemetry - Documentation</title>
 		<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
-<link rel="icon" href="/v1/resources/images/favicon.png">
-<link rel="stylesheet" href="/v1/resources/css/common.css">
-<link rel="stylesheet" href="/v1/resources/css/sweetalert2.min.css">
-<script src="/v1/resources/js/sweetalert2.min.js"></script>
-<script src="/v1/resources/js/jquery-3.3.1.min.js"></script>
-<script src="/v1/resources/js/common.js"></script>
-		<link rel="stylesheet" href="/v1/resources/css/docs.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
+		<link rel="icon" href="/caddy-v1-docs/resources/images/favicon.png">
+		<link rel="stylesheet" href="/caddy-v1-docs/resources/css/common.css">
+		<link rel="stylesheet" href="/caddy-v1-docs/resources/css/sweetalert2.min.css">
+		<script src="/caddy-v1-docs/resources/js/sweetalert2.min.js"></script>
+		<script src="/caddy-v1-docs/resources/js/jquery-3.3.1.min.js"></script>
+		<script src="/caddy-v1-docs/resources/js/common.js"></script>
+		<link rel="stylesheet" href="/caddy-v1-docs/resources/css/docs.css">
 	</head>
-	<body>
-		<header>
-	<div class="top-bar content">
-	<div class="left-links">
-		<a href="/"><img src="/v1/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
-	</div>
-	<nav class="right-links links">
-		<a href="/v1/download">Download</a>
-		<a href="/v1/docs">Docs</a>
-		<a href="/v1/stats">Stats</a>
-		<a href="https://caddy.community">Forum</a>
-		<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
-		<a href="/v1/account/login">Log In</a>
+
+<body>
+	<header>
+		<div class="top-bar content">
+			<div class="left-links">
+				<a href="/"><img src="/caddy-v1-docs/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
+			</div>
+			<nav class="right-links links">
+				<a href="/caddy-v1-docs/download">Download</a>
+				<a href="/caddy-v1-docs/docs">Docs</a>
+				<a href="/caddy-v1-docs/stats">Stats</a>
+				<a href="https://caddy.community">Forum</a>
+				<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
+				<a href="/caddy-v1-docs/account/login">Log In</a>
+			</nav>
+		</div>
+		<a href="/" id="v2-banner">
+			This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
+		</a>
+		<div class="content">
+			<h1>User Guide</h1>
+		</div>
+	</header>
+
+	<nav class="main">
+		<div class="content">
+			<a href="/caddy-v1-docs/docs" class="current">Documentation</a>
+			<a href="/caddy-v1-docs/tutorial">Tutorials</a>
+			<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
+		</div>
 	</nav>
-</div>
-<a href="/" id="v2-banner">
-	This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
-</a>
-	<div class="content">
-		<h1>User Guide</h1>
+
+
+	<div class="content-container">
+		<nav class="side">
+			<!-- TODO: Consider using Maven Pro or Muli as font... -->
+			<h3>Using Caddy</h3>
+			<ul>
+				<li><a href="/caddy-v1-docs/tutorial">Getting Started &rarr;</a></li>
+				<li><a href="/caddy-v1-docs/docs/cli">Command Line Interface</a></li>
+				<li><a href="/caddy-v1-docs/docs/caddyfile">Caddyfile Syntax</a></li>
+				<li><a href="/caddy-v1-docs/docs/telemetry">Telemetry</a></li>
+			</ul>
+
+			<h3>HTTP Server</h3>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/http-caddyfile">HTTP Caddyfile</a></li>
+				<li><a href="/caddy-v1-docs/docs/automatic-https">Automatic HTTPS</a></li>
+				<li><a href="/caddy-v1-docs/docs/mitm-detection">MITM Detection</a></li>
+				<li><a href="/caddy-v1-docs/docs/placeholders">Placeholders</a></li>
+				<li><a href="/caddy-v1-docs/docs/template-actions">Template Actions</a></li>
+			</ul>
+
+			<h4>Standard HTTP Directives</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/basicauth">basicauth</a></li>
+				<li><a href="/caddy-v1-docs/docs/bind">bind</a></li>
+				<li><a href="/caddy-v1-docs/docs/browse">browse</a></li>
+				<li><a href="/caddy-v1-docs/docs/errors">errors</a></li>
+				<li><a href="/caddy-v1-docs/docs/expvar">expvar</a></li>
+				<li><a href="/caddy-v1-docs/docs/ext">ext</a></li>
+				<li><a href="/caddy-v1-docs/docs/fastcgi">fastcgi</a></li>
+				<li><a href="/caddy-v1-docs/docs/gzip">gzip</a></li>
+				<li><a href="/caddy-v1-docs/docs/header">header</a></li>
+				<li><a href="/caddy-v1-docs/docs/import">import</a></li>
+				<li><a href="/caddy-v1-docs/docs/index">index</a></li>
+				<li><a href="/caddy-v1-docs/docs/internal">internal</a></li>
+				<li><a href="/caddy-v1-docs/docs/limits">limits</a></li>
+				<li><a href="/caddy-v1-docs/docs/log">log</a></li>
+				<li><a href="/caddy-v1-docs/docs/markdown">markdown</a></li>
+				<li><a href="/caddy-v1-docs/docs/mime">mime</a></li>
+				<li><a href="/caddy-v1-docs/docs/on">on</a></li>
+				<li><a href="/caddy-v1-docs/docs/pprof">pprof</a></li>
+				<li><a href="/caddy-v1-docs/docs/proxy">proxy</a></li>
+				<li><a href="/caddy-v1-docs/docs/push">push</a></li>
+				<li><a href="/caddy-v1-docs/docs/redir">redir</a></li>
+				<li><a href="/caddy-v1-docs/docs/request_id">request_id</a></li>
+				<li><a href="/caddy-v1-docs/docs/rewrite">rewrite</a></li>
+				<li><a href="/caddy-v1-docs/docs/root">root</a></li>
+				<li><a href="/caddy-v1-docs/docs/status">status</a></li>
+				<li><a href="/caddy-v1-docs/docs/templates">templates</a></li>
+				<li><a href="/caddy-v1-docs/docs/timeouts">timeouts</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls">tls</a></li>
+				<li><a href="/caddy-v1-docs/docs/websocket">websocket</a></li>
+			</ul>
+
+			<h3>Plugins</h3>
+			<ul>
+				<li><a href="https://github.com/caddyserver/caddy/wiki" class="external-link">Writing a Caddy Plugin</a></li>
+			</ul>
+
+
+			<h4>Caddyfile Loaders</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/docker">docker</a></li>
+			</ul>
+
+			<h4>DNS Providers</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.auroradns">tls.dns.auroradns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.azure">tls.dns.azure</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.cloudflare">tls.dns.cloudflare</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.cloudxns">tls.dns.cloudxns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.digitalocean">tls.dns.digitalocean</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dnsimple">tls.dns.dnsimple</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dnsmadeeasy">tls.dns.dnsmadeeasy</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dnspod">tls.dns.dnspod</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.duckdns">tls.dns.duckdns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dyn">tls.dns.dyn</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.exoscale">tls.dns.exoscale</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.gandi">tls.dns.gandi</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.gandiv5">tls.dns.gandiv5</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.godaddy">tls.dns.godaddy</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.googlecloud">tls.dns.googlecloud</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.lightsail">tls.dns.lightsail</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.linode">tls.dns.linode</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.namecheap">tls.dns.namecheap</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.namedotcom">tls.dns.namedotcom</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.namesilo">tls.dns.namesilo</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.ns1">tls.dns.ns1</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.otc">tls.dns.otc</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.ovh">tls.dns.ovh</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.powerdns">tls.dns.powerdns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.rackspace">tls.dns.rackspace</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.rfc2136">tls.dns.rfc2136</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.route53">tls.dns.route53</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.vultr">tls.dns.vultr</a></li>
+			</ul>
+
+			<h4>Directives/Middleware</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/dyndns">dyndns</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.authz">http.authz</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.awses">http.awses</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.awslambda">http.awslambda</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.cache">http.cache</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.cgi">http.cgi</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.cors">http.cors</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.datadog">http.datadog</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.expires">http.expires</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.filter">http.filter</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.forwardproxy">http.forwardproxy</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.geoip">http.geoip</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.git">http.git</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.gomods">http.gomods</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.gopkg">http.gopkg</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.grpc">http.grpc</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.ipfilter">http.ipfilter</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.jwt">http.jwt</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.locale">http.locale</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.login">http.login</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.mailout">http.mailout</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.minify">http.minify</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.nobots">http.nobots</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.permission">http.permission</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.prometheus">http.prometheus</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.proxyprotocol">http.proxyprotocol</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.pubsub">http.pubsub</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.ratelimit">http.ratelimit</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.realip">http.realip</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.reauth">http.reauth</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.recaptcha">http.recaptcha</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.restic">http.restic</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.s3browser">http.s3browser</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.supervisor">http.supervisor</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.torproxy">http.torproxy</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.webdav">http.webdav</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.webp">http.webp</a></li>
+			</ul>
+
+			<h4>Event Hooks</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/hook.service">hook.service</a></li>
+			</ul>
+
+			<h4>Server Types</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/dns">dns</a></li>
+				<li><a href="/caddy-v1-docs/docs/net">net</a></li>
+				<li><a href="/caddy-v1-docs/docs/supervisor">supervisor</a></li>
+			</ul>
+
+			<h4>TLS Clustering</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/consul">consul</a></li>
+				<li><a href="/caddy-v1-docs/docs/redis">redis</a></li>
+			</ul>
+
+			</ul>
+		</nav>
+
+		<article>
+			<h2>Telemetry</h2>
+
+			<p>
+				The primary aim of the Caddy Telemetry Project is to gain insights into the status and health of the Internet, globally and in near-real-time, from a server-side perspective, without being constrained to a specific network or proprietary source. A secondary goal is to provide server operators with information about their servers and their interactions with clients.
+			</p>
+
+			<h4>Topics</h4>
+			<ol>
+				<li><a href="#benefits">Benefits of Telemetry</a></li>
+				<li><a href="#implementation">The Implementation</a></li>
+				<li><a href="#metrics">The Metrics</a></li>
+				<li><a href="#disable">Disabling Telemetry</a></li>
+			</ol>
+
+			<h3 id="benefits">Benefits of Telemetry</h3>
+			<p>
+				<b>Site owners:</b> Telemetry data makes it possible for operators to have a white-box understanding of their web servers. Traditional monitoring tools usually require tedious analysis when anomalies occur because they have only an external perspective of the process. Caddy telemetry, on the other hand, operates from within the process and can give detailed insights when you need answers. And when everything is nominal, it's also just really interesting to see how and what your web server is doing. Telemetry is useful beyond access logging because it gives unique data points over time about the effects your clients have on your servers.
+			</p>
+			<p>
+				<b>Researchers:</b> While client-side scans of the Internet are not uncommon, for the first time you now have access to a global, <i>server-side</i> perspective from which to observe the behavior and health of the Internet. Caddy telemetry is uniquely positioned to offer anonymized aggregate data about <i>clients</i> on the Internet in conjunction together with an internal view of the web servers which answer them. Our long-term hope is that with your participation and feedback, we can build methods to detect emerging botnets, DDoS attacks, and other threats in real-time and work to automatically mitigate them.
+			</p>
+			<p>
+				<b>Industry experts:</b> Information provided by Caddy telemetry can certainly be useful when making decisions about new Web standards, building out or monitoring network infrastructure, and developing Internet software.
+			</p>
+
+
+			<h3 id="implementation">The Implementation</h3>
+			<p>
+				When telemetry is enabled, Caddy takes various tallies and records certain events in the background while it is running. It sends updates to a collector endpoint on a regular basis, flushing the local buffer of data.
+			</p>
+			<p>
+				Telemetry is implemented in a way that makes it unobtrusive and non-blocking to your process. Your Caddy instance should not suffer any noticable performance degredation. It has several safety measures built-in to ensure optimal performance, even at the expense of the data, including a limit to the number of data points that can be buffered. The collection endpoint may notice if certain metrics are too expensive and temporarily disable them on a per-instance basis to improve performance. The collection endpoint may also entirely terminate telemetry reporting from any instance. In addition, collection updates are tightly rate-limited, ensuring that telemetry never interferes with network throughput.
+			</p>
+			<p>
+				Each Caddy instance generates its own unique, random ID called a UUID. It is stored in a file called <code>$CADDYPATH/uuid</code> (the default CADDYPATH is <code>$HOME/.caddy</code>). This UUID is NOT generated in connection with the collection endpoint in any way, and does NOT associate with any individual person. We recommend that each Caddy instance you run have its own CADDYPATH so that your reports are more discernable when you go to look up your instance.
+			</p>
+			<p>
+				As you would expect, all transmissions are encrypted with HTTPS.
+			</p>
+
+			<h3 id="metrics">The Metrics</h3>
+
+			<p>
+				This table lists the metrics that are collected by Caddy core and the standard plugins in alphabetical order; but keep in mind that third-party plugins might add their own which are not documented here; check their documentation instead.
+			</p>
+
+			<table>
+				<tr>
+					<th>Key</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td>arch</td>
+					<td>The microarchitecture compiled for</td>
+				</tr>
+				<tr>
+					<td>caddy_version</td>
+					<td>Caddy version</td>
+				</tr>
+				<tr>
+					<td>container</td>
+					<td>Whether the process is running in a container</td>
+				</tr>
+				<tr>
+					<td>cpu.aes_ni</td>
+					<td>Whether AES-NI is available</td>
+				</tr>
+				<tr>
+					<td>cpu.brand_name</td>
+					<td>The brand name of the CPU</td>
+				</tr>
+				<tr>
+					<td>cpu.num_logical</td>
+					<td>Number of logical cores</td>
+				</tr>
+				<tr>
+					<td>directives</td>
+					<td>The list of directives used (directive name only)</td>
+				</tr>
+				<tr>
+					<td>disabled_metrics</td>
+					<td>The list of individual metrics that have been disabled</td>
+				</tr>
+				<tr>
+					<td>goroutines</td>
+					<td>Number of goroutines currently running</td>
+				</tr>
+				<tr>
+					<td>http_deployment_guess</td>
+					<td>A rough guess as to whether it looks like a dev or production instance</td>
+				</tr>
+				<tr>
+					<td>http_mitm</td>
+					<td>Count of whether <a href="/caddy-v1-docs/docs/mitm-detection">MITM was detected</a></td>
+				</tr>
+				<tr>
+					<td>http_num_sites</td>
+					<td>Number of sites defined in your HTTP Caddyfile (&sum; blocks * number of keys per block)</td>
+				</tr>
+				<tr>
+					<td>http_request_count</td>
+					<td>Number of HTTP(S) requests handled</td>
+				</tr>
+				<tr>
+					<td>http_user_agent</td>
+					<td>User-Agent request header values</td>
+				</tr>
+				<tr>
+					<td>http_user_agent_count</td>
+					<td>Number of requests with the associated User-Agent string</td>
+				</tr>
+				<tr>
+					<td>memory.heap_alloc</td>
+					<td>Bytes of allocated heap objects (reachable, or unreachable but not yet freed)</td>
+				</tr>
+				<tr>
+					<td>memory.sys</td>
+					<td>Bytes of memory obtained from the OS</td>
+				</tr>
+				<tr>
+					<td>instance_id</td>
+					<td>The instance UUID</td>
+				</tr>
+				<tr>
+					<td>num_listeners</td>
+					<td>Number of listeners opened</td>
+				</tr>
+				<tr>
+					<td>num_server_blocks</td>
+					<td>The number of server blocks defined in your Caddyfile</td>
+				</tr>
+				<tr>
+					<td>os</td>
+					<td>The OS compiled for</td>
+				</tr>
+				<tr>
+					<td>server_type</td>
+					<td>The server type plugin being run (HTTP, DNS, etc.)</td>
+				</tr>
+				<tr>
+					<td>sigtrap</td>
+					<td>Name and count of signal (or interrupt) trapped</td>
+				</tr>
+				<tr>
+					<td>timestamp</td>
+					<td>The timestamp of the telemetry update</td>
+				</tr>
+				<tr>
+					<td>tls_acme_certs_obtained</td>
+					<td>Number of certificates automatically obtained with ACME</td>
+				</tr>
+				<tr>
+					<td>tls_acme_certs_renewed</td>
+					<td>Number of certificates automatically renewed with ACME</td>
+				</tr>
+				<tr>
+					<td>tls_acme_certs_revoked</td>
+					<td>Number of certificates revoked using ACME</td>
+				</tr>
+				<tr>
+					<td>tls_client_hello.cipher_suites</td>
+					<td>Cipher suites advertised in the TLS ClientHello</td>
+				</tr>
+				<tr>
+					<td>tls_client_hello.compression</td>
+					<td>Compression methods advertised in the TLS ClientHello</td>
+				</tr>
+				<tr>
+					<td>tls_client_hello.curves</td>
+					<td>Curves advertised in the TLS ClientHello</td>
+				</tr>
+				<tr>
+					<td>tls_client_hello.extensions</td>
+					<td>Extensions advertised in the TLS ClientHello</td>
+				</tr>
+				<tr>
+					<td>tls_client_hello.points</td>
+					<td>Points advertised in the TLS ClientHello</td>
+				</tr>
+				<tr>
+					<td>tls_client_hello.version</td>
+					<td>Supported version advertised in the TLS ClientHello</td>
+				</tr>
+				<tr>
+					<td>tls_client_hello_ua</td>
+					<td>Counts of HTTPS requests with the given User-Agent strings that connected with the associated TLS ClientHello</td>
+				</tr>
+				<tr>
+					<td>tls_handshake_count</td>
+					<td>Number of TLS handshakes completed</td>
+				</tr>
+				<tr>
+					<td>tls_managed_cert_count</td>
+					<td>How many certificates are being managed</td>
+				</tr>
+				<tr>
+					<td>tls_manual_cert_count</td>
+					<td>How many certificates are manually provided</td>
+				</tr>
+				<tr>
+					<td>tls_on_demand_count</td>
+					<td>Number of sites configured for <a href="/caddy-v1-docs/docs/automatic-https#on-demand">On-Demand TLS</a></td>
+				</tr>
+				<tr>
+					<td>tls_self_signed_count</td>
+					<td>Number of sites configured to use integrated self-signed certificates</td>
+				</tr>
+			</table>
+
+			<h3 id="disable">Disabling Telemetry</h3>
+			<p>
+				Telemetry is enabled by default in the source code and disabled by default on our download page. In order to better know how representative the aggregate data is, telemetry may be toggled at compile-time or customized at run-time.
+			</p>
+			<p>
+				<b>Note that telemetry does NOT target personal information.</b> Telemetry is programmed to report only technical data about machines, connections, and Caddy instances; NOT end users, session IDs, cookies, etc. If you are considering turning off telemetry because of applicable laws, make sure the laws actually apply to you.
+			</p>
+			<p>
+				The recommended way to disable telemetry is to turn off only the metrics that you do not want to report. You can do this with the <a href="/caddy-v1-docs/docs/cli#disabled-metrics"><code>-disabled-metrics</code> CLI flag</a>. (The disabled_metrics, timestamp, and instance_id metrics cannot be disabled individually.) This will prevent Caddy from collecting the specified information throughout the lifetime of the process, and is useful if, for example, you discover that a particular metric is causing your telemetry buffer to fill up too quickly under heavy load (there is a limit to how many items can be buffered for emission).
+			</p>
+			<p>
+				However, if you wish to disable telemetry entirely, it can be done at compile-time. When you download Caddy from the website, you can choose to have telemetry disabled. If building from source, you can set <code>enableTelemetry</code> to false to turn it off. Note that if you disable telemetry you will not have the ability to look up your instance and view its metrics. It also does not contribute to the research efforts that are otherwise made possible, and it makes it difficult to diagnose problems and improve Caddy. We recommend leaving telemetry on to gain <a href="#benefits">its benefits</a> and to improve the Web overall.
+			</p>
+
+		</article>
 	</div>
-</header>
 
-<nav class="main">
-	<div class="content">
-		<a href="/v1/docs" class="current">Documentation</a>
-		<a href="/v1/tutorial">Tutorials</a>
-		<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
-	</div>
-</nav>
-
-
-		<div class="content-container">
-			<nav class="side">
-	<!-- TODO: Consider using Maven Pro or Muli as font... -->
-	<h3>Using Caddy</h3>
-	<ul>
-		<li><a href="/v1/tutorial">Getting Started &rarr;</a></li>
-		<li><a href="/v1/docs/cli">Command Line Interface</a></li>
-		<li><a href="/v1/docs/caddyfile">Caddyfile Syntax</a></li>
-		<li><a href="/v1/docs/telemetry">Telemetry</a></li>
-	</ul>
-
-	<h3>HTTP Server</h3>
-	<ul>
-		<li><a href="/v1/docs/http-caddyfile">HTTP Caddyfile</a></li>
-		<li><a href="/v1/docs/automatic-https">Automatic HTTPS</a></li>
-		<li><a href="/v1/docs/mitm-detection">MITM Detection</a></li>
-		<li><a href="/v1/docs/placeholders">Placeholders</a></li>
-		<li><a href="/v1/docs/template-actions">Template Actions</a></li>
-	</ul>
-
-	<h4>Standard HTTP Directives</h4>
-	<ul>
-		<li><a href="/v1/docs/basicauth">basicauth</a></li>
-		<li><a href="/v1/docs/bind">bind</a></li>
-		<li><a href="/v1/docs/browse">browse</a></li>
-		<li><a href="/v1/docs/errors">errors</a></li>
-		<li><a href="/v1/docs/expvar">expvar</a></li>
-		<li><a href="/v1/docs/ext">ext</a></li>
-		<li><a href="/v1/docs/fastcgi">fastcgi</a></li>
-		<li><a href="/v1/docs/gzip">gzip</a></li>
-		<li><a href="/v1/docs/header">header</a></li>
-		<li><a href="/v1/docs/import">import</a></li>
-		<li><a href="/v1/docs/index">index</a></li>
-		<li><a href="/v1/docs/internal">internal</a></li>
-		<li><a href="/v1/docs/limits">limits</a></li>
-		<li><a href="/v1/docs/log">log</a></li>
-		<li><a href="/v1/docs/markdown">markdown</a></li>
-		<li><a href="/v1/docs/mime">mime</a></li>
-		<li><a href="/v1/docs/on">on</a></li>
-		<li><a href="/v1/docs/pprof">pprof</a></li>
-		<li><a href="/v1/docs/proxy">proxy</a></li>
-		<li><a href="/v1/docs/push">push</a></li>
-		<li><a href="/v1/docs/redir">redir</a></li>
-		<li><a href="/v1/docs/request_id">request_id</a></li>
-		<li><a href="/v1/docs/rewrite">rewrite</a></li>
-		<li><a href="/v1/docs/root">root</a></li>
-		<li><a href="/v1/docs/status">status</a></li>
-		<li><a href="/v1/docs/templates">templates</a></li>
-		<li><a href="/v1/docs/timeouts">timeouts</a></li>
-		<li><a href="/v1/docs/tls">tls</a></li>
-		<li><a href="/v1/docs/websocket">websocket</a></li>
-	</ul>
-
-	<h3>Plugins</h3>
-	<ul>
-		<li><a href="https://github.com/caddyserver/caddy/wiki" class="external-link">Writing a Caddy Plugin</a></li>
-	</ul>
-
-	
-		<h4>Caddyfile Loaders</h4>
-		<ul>
-				<li><a href="/v1/docs/docker">docker</a></li>
-		</ul>
-	
-		<h4>DNS Providers</h4>
-		<ul>
-				<li><a href="/v1/docs/tls.dns.auroradns">tls.dns.auroradns</a></li>
-				<li><a href="/v1/docs/tls.dns.azure">tls.dns.azure</a></li>
-				<li><a href="/v1/docs/tls.dns.cloudflare">tls.dns.cloudflare</a></li>
-				<li><a href="/v1/docs/tls.dns.cloudxns">tls.dns.cloudxns</a></li>
-				<li><a href="/v1/docs/tls.dns.digitalocean">tls.dns.digitalocean</a></li>
-				<li><a href="/v1/docs/tls.dns.dnsimple">tls.dns.dnsimple</a></li>
-				<li><a href="/v1/docs/tls.dns.dnsmadeeasy">tls.dns.dnsmadeeasy</a></li>
-				<li><a href="/v1/docs/tls.dns.dnspod">tls.dns.dnspod</a></li>
-				<li><a href="/v1/docs/tls.dns.duckdns">tls.dns.duckdns</a></li>
-				<li><a href="/v1/docs/tls.dns.dyn">tls.dns.dyn</a></li>
-				<li><a href="/v1/docs/tls.dns.exoscale">tls.dns.exoscale</a></li>
-				<li><a href="/v1/docs/tls.dns.gandi">tls.dns.gandi</a></li>
-				<li><a href="/v1/docs/tls.dns.gandiv5">tls.dns.gandiv5</a></li>
-				<li><a href="/v1/docs/tls.dns.godaddy">tls.dns.godaddy</a></li>
-				<li><a href="/v1/docs/tls.dns.googlecloud">tls.dns.googlecloud</a></li>
-				<li><a href="/v1/docs/tls.dns.lightsail">tls.dns.lightsail</a></li>
-				<li><a href="/v1/docs/tls.dns.linode">tls.dns.linode</a></li>
-				<li><a href="/v1/docs/tls.dns.namecheap">tls.dns.namecheap</a></li>
-				<li><a href="/v1/docs/tls.dns.namedotcom">tls.dns.namedotcom</a></li>
-				<li><a href="/v1/docs/tls.dns.namesilo">tls.dns.namesilo</a></li>
-				<li><a href="/v1/docs/tls.dns.ns1">tls.dns.ns1</a></li>
-				<li><a href="/v1/docs/tls.dns.otc">tls.dns.otc</a></li>
-				<li><a href="/v1/docs/tls.dns.ovh">tls.dns.ovh</a></li>
-				<li><a href="/v1/docs/tls.dns.powerdns">tls.dns.powerdns</a></li>
-				<li><a href="/v1/docs/tls.dns.rackspace">tls.dns.rackspace</a></li>
-				<li><a href="/v1/docs/tls.dns.rfc2136">tls.dns.rfc2136</a></li>
-				<li><a href="/v1/docs/tls.dns.route53">tls.dns.route53</a></li>
-				<li><a href="/v1/docs/tls.dns.vultr">tls.dns.vultr</a></li>
-		</ul>
-	
-		<h4>Directives/Middleware</h4>
-		<ul>
-				<li><a href="/v1/docs/dyndns">dyndns</a></li>
-				<li><a href="/v1/docs/http.authz">http.authz</a></li>
-				<li><a href="/v1/docs/http.awses">http.awses</a></li>
-				<li><a href="/v1/docs/http.awslambda">http.awslambda</a></li>
-				<li><a href="/v1/docs/http.cache">http.cache</a></li>
-				<li><a href="/v1/docs/http.cgi">http.cgi</a></li>
-				<li><a href="/v1/docs/http.cors">http.cors</a></li>
-				<li><a href="/v1/docs/http.datadog">http.datadog</a></li>
-				<li><a href="/v1/docs/http.expires">http.expires</a></li>
-				<li><a href="/v1/docs/http.filter">http.filter</a></li>
-				<li><a href="/v1/docs/http.forwardproxy">http.forwardproxy</a></li>
-				<li><a href="/v1/docs/http.geoip">http.geoip</a></li>
-				<li><a href="/v1/docs/http.git">http.git</a></li>
-				<li><a href="/v1/docs/http.gomods">http.gomods</a></li>
-				<li><a href="/v1/docs/http.gopkg">http.gopkg</a></li>
-				<li><a href="/v1/docs/http.grpc">http.grpc</a></li>
-				<li><a href="/v1/docs/http.ipfilter">http.ipfilter</a></li>
-				<li><a href="/v1/docs/http.jwt">http.jwt</a></li>
-				<li><a href="/v1/docs/http.locale">http.locale</a></li>
-				<li><a href="/v1/docs/http.login">http.login</a></li>
-				<li><a href="/v1/docs/http.mailout">http.mailout</a></li>
-				<li><a href="/v1/docs/http.minify">http.minify</a></li>
-				<li><a href="/v1/docs/http.nobots">http.nobots</a></li>
-				<li><a href="/v1/docs/http.permission">http.permission</a></li>
-				<li><a href="/v1/docs/http.prometheus">http.prometheus</a></li>
-				<li><a href="/v1/docs/http.proxyprotocol">http.proxyprotocol</a></li>
-				<li><a href="/v1/docs/http.pubsub">http.pubsub</a></li>
-				<li><a href="/v1/docs/http.ratelimit">http.ratelimit</a></li>
-				<li><a href="/v1/docs/http.realip">http.realip</a></li>
-				<li><a href="/v1/docs/http.reauth">http.reauth</a></li>
-				<li><a href="/v1/docs/http.recaptcha">http.recaptcha</a></li>
-				<li><a href="/v1/docs/http.restic">http.restic</a></li>
-				<li><a href="/v1/docs/http.s3browser">http.s3browser</a></li>
-				<li><a href="/v1/docs/http.supervisor">http.supervisor</a></li>
-				<li><a href="/v1/docs/http.torproxy">http.torproxy</a></li>
-				<li><a href="/v1/docs/http.webdav">http.webdav</a></li>
-				<li><a href="/v1/docs/http.webp">http.webp</a></li>
-		</ul>
-	
-		<h4>Event Hooks</h4>
-		<ul>
-				<li><a href="/v1/docs/hook.service">hook.service</a></li>
-		</ul>
-	
-		<h4>Server Types</h4>
-		<ul>
-				<li><a href="/v1/docs/dns">dns</a></li>
-				<li><a href="/v1/docs/net">net</a></li>
-				<li><a href="/v1/docs/supervisor">supervisor</a></li>
-		</ul>
-	
-		<h4>TLS Clustering</h4>
-		<ul>
-				<li><a href="/v1/docs/consul">consul</a></li>
-				<li><a href="/v1/docs/redis">redis</a></li>
-		</ul>
-	
-	</ul>
-</nav>
-
-			<article>
-				<h2>Telemetry</h2>
-
-				<p>
-					The primary aim of the Caddy Telemetry Project is to gain insights into the status and health of the Internet, globally and in near-real-time, from a server-side perspective, without being constrained to a specific network or proprietary source. A secondary goal is to provide server operators with information about their servers and their interactions with clients.
-				</p>
-
-				<h4>Topics</h4>
-				<ol>
-					<li><a href="#benefits">Benefits of Telemetry</a></li>
-					<li><a href="#implementation">The Implementation</a></li>
-					<li><a href="#metrics">The Metrics</a></li>
-					<li><a href="#disable">Disabling Telemetry</a></li>
-				</ol>
-
-				<h3 id="benefits">Benefits of Telemetry</h3>
-				<p>
-					<b>Site owners:</b> Telemetry data makes it possible for operators to have a white-box understanding of their web servers. Traditional monitoring tools usually require tedious analysis when anomalies occur because they have only an external perspective of the process. Caddy telemetry, on the other hand, operates from within the process and can give detailed insights when you need answers. And when everything is nominal, it's also just really interesting to see how and what your web server is doing. Telemetry is useful beyond access logging because it gives unique data points over time about the effects your clients have on your servers.
-				</p>
-				<p>
-					<b>Researchers:</b> While client-side scans of the Internet are not uncommon, for the first time you now have access to a global, <i>server-side</i> perspective from which to observe the behavior and health of the Internet. Caddy telemetry is uniquely positioned to offer anonymized aggregate data about <i>clients</i> on the Internet in conjunction together with an internal view of the web servers which answer them. Our long-term hope is that with your participation and feedback, we can build methods to detect emerging botnets, DDoS attacks, and other threats in real-time and work to automatically mitigate them.
-				</p>
-				<p>
-					<b>Industry experts:</b> Information provided by Caddy telemetry can certainly be useful when making decisions about new Web standards, building out or monitoring network infrastructure, and developing Internet software.
-				</p>
-
-
-				<h3 id="implementation">The Implementation</h3>
-				<p>
-					When telemetry is enabled, Caddy takes various tallies and records certain events in the background while it is running. It sends updates to a collector endpoint on a regular basis, flushing the local buffer of data.
-				</p>
-				<p>
-					Telemetry is implemented in a way that makes it unobtrusive and non-blocking to your process. Your Caddy instance should not suffer any noticable performance degredation. It has several safety measures built-in to ensure optimal performance, even at the expense of the data, including a limit to the number of data points that can be buffered. The collection endpoint may notice if certain metrics are too expensive and temporarily disable them on a per-instance basis to improve performance. The collection endpoint may also entirely terminate telemetry reporting from any instance. In addition, collection updates are tightly rate-limited, ensuring that telemetry never interferes with network throughput.
-				</p>
-				<p>
-					Each Caddy instance generates its own unique, random ID called a UUID. It is stored in a file called <code>$CADDYPATH/uuid</code> (the default CADDYPATH is <code>$HOME/.caddy</code>). This UUID is NOT generated in connection with the collection endpoint in any way, and does NOT associate with any individual person. We recommend that each Caddy instance you run have its own CADDYPATH so that your reports are more discernable when you go to look up your instance.
-				</p>
-				<p>
-					As you would expect, all transmissions are encrypted with HTTPS.
-				</p>
-
-				<h3 id="metrics">The Metrics</h3>
-
-				<p>
-					This table lists the metrics that are collected by Caddy core and the standard plugins in alphabetical order; but keep in mind that third-party plugins might add their own which are not documented here; check their documentation instead.
-				</p>
-
-				<table>
-					<tr>
-						<th>Key</th>
-						<th>Description</th>
-					</tr>
-					<tr>
-						<td>arch</td>
-						<td>The microarchitecture compiled for</td>
-					</tr>
-					<tr>
-						<td>caddy_version</td>
-						<td>Caddy version</td>
-					</tr>
-					<tr>
-						<td>container</td>
-						<td>Whether the process is running in a container</td>
-					</tr>
-					<tr>
-						<td>cpu.aes_ni</td>
-						<td>Whether AES-NI is available</td>
-					</tr>
-					<tr>
-						<td>cpu.brand_name</td>
-						<td>The brand name of the CPU</td>
-					</tr>
-					<tr>
-						<td>cpu.num_logical</td>
-						<td>Number of logical cores</td>
-					</tr>
-					<tr>
-						<td>directives</td>
-						<td>The list of directives used (directive name only)</td>
-					</tr>
-					<tr>
-						<td>disabled_metrics</td>
-						<td>The list of individual metrics that have been disabled</td>
-					</tr>
-					<tr>
-						<td>goroutines</td>
-						<td>Number of goroutines currently running</td>
-					</tr>
-					<tr>
-						<td>http_deployment_guess</td>
-						<td>A rough guess as to whether it looks like a dev or production instance</td>
-					</tr>
-					<tr>
-						<td>http_mitm</td>
-						<td>Count of whether <a href="/v1/docs/mitm-detection">MITM was detected</a></td>
-					</tr>
-					<tr>
-						<td>http_num_sites</td>
-						<td>Number of sites defined in your HTTP Caddyfile (&sum; blocks * number of keys per block)</td>
-					</tr>
-					<tr>
-						<td>http_request_count</td>
-						<td>Number of HTTP(S) requests handled</td>
-					</tr>
-					<tr>
-						<td>http_user_agent</td>
-						<td>User-Agent request header values</td>
-					</tr>
-					<tr>
-						<td>http_user_agent_count</td>
-						<td>Number of requests with the associated User-Agent string</td>
-					</tr>
-					<tr>
-						<td>memory.heap_alloc</td>
-						<td>Bytes of allocated heap objects (reachable, or unreachable but not yet freed)</td>
-					</tr>
-					<tr>
-						<td>memory.sys</td>
-						<td>Bytes of memory obtained from the OS</td>
-					</tr>
-					<tr>
-						<td>instance_id</td>
-						<td>The instance UUID</td>
-					</tr>
-					<tr>
-						<td>num_listeners</td>
-						<td>Number of listeners opened</td>
-					</tr>
-					<tr>
-						<td>num_server_blocks</td>
-						<td>The number of server blocks defined in your Caddyfile</td>
-					</tr>
-					<tr>
-						<td>os</td>
-						<td>The OS compiled for</td>
-					</tr>
-					<tr>
-						<td>server_type</td>
-						<td>The server type plugin being run (HTTP, DNS, etc.)</td>
-					</tr>
-					<tr>
-						<td>sigtrap</td>
-						<td>Name and count of signal (or interrupt) trapped</td>
-					</tr>
-					<tr>
-						<td>timestamp</td>
-						<td>The timestamp of the telemetry update</td>
-					</tr>
-					<tr>
-						<td>tls_acme_certs_obtained</td>
-						<td>Number of certificates automatically obtained with ACME</td>
-					</tr>
-					<tr>
-						<td>tls_acme_certs_renewed</td>
-						<td>Number of certificates automatically renewed with ACME</td>
-					</tr>
-					<tr>
-						<td>tls_acme_certs_revoked</td>
-						<td>Number of certificates revoked using ACME</td>
-					</tr>
-					<tr>
-						<td>tls_client_hello.cipher_suites</td>
-						<td>Cipher suites advertised in the TLS ClientHello</td>
-					</tr>
-					<tr>
-						<td>tls_client_hello.compression</td>
-						<td>Compression methods advertised in the TLS ClientHello</td>
-					</tr>
-					<tr>
-						<td>tls_client_hello.curves</td>
-						<td>Curves advertised in the TLS ClientHello</td>
-					</tr>
-					<tr>
-						<td>tls_client_hello.extensions</td>
-						<td>Extensions advertised in the TLS ClientHello</td>
-					</tr>
-					<tr>
-						<td>tls_client_hello.points</td>
-						<td>Points advertised in the TLS ClientHello</td>
-					</tr>
-					<tr>
-						<td>tls_client_hello.version</td>
-						<td>Supported version advertised in the TLS ClientHello</td>
-					</tr>
-					<tr>
-						<td>tls_client_hello_ua</td>
-						<td>Counts of HTTPS requests with the given User-Agent strings that connected with the associated TLS ClientHello</td>
-					</tr>
-					<tr>
-						<td>tls_handshake_count</td>
-						<td>Number of TLS handshakes completed</td>
-					</tr>
-					<tr>
-						<td>tls_managed_cert_count</td>
-						<td>How many certificates are being managed</td>
-					</tr>
-					<tr>
-						<td>tls_manual_cert_count</td>
-						<td>How many certificates are manually provided</td>
-					</tr>
-					<tr>
-						<td>tls_on_demand_count</td>
-						<td>Number of sites configured for <a href="/v1/docs/automatic-https#on-demand">On-Demand TLS</a></td>
-					</tr>
-					<tr>
-						<td>tls_self_signed_count</td>
-						<td>Number of sites configured to use integrated self-signed certificates</td>
-					</tr>
-				</table>
-
-				<h3 id="disable">Disabling Telemetry</h3>
-				<p>
-					Telemetry is enabled by default in the source code and disabled by default on our download page. In order to better know how representative the aggregate data is, telemetry may be toggled at compile-time or customized at run-time.
-				</p>
-				<p>
-					<b>Note that telemetry does NOT target personal information.</b> Telemetry is programmed to report only technical data about machines, connections, and Caddy instances; NOT end users, session IDs, cookies, etc. If you are considering turning off telemetry because of applicable laws, make sure the laws actually apply to you.
-				</p>
-				<p>
-					The recommended way to disable telemetry is to turn off only the metrics that you do not want to report. You can do this with the <a href="/v1/docs/cli#disabled-metrics"><code>-disabled-metrics</code> CLI flag</a>. (The disabled_metrics, timestamp, and instance_id metrics cannot be disabled individually.) This will prevent Caddy from collecting the specified information throughout the lifetime of the process, and is useful if, for example, you discover that a particular metric is causing your telemetry buffer to fill up too quickly under heavy load (there is a limit to how many items can be buffered for emission).
-				</p>
-				<p>
-					However, if you wish to disable telemetry entirely, it can be done at compile-time. When you download Caddy from the website, you can choose to have telemetry disabled. If building from source, you can set <code>enableTelemetry</code> to false to turn it off. Note that if you disable telemetry you will not have the ability to look up your instance and view its metrics. It also does not contribute to the research efforts that are otherwise made possible, and it makes it difficult to diagnose problems and improve Caddy. We recommend leaving telemetry on to gain <a href="#benefits">its benefits</a> and to improve the Web overall.
-				</p>
-
-			</article>
-		</div>
-
-		<footer>
-	<div class="nav-container">
-		<div class="flex content">
-			<div class="col">
-				<img src="/v1/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
-				<br>
-				A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
-				<br>
-				as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
-				<br>
-				in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
+	<footer>
+		<div class="nav-container">
+			<div class="flex content">
+				<div class="col">
+					<img src="/caddy-v1-docs/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
+					<br>
+					A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
+					<br>
+					as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
+					<br>
+					in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
+				</div>
+				<nav>
+					<h6>The Project</h6>
+					<a href="/caddy-v1-docs/download">Download</a>
+					<a href="https://github.com/caddyserver/caddy">GitHub</a>
+					<a href="/caddy-v1-docs/docs">Docs</a>
+					<a href="/caddy-v1-docs/brand">Brand Kit</a>
+				</nav>
+				<nav>
+					<h6>Account</h6>
+					<a href="/caddy-v1-docs/account/login">Log In</a>
+					<a href="/caddy-v1-docs/account/register">Sign Up</a>
+					<a href="/caddy-v1-docs/legal/terms-of-service">Terms of Service</a>
+				</nav>
+				<nav>
+					<h6>Community</h6>
+					<a href="https://caddy.community/">Forum</a>
+					<a href="https://github.com/caddyserver/caddy">GitHub</a>
+					<a href="https://twitter.com/caddyserver">Twitter</a>
+					<a href="/caddy-v1-docs/blog/">Blog</a>
+				</nav>
+				<div class="col">
+					<h6>Hey, You.</h6>
+					Be notified of new releases!
+					<form id="footer-signup-form">
+						<input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
+						<button class="subscribe" type="submit">Subscribe</button>
+					</form>
+				</div>
 			</div>
-			<nav>
-				<h6>The Project</h6>
-				<a href="/v1/download">Download</a>
-				<a href="https://github.com/caddyserver/caddy">GitHub</a>
-				<a href="/v1/docs">Docs</a>
-				<a href="/v1/brand">Brand Kit</a>
-			</nav>
-			<nav>
-				<h6>Account</h6>
-				<a href="/v1/account/login">Log In</a>
-				<a href="/v1/account/register">Sign Up</a>
-				<a href="/v1/legal/terms-of-service">Terms of Service</a>
-			</nav>
-			<nav>
-				<h6>Community</h6>
-				<a href="https://caddy.community/">Forum</a>
-				<a href="https://github.com/caddyserver/caddy">GitHub</a>
-				<a href="https://twitter.com/caddyserver">Twitter</a>
-				<a href="/v1/blog/">Blog</a>
-			</nav>
-			<div class="col">
-				<h6>Hey, You.</h6>
-                Be notified of new releases!
-                <form id="footer-signup-form">
-                    <input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
-                    <button class="subscribe" type="submit">Subscribe</button>
-                </form>
+			<div class="copyright">
+				&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
 			</div>
 		</div>
-		<div class="copyright">
-			&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
-		</div>
-	</div>
-</footer>
+	</footer>
 
-	</body>
+</body>
 </head>

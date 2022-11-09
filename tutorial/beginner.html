@@ -5,27 +5,27 @@
 		<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
-<link rel="icon" href="/v1/resources/images/favicon.png">
-<link rel="stylesheet" href="/v1/resources/css/common.css">
-<link rel="stylesheet" href="/v1/resources/css/sweetalert2.min.css">
-<script src="/v1/resources/js/sweetalert2.min.js"></script>
-<script src="/v1/resources/js/jquery-3.3.1.min.js"></script>
-<script src="/v1/resources/js/common.js"></script>
-		<link rel="stylesheet" href="/v1/resources/css/docs.css">
+<link rel="icon" href="/caddy-v1-docs/resources/images/favicon.png">
+<link rel="stylesheet" href="/caddy-v1-docs/resources/css/common.css">
+<link rel="stylesheet" href="/caddy-v1-docs/resources/css/sweetalert2.min.css">
+<script src="/caddy-v1-docs/resources/js/sweetalert2.min.js"></script>
+<script src="/caddy-v1-docs/resources/js/jquery-3.3.1.min.js"></script>
+<script src="/caddy-v1-docs/resources/js/common.js"></script>
+		<link rel="stylesheet" href="/caddy-v1-docs/resources/css/docs.css">
 	</head>
 	<body>
 		<header>
 	<div class="top-bar content">
 	<div class="left-links">
-		<a href="/"><img src="/v1/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
+		<a href="/"><img src="/caddy-v1-docs/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
 	</div>
 	<nav class="right-links links">
-		<a href="/v1/download">Download</a>
-		<a href="/v1/docs">Docs</a>
-		<a href="/v1/stats">Stats</a>
+		<a href="/caddy-v1-docs/download">Download</a>
+		<a href="/caddy-v1-docs/docs">Docs</a>
+		<a href="/caddy-v1-docs/stats">Stats</a>
 		<a href="https://caddy.community">Forum</a>
 		<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
-		<a href="/v1/account/login">Log In</a>
+		<a href="/caddy-v1-docs/account/login">Log In</a>
 	</nav>
 </div>
 <a href="/" id="v2-banner">
@@ -38,8 +38,8 @@
 
 <nav class="main">
 	<div class="content">
-		<a href="/v1/docs">Documentation</a>
-		<a href="/v1/tutorial" class="current">Tutorials</a>
+		<a href="/caddy-v1-docs/docs">Documentation</a>
+		<a href="/caddy-v1-docs/tutorial" class="current">Tutorials</a>
 		<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
 	</div>
 </nav>
@@ -48,19 +48,19 @@
 		<main class="content">
 			<aside>
 	<nav>
-		
-		<a href="/v1/tutorial">Quick Start</a>
-		<a href="/v1/tutorial/beginner" class="current">Beginner Tutorial</a>
-		<a href="/v1/tutorial/caddyfile">The Caddyfile</a>
+
+		<a href="/caddy-v1-docs/tutorial">Quick Start</a>
+		<a href="/caddy-v1-docs/tutorial/beginner" class="current">Beginner Tutorial</a>
+		<a href="/caddy-v1-docs/tutorial/caddyfile">The Caddyfile</a>
 		<br>
-		<a href="/v1/docs">&laquo; Back to docs</a>
+		<a href="/caddy-v1-docs/docs">&laquo; Back to docs</a>
 	</nav>
 </aside>
 			<article>
 				<h2>Beginner Tutorial</h2>
 
 				<p>
-					This tutorial will help you install, run, and configure Caddy for your first time. It assumes you have never used a web server before! (If you have, do the <a href="/v1/tutorial">quick start</a>.) Although Caddy is very easy to use, it is still expected that you are already familiar with using your machine:
+					This tutorial will help you install, run, and configure Caddy for your first time. It assumes you have never used a web server before! (If you have, do the <a href="/caddy-v1-docs/tutorial">quick start</a>.) Although Caddy is very easy to use, it is still expected that you are already familiar with using your machine:
 				</p>
 
 				<ul>
@@ -84,7 +84,7 @@
 
 				<h3 id="download">Download</h3>
 				<p>
-					Download Caddy from <a href="/v1/download">the download page</a>. You can get Caddy for nearly any OS and architecture. Caddy's download page is unique from other web servers: it lets you customize your build with plugins.
+					Download Caddy from <a href="/caddy-v1-docs/download">the download page</a>. You can get Caddy for nearly any OS and architecture. Caddy's download page is unique from other web servers: it lets you customize your build with plugins.
 				</p>
 				<p>
 					For this tutorial, you don't need any plugins.
@@ -170,7 +170,7 @@
 				<p>
 					You can quit Caddy by pressing Ctrl+C. It will terminate as gracefully as possible.
 				</p>
-				
+
 				<h3 id="configure">Configure</h3>
 				<p>
 					Your site is already fit for production! But it's not ideal, because we happen to running on <code>localhost</code> (your home computer):
@@ -204,7 +204,7 @@
 				<p>
 					After submitting your email address, do you see an error like <code class="cmd">permission denied</code>? That's because Caddy is trying to bind to ports 80 and 443 for a <i>real</i> site, but doing this requires root or Administrator privileges:
 				</p>
-		
+
 				<div class="tab-box os-tabs">
 					<div class="tabs">
 						<div class="tab tab-windows" data-tab="windows">Windows</div>
@@ -241,7 +241,7 @@ http://example.com</code>
 				</p>
 
 				<p>
-					The <a href="/v1/docs/cli">command line interface</a> is great for quick Caddy configurations. But what if you want to reuse the same config every time? It's easy with the Caddyfile.
+					The <a href="/caddy-v1-docs/docs/cli">command line interface</a> is great for quick Caddy configurations. But what if you want to reuse the same config every time? It's easy with the Caddyfile.
 				</p>
 
 				<p>
@@ -305,11 +305,11 @@ http://example.com</code>
 				</div>
 
 				<p>
-					You almost know enough to be dangerous. Next, learn <a href="/v1/tutorial/caddyfile">how to wield the Caddyfile</a>. You'll love how easy it is to write.
+					You almost know enough to be dangerous. Next, learn <a href="/caddy-v1-docs/tutorial/caddyfile">how to wield the Caddyfile</a>. You'll love how easy it is to write.
 				</p>
 
 				<p>
-					Or <a href="/v1/docs">go to docs index</a>.
+					Or <a href="/caddy-v1-docs/docs">go to docs index</a>.
 				</p>
 			</article>
 		</main>
@@ -318,7 +318,7 @@ http://example.com</code>
 	<div class="nav-container">
 		<div class="flex content">
 			<div class="col">
-				<img src="/v1/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
+				<img src="/caddy-v1-docs/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
 				<br>
 				A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
 				<br>
@@ -328,23 +328,23 @@ http://example.com</code>
 			</div>
 			<nav>
 				<h6>The Project</h6>
-				<a href="/v1/download">Download</a>
+				<a href="/caddy-v1-docs/download">Download</a>
 				<a href="https://github.com/caddyserver/caddy">GitHub</a>
-				<a href="/v1/docs">Docs</a>
-				<a href="/v1/brand">Brand Kit</a>
+				<a href="/caddy-v1-docs/docs">Docs</a>
+				<a href="/caddy-v1-docs/brand">Brand Kit</a>
 			</nav>
 			<nav>
 				<h6>Account</h6>
-				<a href="/v1/account/login">Log In</a>
-				<a href="/v1/account/register">Sign Up</a>
-				<a href="/v1/legal/terms-of-service">Terms of Service</a>
+				<a href="/caddy-v1-docs/account/login">Log In</a>
+				<a href="/caddy-v1-docs/account/register">Sign Up</a>
+				<a href="/caddy-v1-docs/legal/terms-of-service">Terms of Service</a>
 			</nav>
 			<nav>
 				<h6>Community</h6>
 				<a href="https://caddy.community/">Forum</a>
 				<a href="https://github.com/caddyserver/caddy">GitHub</a>
 				<a href="https://twitter.com/caddyserver">Twitter</a>
-				<a href="/v1/blog/">Blog</a>
+				<a href="/caddy-v1-docs/blog/">Blog</a>
 			</nav>
 			<div class="col">
 				<h6>Hey, You.</h6>

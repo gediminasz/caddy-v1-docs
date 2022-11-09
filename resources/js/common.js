@@ -70,7 +70,7 @@ function getStripeCheckout() {
 
 // get select account information
 function getAccountInfo(onSuccess) {
-	$.get("/v1/api/current-account").done(function(info) {
+	$.get("/caddy-v1-docs/api/current-account").done(function(info) {
 		caddy.accountInfo = info;
 		if (typeof onSuccess === 'function')
 			onSuccess(info);
@@ -138,7 +138,7 @@ function emailSubscribe(event, formId) {
     toggleDisableForm(true);
     $.ajax({
         type: "POST",
-        url: "/v1/subscribe",
+        url: "/caddy-v1-docs/subscribe",
         contentType: 'application/json',
         processData: false,
         data: JSON.stringify([{

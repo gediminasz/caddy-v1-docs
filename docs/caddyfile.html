@@ -1,369 +1,373 @@
 <!DOCTYPE html>
+
 <head>
+
 	<head>
 		<title>The Caddyfile Syntax</title>
 		<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
-<link rel="icon" href="/v1/resources/images/favicon.png">
-<link rel="stylesheet" href="/v1/resources/css/common.css">
-<link rel="stylesheet" href="/v1/resources/css/sweetalert2.min.css">
-<script src="/v1/resources/js/sweetalert2.min.js"></script>
-<script src="/v1/resources/js/jquery-3.3.1.min.js"></script>
-<script src="/v1/resources/js/common.js"></script>
-		<link rel="stylesheet" href="/v1/resources/css/docs.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
+		<link rel="icon" href="/caddy-v1-docs/resources/images/favicon.png">
+		<link rel="stylesheet" href="/caddy-v1-docs/resources/css/common.css">
+		<link rel="stylesheet" href="/caddy-v1-docs/resources/css/sweetalert2.min.css">
+		<script src="/caddy-v1-docs/resources/js/sweetalert2.min.js"></script>
+		<script src="/caddy-v1-docs/resources/js/jquery-3.3.1.min.js"></script>
+		<script src="/caddy-v1-docs/resources/js/common.js"></script>
+		<link rel="stylesheet" href="/caddy-v1-docs/resources/css/docs.css">
 	</head>
-	<body>
-		<header>
-	<div class="top-bar content">
-	<div class="left-links">
-		<a href="/"><img src="/v1/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
-	</div>
-	<nav class="right-links links">
-		<a href="/v1/download">Download</a>
-		<a href="/v1/docs">Docs</a>
-		<a href="/v1/stats">Stats</a>
-		<a href="https://caddy.community">Forum</a>
-		<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
-		<a href="/v1/account/login">Log In</a>
+
+<body>
+	<header>
+		<div class="top-bar content">
+			<div class="left-links">
+				<a href="/"><img src="/caddy-v1-docs/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
+			</div>
+			<nav class="right-links links">
+				<a href="/caddy-v1-docs/download">Download</a>
+				<a href="/caddy-v1-docs/docs">Docs</a>
+				<a href="/caddy-v1-docs/stats">Stats</a>
+				<a href="https://caddy.community">Forum</a>
+				<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
+				<a href="/caddy-v1-docs/account/login">Log In</a>
+			</nav>
+		</div>
+		<a href="/" id="v2-banner">
+			This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
+		</a>
+		<div class="content">
+			<h1>User Guide</h1>
+		</div>
+	</header>
+
+	<nav class="main">
+		<div class="content">
+			<a href="/caddy-v1-docs/docs" class="current">Documentation</a>
+			<a href="/caddy-v1-docs/tutorial">Tutorials</a>
+			<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
+		</div>
 	</nav>
-</div>
-<a href="/" id="v2-banner">
-	This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
-</a>
-	<div class="content">
-		<h1>User Guide</h1>
-	</div>
-</header>
-
-<nav class="main">
-	<div class="content">
-		<a href="/v1/docs" class="current">Documentation</a>
-		<a href="/v1/tutorial">Tutorials</a>
-		<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
-	</div>
-</nav>
 
 
-		<div class="content-container">
-			<nav class="side">
-	<!-- TODO: Consider using Maven Pro or Muli as font... -->
-	<h3>Using Caddy</h3>
-	<ul>
-		<li><a href="/v1/tutorial">Getting Started &rarr;</a></li>
-		<li><a href="/v1/docs/cli">Command Line Interface</a></li>
-		<li><a href="/v1/docs/caddyfile">Caddyfile Syntax</a></li>
-		<li><a href="/v1/docs/telemetry">Telemetry</a></li>
-	</ul>
+	<div class="content-container">
+		<nav class="side">
+			<!-- TODO: Consider using Maven Pro or Muli as font... -->
+			<h3>Using Caddy</h3>
+			<ul>
+				<li><a href="/caddy-v1-docs/tutorial">Getting Started &rarr;</a></li>
+				<li><a href="/caddy-v1-docs/docs/cli">Command Line Interface</a></li>
+				<li><a href="/caddy-v1-docs/docs/caddyfile">Caddyfile Syntax</a></li>
+				<li><a href="/caddy-v1-docs/docs/telemetry">Telemetry</a></li>
+			</ul>
 
-	<h3>HTTP Server</h3>
-	<ul>
-		<li><a href="/v1/docs/http-caddyfile">HTTP Caddyfile</a></li>
-		<li><a href="/v1/docs/automatic-https">Automatic HTTPS</a></li>
-		<li><a href="/v1/docs/mitm-detection">MITM Detection</a></li>
-		<li><a href="/v1/docs/placeholders">Placeholders</a></li>
-		<li><a href="/v1/docs/template-actions">Template Actions</a></li>
-	</ul>
+			<h3>HTTP Server</h3>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/http-caddyfile">HTTP Caddyfile</a></li>
+				<li><a href="/caddy-v1-docs/docs/automatic-https">Automatic HTTPS</a></li>
+				<li><a href="/caddy-v1-docs/docs/mitm-detection">MITM Detection</a></li>
+				<li><a href="/caddy-v1-docs/docs/placeholders">Placeholders</a></li>
+				<li><a href="/caddy-v1-docs/docs/template-actions">Template Actions</a></li>
+			</ul>
 
-	<h4>Standard HTTP Directives</h4>
-	<ul>
-		<li><a href="/v1/docs/basicauth">basicauth</a></li>
-		<li><a href="/v1/docs/bind">bind</a></li>
-		<li><a href="/v1/docs/browse">browse</a></li>
-		<li><a href="/v1/docs/errors">errors</a></li>
-		<li><a href="/v1/docs/expvar">expvar</a></li>
-		<li><a href="/v1/docs/ext">ext</a></li>
-		<li><a href="/v1/docs/fastcgi">fastcgi</a></li>
-		<li><a href="/v1/docs/gzip">gzip</a></li>
-		<li><a href="/v1/docs/header">header</a></li>
-		<li><a href="/v1/docs/import">import</a></li>
-		<li><a href="/v1/docs/index">index</a></li>
-		<li><a href="/v1/docs/internal">internal</a></li>
-		<li><a href="/v1/docs/limits">limits</a></li>
-		<li><a href="/v1/docs/log">log</a></li>
-		<li><a href="/v1/docs/markdown">markdown</a></li>
-		<li><a href="/v1/docs/mime">mime</a></li>
-		<li><a href="/v1/docs/on">on</a></li>
-		<li><a href="/v1/docs/pprof">pprof</a></li>
-		<li><a href="/v1/docs/proxy">proxy</a></li>
-		<li><a href="/v1/docs/push">push</a></li>
-		<li><a href="/v1/docs/redir">redir</a></li>
-		<li><a href="/v1/docs/request_id">request_id</a></li>
-		<li><a href="/v1/docs/rewrite">rewrite</a></li>
-		<li><a href="/v1/docs/root">root</a></li>
-		<li><a href="/v1/docs/status">status</a></li>
-		<li><a href="/v1/docs/templates">templates</a></li>
-		<li><a href="/v1/docs/timeouts">timeouts</a></li>
-		<li><a href="/v1/docs/tls">tls</a></li>
-		<li><a href="/v1/docs/websocket">websocket</a></li>
-	</ul>
+			<h4>Standard HTTP Directives</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/basicauth">basicauth</a></li>
+				<li><a href="/caddy-v1-docs/docs/bind">bind</a></li>
+				<li><a href="/caddy-v1-docs/docs/browse">browse</a></li>
+				<li><a href="/caddy-v1-docs/docs/errors">errors</a></li>
+				<li><a href="/caddy-v1-docs/docs/expvar">expvar</a></li>
+				<li><a href="/caddy-v1-docs/docs/ext">ext</a></li>
+				<li><a href="/caddy-v1-docs/docs/fastcgi">fastcgi</a></li>
+				<li><a href="/caddy-v1-docs/docs/gzip">gzip</a></li>
+				<li><a href="/caddy-v1-docs/docs/header">header</a></li>
+				<li><a href="/caddy-v1-docs/docs/import">import</a></li>
+				<li><a href="/caddy-v1-docs/docs/index">index</a></li>
+				<li><a href="/caddy-v1-docs/docs/internal">internal</a></li>
+				<li><a href="/caddy-v1-docs/docs/limits">limits</a></li>
+				<li><a href="/caddy-v1-docs/docs/log">log</a></li>
+				<li><a href="/caddy-v1-docs/docs/markdown">markdown</a></li>
+				<li><a href="/caddy-v1-docs/docs/mime">mime</a></li>
+				<li><a href="/caddy-v1-docs/docs/on">on</a></li>
+				<li><a href="/caddy-v1-docs/docs/pprof">pprof</a></li>
+				<li><a href="/caddy-v1-docs/docs/proxy">proxy</a></li>
+				<li><a href="/caddy-v1-docs/docs/push">push</a></li>
+				<li><a href="/caddy-v1-docs/docs/redir">redir</a></li>
+				<li><a href="/caddy-v1-docs/docs/request_id">request_id</a></li>
+				<li><a href="/caddy-v1-docs/docs/rewrite">rewrite</a></li>
+				<li><a href="/caddy-v1-docs/docs/root">root</a></li>
+				<li><a href="/caddy-v1-docs/docs/status">status</a></li>
+				<li><a href="/caddy-v1-docs/docs/templates">templates</a></li>
+				<li><a href="/caddy-v1-docs/docs/timeouts">timeouts</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls">tls</a></li>
+				<li><a href="/caddy-v1-docs/docs/websocket">websocket</a></li>
+			</ul>
 
-	<h3>Plugins</h3>
-	<ul>
-		<li><a href="https://github.com/caddyserver/caddy/wiki" class="external-link">Writing a Caddy Plugin</a></li>
-	</ul>
+			<h3>Plugins</h3>
+			<ul>
+				<li><a href="https://github.com/caddyserver/caddy/wiki" class="external-link">Writing a Caddy Plugin</a></li>
+			</ul>
 
-	
-		<h4>Caddyfile Loaders</h4>
-		<ul>
-				<li><a href="/v1/docs/docker">docker</a></li>
-		</ul>
-	
-		<h4>DNS Providers</h4>
-		<ul>
-				<li><a href="/v1/docs/tls.dns.auroradns">tls.dns.auroradns</a></li>
-				<li><a href="/v1/docs/tls.dns.azure">tls.dns.azure</a></li>
-				<li><a href="/v1/docs/tls.dns.cloudflare">tls.dns.cloudflare</a></li>
-				<li><a href="/v1/docs/tls.dns.cloudxns">tls.dns.cloudxns</a></li>
-				<li><a href="/v1/docs/tls.dns.digitalocean">tls.dns.digitalocean</a></li>
-				<li><a href="/v1/docs/tls.dns.dnsimple">tls.dns.dnsimple</a></li>
-				<li><a href="/v1/docs/tls.dns.dnsmadeeasy">tls.dns.dnsmadeeasy</a></li>
-				<li><a href="/v1/docs/tls.dns.dnspod">tls.dns.dnspod</a></li>
-				<li><a href="/v1/docs/tls.dns.duckdns">tls.dns.duckdns</a></li>
-				<li><a href="/v1/docs/tls.dns.dyn">tls.dns.dyn</a></li>
-				<li><a href="/v1/docs/tls.dns.exoscale">tls.dns.exoscale</a></li>
-				<li><a href="/v1/docs/tls.dns.gandi">tls.dns.gandi</a></li>
-				<li><a href="/v1/docs/tls.dns.gandiv5">tls.dns.gandiv5</a></li>
-				<li><a href="/v1/docs/tls.dns.godaddy">tls.dns.godaddy</a></li>
-				<li><a href="/v1/docs/tls.dns.googlecloud">tls.dns.googlecloud</a></li>
-				<li><a href="/v1/docs/tls.dns.lightsail">tls.dns.lightsail</a></li>
-				<li><a href="/v1/docs/tls.dns.linode">tls.dns.linode</a></li>
-				<li><a href="/v1/docs/tls.dns.namecheap">tls.dns.namecheap</a></li>
-				<li><a href="/v1/docs/tls.dns.namedotcom">tls.dns.namedotcom</a></li>
-				<li><a href="/v1/docs/tls.dns.namesilo">tls.dns.namesilo</a></li>
-				<li><a href="/v1/docs/tls.dns.ns1">tls.dns.ns1</a></li>
-				<li><a href="/v1/docs/tls.dns.otc">tls.dns.otc</a></li>
-				<li><a href="/v1/docs/tls.dns.ovh">tls.dns.ovh</a></li>
-				<li><a href="/v1/docs/tls.dns.powerdns">tls.dns.powerdns</a></li>
-				<li><a href="/v1/docs/tls.dns.rackspace">tls.dns.rackspace</a></li>
-				<li><a href="/v1/docs/tls.dns.rfc2136">tls.dns.rfc2136</a></li>
-				<li><a href="/v1/docs/tls.dns.route53">tls.dns.route53</a></li>
-				<li><a href="/v1/docs/tls.dns.vultr">tls.dns.vultr</a></li>
-		</ul>
-	
-		<h4>Directives/Middleware</h4>
-		<ul>
-				<li><a href="/v1/docs/dyndns">dyndns</a></li>
-				<li><a href="/v1/docs/http.authz">http.authz</a></li>
-				<li><a href="/v1/docs/http.awses">http.awses</a></li>
-				<li><a href="/v1/docs/http.awslambda">http.awslambda</a></li>
-				<li><a href="/v1/docs/http.cache">http.cache</a></li>
-				<li><a href="/v1/docs/http.cgi">http.cgi</a></li>
-				<li><a href="/v1/docs/http.cors">http.cors</a></li>
-				<li><a href="/v1/docs/http.datadog">http.datadog</a></li>
-				<li><a href="/v1/docs/http.expires">http.expires</a></li>
-				<li><a href="/v1/docs/http.filter">http.filter</a></li>
-				<li><a href="/v1/docs/http.forwardproxy">http.forwardproxy</a></li>
-				<li><a href="/v1/docs/http.geoip">http.geoip</a></li>
-				<li><a href="/v1/docs/http.git">http.git</a></li>
-				<li><a href="/v1/docs/http.gomods">http.gomods</a></li>
-				<li><a href="/v1/docs/http.gopkg">http.gopkg</a></li>
-				<li><a href="/v1/docs/http.grpc">http.grpc</a></li>
-				<li><a href="/v1/docs/http.ipfilter">http.ipfilter</a></li>
-				<li><a href="/v1/docs/http.jwt">http.jwt</a></li>
-				<li><a href="/v1/docs/http.locale">http.locale</a></li>
-				<li><a href="/v1/docs/http.login">http.login</a></li>
-				<li><a href="/v1/docs/http.mailout">http.mailout</a></li>
-				<li><a href="/v1/docs/http.minify">http.minify</a></li>
-				<li><a href="/v1/docs/http.nobots">http.nobots</a></li>
-				<li><a href="/v1/docs/http.permission">http.permission</a></li>
-				<li><a href="/v1/docs/http.prometheus">http.prometheus</a></li>
-				<li><a href="/v1/docs/http.proxyprotocol">http.proxyprotocol</a></li>
-				<li><a href="/v1/docs/http.pubsub">http.pubsub</a></li>
-				<li><a href="/v1/docs/http.ratelimit">http.ratelimit</a></li>
-				<li><a href="/v1/docs/http.realip">http.realip</a></li>
-				<li><a href="/v1/docs/http.reauth">http.reauth</a></li>
-				<li><a href="/v1/docs/http.recaptcha">http.recaptcha</a></li>
-				<li><a href="/v1/docs/http.restic">http.restic</a></li>
-				<li><a href="/v1/docs/http.s3browser">http.s3browser</a></li>
-				<li><a href="/v1/docs/http.supervisor">http.supervisor</a></li>
-				<li><a href="/v1/docs/http.torproxy">http.torproxy</a></li>
-				<li><a href="/v1/docs/http.webdav">http.webdav</a></li>
-				<li><a href="/v1/docs/http.webp">http.webp</a></li>
-		</ul>
-	
-		<h4>Event Hooks</h4>
-		<ul>
-				<li><a href="/v1/docs/hook.service">hook.service</a></li>
-		</ul>
-	
-		<h4>Server Types</h4>
-		<ul>
-				<li><a href="/v1/docs/dns">dns</a></li>
-				<li><a href="/v1/docs/net">net</a></li>
-				<li><a href="/v1/docs/supervisor">supervisor</a></li>
-		</ul>
-	
-		<h4>TLS Clustering</h4>
-		<ul>
-				<li><a href="/v1/docs/consul">consul</a></li>
-				<li><a href="/v1/docs/redis">redis</a></li>
-		</ul>
-	
-	</ul>
-</nav>
 
-			<article>
-				<h2>Caddyfile Syntax</h2>
+			<h4>Caddyfile Loaders</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/docker">docker</a></li>
+			</ul>
 
-				<p>
-					This page describes the syntax of the Caddyfile. If it is your first time writing a Caddyfile, try the <a href="/v1/tutorial/caddyfile">Caddyfile primer</a> tutorial instead. This page is not beginner-friendly; it is technical and kind of boring.
-				</p>
-				<p>
-					Although this article is verbose, the Caddyfile is designed to be easily readable and writable by humans. You will find that it is easy to remember, not cumbersome, and flows off the fingers.
-				</p>
-				<p>
-					The term "Caddyfile" often refers to a file, but more generally means a blob of Caddy configuration text. A Caddyfile can be used to configure any Caddy server type: HTTP, DNS, etc. The basic structure and syntax of the Caddyfile is the same for all server types, but semantics change. Because of this variability, this document treats the Caddyfile only as the generic configuration syntax as it applies to all server types. Caddyfile documentation for specific types may be found within their respective docs. For instance, the HTTP server <a href="/v1/docs/http-caddyfile">documents the semantics of its Caddyfile</a>.
-				</p>
+			<h4>DNS Providers</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.auroradns">tls.dns.auroradns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.azure">tls.dns.azure</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.cloudflare">tls.dns.cloudflare</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.cloudxns">tls.dns.cloudxns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.digitalocean">tls.dns.digitalocean</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dnsimple">tls.dns.dnsimple</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dnsmadeeasy">tls.dns.dnsmadeeasy</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dnspod">tls.dns.dnspod</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.duckdns">tls.dns.duckdns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dyn">tls.dns.dyn</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.exoscale">tls.dns.exoscale</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.gandi">tls.dns.gandi</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.gandiv5">tls.dns.gandiv5</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.godaddy">tls.dns.godaddy</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.googlecloud">tls.dns.googlecloud</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.lightsail">tls.dns.lightsail</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.linode">tls.dns.linode</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.namecheap">tls.dns.namecheap</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.namedotcom">tls.dns.namedotcom</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.namesilo">tls.dns.namesilo</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.ns1">tls.dns.ns1</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.otc">tls.dns.otc</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.ovh">tls.dns.ovh</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.powerdns">tls.dns.powerdns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.rackspace">tls.dns.rackspace</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.rfc2136">tls.dns.rfc2136</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.route53">tls.dns.route53</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.vultr">tls.dns.vultr</a></li>
+			</ul>
 
-				<h4>Topics</h4>
-				<ol>
-					<li><a href="#format">File Format &amp; Encoding</a></li>
-					<li><a href="#lexical-syntax">Lexical Syntax</a></li>
-					<li><a href="#structure">Structure</a></li>
-					<li><a href="#labels">Labels</a></li>
-					<li><a href="#directives">Directives</a></li>
-					<li><a href="#env">Environment Variables</a></li>
-					<li><a href="#import">Import</a></li>
-					<li><a href="#snippets">Reusable Snippets</a></li>
-					<li><a href="#examples">Examples</a></li>
-				</ol>
+			<h4>Directives/Middleware</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/dyndns">dyndns</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.authz">http.authz</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.awses">http.awses</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.awslambda">http.awslambda</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.cache">http.cache</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.cgi">http.cgi</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.cors">http.cors</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.datadog">http.datadog</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.expires">http.expires</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.filter">http.filter</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.forwardproxy">http.forwardproxy</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.geoip">http.geoip</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.git">http.git</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.gomods">http.gomods</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.gopkg">http.gopkg</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.grpc">http.grpc</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.ipfilter">http.ipfilter</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.jwt">http.jwt</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.locale">http.locale</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.login">http.login</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.mailout">http.mailout</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.minify">http.minify</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.nobots">http.nobots</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.permission">http.permission</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.prometheus">http.prometheus</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.proxyprotocol">http.proxyprotocol</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.pubsub">http.pubsub</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.ratelimit">http.ratelimit</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.realip">http.realip</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.reauth">http.reauth</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.recaptcha">http.recaptcha</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.restic">http.restic</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.s3browser">http.s3browser</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.supervisor">http.supervisor</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.torproxy">http.torproxy</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.webdav">http.webdav</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.webp">http.webp</a></li>
+			</ul>
 
-				<h3 id="format">File Format &amp; Encoding</h3>
-				<p>
-					The Caddyfile is plain Unicode text encoded with UTF-8. Each code point is distinct; specifically, lowercase and uppercase characters are different. A leading byte order mark (0xFEFF), if present, will be ignored.
-				</p>
+			<h4>Event Hooks</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/hook.service">hook.service</a></li>
+			</ul>
 
-				<h3 id="lexical-syntax">Lexical Syntax</h3>
-				<p>
-					A <b>token</b> is a sequence of whitespace-delimited characters in the Caddyfile. A token that starts with quotes <code>"</code> is read literally (including whitespace) until the next instance of quotes <code>"</code> that is not escaped. Quote literals may be escaped with a backslash like so: <code>\"</code>. Only quotes are escapable. <!-- Those stupid --> &ldquo;Smart quotes&rdquo; are not valid as quotes.
-				</p>
-				<p>
-					<b>Lines</b> are delimited with the <code>\n</code> (newline) character only. Carriage return <code>\r</code> is discarded unless quoted. Blank, unquoted lines are allowed and ignored.
-				</p>
-				<p>
-					<b>Comments</b> are discarded by the lexer. Comments begin with an unquoted hash <code>#</code> and continue to the end of the line. Comments may start a line or appear in the middle of a line as part of an unquoted token. For the purposes of this document, commented and blank lines are no longer considered.
-				</p>
-				<p>
-					Tokens are then evaluated by the parser for structure.
-				</p>
+			<h4>Server Types</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/dns">dns</a></li>
+				<li><a href="/caddy-v1-docs/docs/net">net</a></li>
+				<li><a href="/caddy-v1-docs/docs/supervisor">supervisor</a></li>
+			</ul>
 
-				<h3 id="structure">Structure</h3>
-				<p>
-					A Caddyfile has no global scope. The most global unit of the Caddyfile is an <b>entry</b>. An entry consists of a list of labels and a definition associated with those labels. A <b>label</b> is a string identifier, and a <b>definition</b> is a body (one or more lines) of tokens grouped together in a <i>block</i>:
-				</p>
-				<code class="block"><span class="cf-label-bg">list of labels</span>
+			<h4>TLS Clustering</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/consul">consul</a></li>
+				<li><a href="/caddy-v1-docs/docs/redis">redis</a></li>
+			</ul>
+
+			</ul>
+		</nav>
+
+		<article>
+			<h2>Caddyfile Syntax</h2>
+
+			<p>
+				This page describes the syntax of the Caddyfile. If it is your first time writing a Caddyfile, try the <a href="/caddy-v1-docs/tutorial/caddyfile">Caddyfile primer</a> tutorial instead. This page is not beginner-friendly; it is technical and kind of boring.
+			</p>
+			<p>
+				Although this article is verbose, the Caddyfile is designed to be easily readable and writable by humans. You will find that it is easy to remember, not cumbersome, and flows off the fingers.
+			</p>
+			<p>
+				The term "Caddyfile" often refers to a file, but more generally means a blob of Caddy configuration text. A Caddyfile can be used to configure any Caddy server type: HTTP, DNS, etc. The basic structure and syntax of the Caddyfile is the same for all server types, but semantics change. Because of this variability, this document treats the Caddyfile only as the generic configuration syntax as it applies to all server types. Caddyfile documentation for specific types may be found within their respective docs. For instance, the HTTP server <a href="/caddy-v1-docs/docs/http-caddyfile">documents the semantics of its Caddyfile</a>.
+			</p>
+
+			<h4>Topics</h4>
+			<ol>
+				<li><a href="#format">File Format &amp; Encoding</a></li>
+				<li><a href="#lexical-syntax">Lexical Syntax</a></li>
+				<li><a href="#structure">Structure</a></li>
+				<li><a href="#labels">Labels</a></li>
+				<li><a href="#directives">Directives</a></li>
+				<li><a href="#env">Environment Variables</a></li>
+				<li><a href="#import">Import</a></li>
+				<li><a href="#snippets">Reusable Snippets</a></li>
+				<li><a href="#examples">Examples</a></li>
+			</ol>
+
+			<h3 id="format">File Format &amp; Encoding</h3>
+			<p>
+				The Caddyfile is plain Unicode text encoded with UTF-8. Each code point is distinct; specifically, lowercase and uppercase characters are different. A leading byte order mark (0xFEFF), if present, will be ignored.
+			</p>
+
+			<h3 id="lexical-syntax">Lexical Syntax</h3>
+			<p>
+				A <b>token</b> is a sequence of whitespace-delimited characters in the Caddyfile. A token that starts with quotes <code>"</code> is read literally (including whitespace) until the next instance of quotes <code>"</code> that is not escaped. Quote literals may be escaped with a backslash like so: <code>\"</code>. Only quotes are escapable.
+				<!-- Those stupid --> &ldquo;Smart quotes&rdquo; are not valid as quotes.
+			</p>
+			<p>
+				<b>Lines</b> are delimited with the <code>\n</code> (newline) character only. Carriage return <code>\r</code> is discarded unless quoted. Blank, unquoted lines are allowed and ignored.
+			</p>
+			<p>
+				<b>Comments</b> are discarded by the lexer. Comments begin with an unquoted hash <code>#</code> and continue to the end of the line. Comments may start a line or appear in the middle of a line as part of an unquoted token. For the purposes of this document, commented and blank lines are no longer considered.
+			</p>
+			<p>
+				Tokens are then evaluated by the parser for structure.
+			</p>
+
+			<h3 id="structure">Structure</h3>
+			<p>
+				A Caddyfile has no global scope. The most global unit of the Caddyfile is an <b>entry</b>. An entry consists of a list of labels and a definition associated with those labels. A <b>label</b> is a string identifier, and a <b>definition</b> is a body (one or more lines) of tokens grouped together in a <i>block</i>:
+			</p>
+			<code class="block"><span class="cf-label-bg">list of labels</span>
 <span class="cf-block-bg">definition (block)</span></code>
-				<p>
-					A Caddyfile with <i>only one</i> entry may consist simply of the label line(s) followed by the definition on the next line(s), as shown above. However, a Caddyfile with <i>more than one</i> entry <b>must</b> enclose each definition in curly braces <code>{ }</code>. The opening curly brace <code>{</code> must be at the end of the label line, and the closing curly brace <code>}</code> must be the only token on its line:
-				</p>
-					<code class="block"><span class="cf-label-bg">list of labels</span> <span class="cf-bigbrace">{</span>
+			<p>
+				A Caddyfile with <i>only one</i> entry may consist simply of the label line(s) followed by the definition on the next line(s), as shown above. However, a Caddyfile with <i>more than one</i> entry <b>must</b> enclose each definition in curly braces <code>{ }</code>. The opening curly brace <code>{</code> must be at the end of the label line, and the closing curly brace <code>}</code> must be the only token on its line:
+			</p>
+			<code class="block"><span class="cf-label-bg">list of labels</span> <span class="cf-bigbrace">{</span>
 <span class="cf-block-bg indent">definition (block)</span>
 <span class="cf-bigbrace">}</span>
 <span class="cf-label-bg">list of labels</span> <span class="cf-bigbrace">{</span>
 <span class="cf-block-bg indent">definition (block)</span>
 <span class="cf-bigbrace">}</span></code>
-				<p>
-					Consistent tab indentation is encouraged within blocks enclosed by curly braces.
-				</p>
-				<p>
-					<b>The first line of a Caddyfile is always a label line.</b> Comment lines, empty lines, and <a href="/v1/docs/import">import</a> lines are the exceptions.
-				</p>
+			<p>
+				Consistent tab indentation is encouraged within blocks enclosed by curly braces.
+			</p>
+			<p>
+				<b>The first line of a Caddyfile is always a label line.</b> Comment lines, empty lines, and <a href="/caddy-v1-docs/docs/import">import</a> lines are the exceptions.
+			</p>
 
-				<h3 id="labels">Labels</h3>
-				<p>
-					Labels are the only tokens that appear outside of blocks (with one exception being the <a href="/v1/docs/import">import</a> directive). A label line may have just one label:
-				</p>
-				<code class="block"><span class="cf-addr">label</span></code>
-				<p>
-					or several labels, separated by spaces:
-				</p>
-				<code class="block"><span class="cf-addr">label1 label2</span> ...</code>
-				<p>
-					If many labels are to head a block, the labels may be suffixed with a comma. A comma-suffixed label may be followed by a newline, in which case the next line will be considered part of the same line:
-				</p>
-				<code class="block"><span class="cf-addr">label1</span>,
+			<h3 id="labels">Labels</h3>
+			<p>
+				Labels are the only tokens that appear outside of blocks (with one exception being the <a href="/caddy-v1-docs/docs/import">import</a> directive). A label line may have just one label:
+			</p>
+			<code class="block"><span class="cf-addr">label</span></code>
+			<p>
+				or several labels, separated by spaces:
+			</p>
+			<code class="block"><span class="cf-addr">label1 label2</span> ...</code>
+			<p>
+				If many labels are to head a block, the labels may be suffixed with a comma. A comma-suffixed label may be followed by a newline, in which case the next line will be considered part of the same line:
+			</p>
+			<code class="block"><span class="cf-addr">label1</span>,
 <span class="cf-addr">label2</span></code>
-				<p>
-					Mixing of these patterns is valid (but discouraged), as long as the last label of the line has a comma if the next line is to continue the list of labels:
-				</p>
-				<code class="block"><span class="cf-addr">label1 label2</span>,
+			<p>
+				Mixing of these patterns is valid (but discouraged), as long as the last label of the line has a comma if the next line is to continue the list of labels:
+			</p>
+			<code class="block"><span class="cf-addr">label1 label2</span>,
 <span class="cf-addr">label3</span>, <span class="cf-addr">label4</span>,
 <span class="cf-addr">label5</span></code>
-				<p>
-					A definition with multiple labels is replicated across each label as if they had been defined separately but with the same definition.
-				</p>
+			<p>
+				A definition with multiple labels is replicated across each label as if they had been defined separately but with the same definition.
+			</p>
 
-				<h3 id="directives">Directives</h3>
-				<p>
-					The body of the definition follows label lines. The first token of each line in a definition body is a <b>directive</b>. Every token <i>after</i> the directive on the same line is an <b>argument</b>. Arguments are optional:
-				</p>
-				<code class="block"><span class="cf-dir">directive1</span>
+			<h3 id="directives">Directives</h3>
+			<p>
+				The body of the definition follows label lines. The first token of each line in a definition body is a <b>directive</b>. Every token <i>after</i> the directive on the same line is an <b>argument</b>. Arguments are optional:
+			</p>
+			<code class="block"><span class="cf-dir">directive1</span>
 <span class="cf-dir">directive2</span> <span class="cf-arg">arg1 arg2</span>
 <span class="cf-dir">directive3</span> <span class="cf-arg">arg3</span></code>
-				<p>
-					Commas are not acceptable delimiters for arguments; they will be treated as part of the argument value. Arguments are delimited solely by same-line whitespace.
-				</p>
-				<p>
-					Directives may span multiple lines by opening a block. Blocks are enclosed by curly braces <code>{ }</code>. The opening curly brace <code>{</code> must be at the end of the directive's first line, and the closing curly brace <code>}</code> must be the only token on its line:
-				</p>
-				<code class="block"><span class="cf-dir">directive</span> {
+			<p>
+				Commas are not acceptable delimiters for arguments; they will be treated as part of the argument value. Arguments are delimited solely by same-line whitespace.
+			</p>
+			<p>
+				Directives may span multiple lines by opening a block. Blocks are enclosed by curly braces <code>{ }</code>. The opening curly brace <code>{</code> must be at the end of the directive's first line, and the closing curly brace <code>}</code> must be the only token on its line:
+			</p>
+			<code class="block"><span class="cf-dir">directive</span> {
     ...
 }</code>
-				<p>
-					Within a directive block, the first token of each line may be considered a <b>subdirective</b> or <b>property</b>, depending on how it is used (other terms may be applied). And as before, they can have arguments:
-				</p>
-				<code class="block"><span class="cf-dir">directive</span> <span class="cf-arg">arg1</span> {
+			<p>
+				Within a directive block, the first token of each line may be considered a <b>subdirective</b> or <b>property</b>, depending on how it is used (other terms may be applied). And as before, they can have arguments:
+			</p>
+			<code class="block"><span class="cf-dir">directive</span> <span class="cf-arg">arg1</span> {
     <span class="cf-subdir">subdir</span> arg2 arg3
     ...
 }</code>
-				<p>
-					Subdirectives cannot open new blocks. In other words, nested directive blocks are not supported. If a directive block is empty, the curly braces should be omitted entirely.
-				</p>
+			<p>
+				Subdirectives cannot open new blocks. In other words, nested directive blocks are not supported. If a directive block is empty, the curly braces should be omitted entirely.
+			</p>
 
-				<h3 id="env">Environment Variables</h3>
-				<p>
-					Any token (label, directive, argument, etc.) may contain or consist solely of an environment variable, which takes the Unix form or Windows form, enclosed in curly braces <code>{ }</code> without extra whitespace:
-				</p>
-				<code class="block"><span class="cf-addr">label_{$ENV_VAR_1}</span>
+			<h3 id="env">Environment Variables</h3>
+			<p>
+				Any token (label, directive, argument, etc.) may contain or consist solely of an environment variable, which takes the Unix form or Windows form, enclosed in curly braces <code>{ }</code> without extra whitespace:
+			</p>
+			<code class="block"><span class="cf-addr">label_{$ENV_VAR_1}</span>
 <span class="cf-dir">directive</span> <span class="cf-arg">{%ENV_VAR_2%}</span></code>
-				<p>
-					Either form works on any OS. A single environment variable does not expand out into multiple tokens, arguments, or values.
-				</p>
+			<p>
+				Either form works on any OS. A single environment variable does not expand out into multiple tokens, arguments, or values.
+			</p>
 
-				<h3 id="import">Import</h3>
-				<p>
-					The <a href="/v1/docs/import">import</a> directive is a special case, because it can appear outside a definition block. The consequence of this is that no label can take on the value of "import".
-				</p>
-				<p>
-					Where an import line is, that line will be replaced with the contents of the imported file, unmodified. See the <a href="/v1/docs/import">import docs</a> for more information.
-				</p>
+			<h3 id="import">Import</h3>
+			<p>
+				The <a href="/caddy-v1-docs/docs/import">import</a> directive is a special case, because it can appear outside a definition block. The consequence of this is that no label can take on the value of "import".
+			</p>
+			<p>
+				Where an import line is, that line will be replaced with the contents of the imported file, unmodified. See the <a href="/caddy-v1-docs/docs/import">import docs</a> for more information.
+			</p>
 
-				<h3 id="snippets">Reusable Snippets</h3>
-				<p>
-					You can define snippets to be reused later in your Caddyfile by defining a block with a single-token label surrounded by parentheses:
-				</p>
-				<code class="block"><span class="cf-addr">(mysnippet)</span> {
+			<h3 id="snippets">Reusable Snippets</h3>
+			<p>
+				You can define snippets to be reused later in your Caddyfile by defining a block with a single-token label surrounded by parentheses:
+			</p>
+			<code class="block"><span class="cf-addr">(mysnippet)</span> {
 	...
 }</code>
-				<p>
-					Then you can invoke the snippet with the <code>import</code> directive:
-				</p>
-				<p>
+			<p>
+				Then you can invoke the snippet with the <code>import</code> directive:
+			</p>
+			<p>
 				<code class="block"><span class="cf-dir">import</span> <span class="cf-arg">mysnippet</span></code>
 
-				<h3 id="examples">Examples</h3>
-				<p>
-					A very simple Caddyfile with only one entry:
-					<code class="block"><span class="cf-addr">label1</span>
+			<h3 id="examples">Examples</h3>
+			<p>
+				A very simple Caddyfile with only one entry:
+				<code class="block"><span class="cf-addr">label1</span>
 
 <span class="cf-dir">directive1</span> <span class="cf-arg">argument1</span>
 <span class="cf-dir">directive2</span></code>
-				</p>
+			</p>
 
-				<p>
-					Appending the prior example with another entry introduces the need for curly braces:
-					<code class="block"><span class="cf-addr">label1</span> {
+			<p>
+				Appending the prior example with another entry introduces the need for curly braces:
+				<code class="block"><span class="cf-addr">label1</span> {
 	<span class="cf-dir">directive1</span> <span class="cf-arg">arg1</span>
 	<span class="cf-dir">directive2</span>
 }
@@ -372,29 +376,29 @@
 	<span class="cf-dir">directive4</span> <span class="cf-arg">arg3</span> <span class="cf-arg">arg4</span>
 }
 </code>
-				</p>
+			</p>
 
-				<p>
-					Some people prefer to always use braces even if there's just one entry; this is fine, but unnecessary:
-					<code class="block"><span class="cf-addr">label1</span> {
+			<p>
+				Some people prefer to always use braces even if there's just one entry; this is fine, but unnecessary:
+				<code class="block"><span class="cf-addr">label1</span> {
 	<span class="cf-dir">directive1</span> <span class="cf-arg">arg1</span>
 	<span class="cf-dir">directive2</span>
 }</code>
-				</p>
+			</p>
 
-				<p>
-					Example in which a directive opens a block:
-					<code class="block"><span class="cf-addr">label1</span>
+			<p>
+				Example in which a directive opens a block:
+				<code class="block"><span class="cf-addr">label1</span>
 
 <span class="cf-dir">directive</span> <span class="cf-arg">arg1</span> {
     <span class="cf-subdir">subdir</span> arg2 arg3
 }
 <span class="cf-dir">directive</span> <span class="cf-arg">arg4</span></code>
-				</p>
+			</p>
 
-				<p>
-					Similarly, but in an indented definition body, and with a comment:
-					<code class="block"><span class="cf-addr">label1</span> {
+			<p>
+				Similarly, but in an indented definition body, and with a comment:
+				<code class="block"><span class="cf-addr">label1</span> {
 	<span class="cf-dir">directive1</span> <span class="cf-arg">arg1</span>
 	<span class="cf-dir">directive2</span> <span class="cf-arg">arg2</span> {
 	    <span class="cf-subdir">subdir1</span> arg3 arg4
@@ -403,57 +407,57 @@
 	}
 	<span class="cf-dir">directive3</span>
 }</code>
-				</p>
+			</p>
 
-			</article>
-		</div>
-
-		<footer>
-	<div class="nav-container">
-		<div class="flex content">
-			<div class="col">
-				<img src="/v1/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
-				<br>
-				A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
-				<br>
-				as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
-				<br>
-				in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
-			</div>
-			<nav>
-				<h6>The Project</h6>
-				<a href="/v1/download">Download</a>
-				<a href="https://github.com/caddyserver/caddy">GitHub</a>
-				<a href="/v1/docs">Docs</a>
-				<a href="/v1/brand">Brand Kit</a>
-			</nav>
-			<nav>
-				<h6>Account</h6>
-				<a href="/v1/account/login">Log In</a>
-				<a href="/v1/account/register">Sign Up</a>
-				<a href="/v1/legal/terms-of-service">Terms of Service</a>
-			</nav>
-			<nav>
-				<h6>Community</h6>
-				<a href="https://caddy.community/">Forum</a>
-				<a href="https://github.com/caddyserver/caddy">GitHub</a>
-				<a href="https://twitter.com/caddyserver">Twitter</a>
-				<a href="/v1/blog/">Blog</a>
-			</nav>
-			<div class="col">
-				<h6>Hey, You.</h6>
-                Be notified of new releases!
-                <form id="footer-signup-form">
-                    <input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
-                    <button class="subscribe" type="submit">Subscribe</button>
-                </form>
-			</div>
-		</div>
-		<div class="copyright">
-			&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
-		</div>
+		</article>
 	</div>
-</footer>
 
-	</body>
+	<footer>
+		<div class="nav-container">
+			<div class="flex content">
+				<div class="col">
+					<img src="/caddy-v1-docs/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
+					<br>
+					A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
+					<br>
+					as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
+					<br>
+					in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
+				</div>
+				<nav>
+					<h6>The Project</h6>
+					<a href="/caddy-v1-docs/download">Download</a>
+					<a href="https://github.com/caddyserver/caddy">GitHub</a>
+					<a href="/caddy-v1-docs/docs">Docs</a>
+					<a href="/caddy-v1-docs/brand">Brand Kit</a>
+				</nav>
+				<nav>
+					<h6>Account</h6>
+					<a href="/caddy-v1-docs/account/login">Log In</a>
+					<a href="/caddy-v1-docs/account/register">Sign Up</a>
+					<a href="/caddy-v1-docs/legal/terms-of-service">Terms of Service</a>
+				</nav>
+				<nav>
+					<h6>Community</h6>
+					<a href="https://caddy.community/">Forum</a>
+					<a href="https://github.com/caddyserver/caddy">GitHub</a>
+					<a href="https://twitter.com/caddyserver">Twitter</a>
+					<a href="/caddy-v1-docs/blog/">Blog</a>
+				</nav>
+				<div class="col">
+					<h6>Hey, You.</h6>
+					Be notified of new releases!
+					<form id="footer-signup-form">
+						<input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
+						<button class="subscribe" type="submit">Subscribe</button>
+					</form>
+				</div>
+			</div>
+			<div class="copyright">
+				&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
+			</div>
+		</div>
+	</footer>
+
+</body>
 </head>

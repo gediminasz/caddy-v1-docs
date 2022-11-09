@@ -1,317 +1,319 @@
-
-
 <!DOCTYPE html>
+
 <head>
+
 	<head>
 		<title>tls.dns.exoscale - Caddy User Guide</title>
 		<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
-<link rel="icon" href="/v1/resources/images/favicon.png">
-<link rel="stylesheet" href="/v1/resources/css/common.css">
-<link rel="stylesheet" href="/v1/resources/css/sweetalert2.min.css">
-<script src="/v1/resources/js/sweetalert2.min.js"></script>
-<script src="/v1/resources/js/jquery-3.3.1.min.js"></script>
-<script src="/v1/resources/js/common.js"></script>
-		<link rel="stylesheet" href="/v1/resources/css/docs.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black|Source+Sans+Pro:200,300,400,400i,600,700,700i,900">
+		<link rel="icon" href="/caddy-v1-docs/resources/images/favicon.png">
+		<link rel="stylesheet" href="/caddy-v1-docs/resources/css/common.css">
+		<link rel="stylesheet" href="/caddy-v1-docs/resources/css/sweetalert2.min.css">
+		<script src="/caddy-v1-docs/resources/js/sweetalert2.min.js"></script>
+		<script src="/caddy-v1-docs/resources/js/jquery-3.3.1.min.js"></script>
+		<script src="/caddy-v1-docs/resources/js/common.js"></script>
+		<link rel="stylesheet" href="/caddy-v1-docs/resources/css/docs.css">
 	</head>
-	<body>
-		<header>
-	<div class="top-bar content">
-	<div class="left-links">
-		<a href="/"><img src="/v1/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
-	</div>
-	<nav class="right-links links">
-		<a href="/v1/download">Download</a>
-		<a href="/v1/docs">Docs</a>
-		<a href="/v1/stats">Stats</a>
-		<a href="https://caddy.community">Forum</a>
-		<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
-		<a href="/v1/account/login">Log In</a>
+
+<body>
+	<header>
+		<div class="top-bar content">
+			<div class="left-links">
+				<a href="/"><img src="/caddy-v1-docs/resources/images/caddy-white.png" id="logo" alt="Caddy"></a>
+			</div>
+			<nav class="right-links links">
+				<a href="/caddy-v1-docs/download">Download</a>
+				<a href="/caddy-v1-docs/docs">Docs</a>
+				<a href="/caddy-v1-docs/stats">Stats</a>
+				<a href="https://caddy.community">Forum</a>
+				<a href="https://github.com/caddyserver/caddy" id="top-github-link">GitHub</a>
+				<a href="/caddy-v1-docs/account/login">Log In</a>
+			</nav>
+		</div>
+		<a href="/" id="v2-banner">
+			This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
+		</a>
+		<div class="content">
+			<h1>User Guide</h1>
+		</div>
+	</header>
+
+	<nav class="main">
+		<div class="content">
+			<a href="/caddy-v1-docs/docs" class="current">Documentation</a>
+			<a href="/caddy-v1-docs/tutorial">Tutorials</a>
+			<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
+		</div>
 	</nav>
-</div>
-<a href="/" id="v2-banner">
-	This page is about Caddy 1 and will go away soon because Caddy 2 is now available. Click here for Caddy 2.
-</a>
-	<div class="content">
-		<h1>User Guide</h1>
-	</div>
-</header>
-
-<nav class="main">
-	<div class="content">
-		<a href="/v1/docs" class="current">Documentation</a>
-		<a href="/v1/tutorial">Tutorials</a>
-		<a href="https://github.com/caddyserver/examples" class="external-link">Examples</a>
-	</div>
-</nav>
 
 
-		<div class="content-container">
-			<nav class="side">
-	<!-- TODO: Consider using Maven Pro or Muli as font... -->
-	<h3>Using Caddy</h3>
-	<ul>
-		<li><a href="/v1/tutorial">Getting Started &rarr;</a></li>
-		<li><a href="/v1/docs/cli">Command Line Interface</a></li>
-		<li><a href="/v1/docs/caddyfile">Caddyfile Syntax</a></li>
-		<li><a href="/v1/docs/telemetry">Telemetry</a></li>
-	</ul>
+	<div class="content-container">
+		<nav class="side">
+			<!-- TODO: Consider using Maven Pro or Muli as font... -->
+			<h3>Using Caddy</h3>
+			<ul>
+				<li><a href="/caddy-v1-docs/tutorial">Getting Started &rarr;</a></li>
+				<li><a href="/caddy-v1-docs/docs/cli">Command Line Interface</a></li>
+				<li><a href="/caddy-v1-docs/docs/caddyfile">Caddyfile Syntax</a></li>
+				<li><a href="/caddy-v1-docs/docs/telemetry">Telemetry</a></li>
+			</ul>
 
-	<h3>HTTP Server</h3>
-	<ul>
-		<li><a href="/v1/docs/http-caddyfile">HTTP Caddyfile</a></li>
-		<li><a href="/v1/docs/automatic-https">Automatic HTTPS</a></li>
-		<li><a href="/v1/docs/mitm-detection">MITM Detection</a></li>
-		<li><a href="/v1/docs/placeholders">Placeholders</a></li>
-		<li><a href="/v1/docs/template-actions">Template Actions</a></li>
-	</ul>
+			<h3>HTTP Server</h3>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/http-caddyfile">HTTP Caddyfile</a></li>
+				<li><a href="/caddy-v1-docs/docs/automatic-https">Automatic HTTPS</a></li>
+				<li><a href="/caddy-v1-docs/docs/mitm-detection">MITM Detection</a></li>
+				<li><a href="/caddy-v1-docs/docs/placeholders">Placeholders</a></li>
+				<li><a href="/caddy-v1-docs/docs/template-actions">Template Actions</a></li>
+			</ul>
 
-	<h4>Standard HTTP Directives</h4>
-	<ul>
-		<li><a href="/v1/docs/basicauth">basicauth</a></li>
-		<li><a href="/v1/docs/bind">bind</a></li>
-		<li><a href="/v1/docs/browse">browse</a></li>
-		<li><a href="/v1/docs/errors">errors</a></li>
-		<li><a href="/v1/docs/expvar">expvar</a></li>
-		<li><a href="/v1/docs/ext">ext</a></li>
-		<li><a href="/v1/docs/fastcgi">fastcgi</a></li>
-		<li><a href="/v1/docs/gzip">gzip</a></li>
-		<li><a href="/v1/docs/header">header</a></li>
-		<li><a href="/v1/docs/import">import</a></li>
-		<li><a href="/v1/docs/index">index</a></li>
-		<li><a href="/v1/docs/internal">internal</a></li>
-		<li><a href="/v1/docs/limits">limits</a></li>
-		<li><a href="/v1/docs/log">log</a></li>
-		<li><a href="/v1/docs/markdown">markdown</a></li>
-		<li><a href="/v1/docs/mime">mime</a></li>
-		<li><a href="/v1/docs/on">on</a></li>
-		<li><a href="/v1/docs/pprof">pprof</a></li>
-		<li><a href="/v1/docs/proxy">proxy</a></li>
-		<li><a href="/v1/docs/push">push</a></li>
-		<li><a href="/v1/docs/redir">redir</a></li>
-		<li><a href="/v1/docs/request_id">request_id</a></li>
-		<li><a href="/v1/docs/rewrite">rewrite</a></li>
-		<li><a href="/v1/docs/root">root</a></li>
-		<li><a href="/v1/docs/status">status</a></li>
-		<li><a href="/v1/docs/templates">templates</a></li>
-		<li><a href="/v1/docs/timeouts">timeouts</a></li>
-		<li><a href="/v1/docs/tls">tls</a></li>
-		<li><a href="/v1/docs/websocket">websocket</a></li>
-	</ul>
+			<h4>Standard HTTP Directives</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/basicauth">basicauth</a></li>
+				<li><a href="/caddy-v1-docs/docs/bind">bind</a></li>
+				<li><a href="/caddy-v1-docs/docs/browse">browse</a></li>
+				<li><a href="/caddy-v1-docs/docs/errors">errors</a></li>
+				<li><a href="/caddy-v1-docs/docs/expvar">expvar</a></li>
+				<li><a href="/caddy-v1-docs/docs/ext">ext</a></li>
+				<li><a href="/caddy-v1-docs/docs/fastcgi">fastcgi</a></li>
+				<li><a href="/caddy-v1-docs/docs/gzip">gzip</a></li>
+				<li><a href="/caddy-v1-docs/docs/header">header</a></li>
+				<li><a href="/caddy-v1-docs/docs/import">import</a></li>
+				<li><a href="/caddy-v1-docs/docs/index">index</a></li>
+				<li><a href="/caddy-v1-docs/docs/internal">internal</a></li>
+				<li><a href="/caddy-v1-docs/docs/limits">limits</a></li>
+				<li><a href="/caddy-v1-docs/docs/log">log</a></li>
+				<li><a href="/caddy-v1-docs/docs/markdown">markdown</a></li>
+				<li><a href="/caddy-v1-docs/docs/mime">mime</a></li>
+				<li><a href="/caddy-v1-docs/docs/on">on</a></li>
+				<li><a href="/caddy-v1-docs/docs/pprof">pprof</a></li>
+				<li><a href="/caddy-v1-docs/docs/proxy">proxy</a></li>
+				<li><a href="/caddy-v1-docs/docs/push">push</a></li>
+				<li><a href="/caddy-v1-docs/docs/redir">redir</a></li>
+				<li><a href="/caddy-v1-docs/docs/request_id">request_id</a></li>
+				<li><a href="/caddy-v1-docs/docs/rewrite">rewrite</a></li>
+				<li><a href="/caddy-v1-docs/docs/root">root</a></li>
+				<li><a href="/caddy-v1-docs/docs/status">status</a></li>
+				<li><a href="/caddy-v1-docs/docs/templates">templates</a></li>
+				<li><a href="/caddy-v1-docs/docs/timeouts">timeouts</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls">tls</a></li>
+				<li><a href="/caddy-v1-docs/docs/websocket">websocket</a></li>
+			</ul>
 
-	<h3>Plugins</h3>
-	<ul>
-		<li><a href="https://github.com/caddyserver/caddy/wiki" class="external-link">Writing a Caddy Plugin</a></li>
-	</ul>
-
-	
-		<h4>Caddyfile Loaders</h4>
-		<ul>
-				<li><a href="/v1/docs/docker">docker</a></li>
-		</ul>
-	
-		<h4>DNS Providers</h4>
-		<ul>
-				<li><a href="/v1/docs/tls.dns.auroradns">tls.dns.auroradns</a></li>
-				<li><a href="/v1/docs/tls.dns.azure">tls.dns.azure</a></li>
-				<li><a href="/v1/docs/tls.dns.cloudflare">tls.dns.cloudflare</a></li>
-				<li><a href="/v1/docs/tls.dns.cloudxns">tls.dns.cloudxns</a></li>
-				<li><a href="/v1/docs/tls.dns.digitalocean">tls.dns.digitalocean</a></li>
-				<li><a href="/v1/docs/tls.dns.dnsimple">tls.dns.dnsimple</a></li>
-				<li><a href="/v1/docs/tls.dns.dnsmadeeasy">tls.dns.dnsmadeeasy</a></li>
-				<li><a href="/v1/docs/tls.dns.dnspod">tls.dns.dnspod</a></li>
-				<li><a href="/v1/docs/tls.dns.duckdns">tls.dns.duckdns</a></li>
-				<li><a href="/v1/docs/tls.dns.dyn">tls.dns.dyn</a></li>
-				<li><a href="/v1/docs/tls.dns.exoscale">tls.dns.exoscale</a></li>
-				<li><a href="/v1/docs/tls.dns.gandi">tls.dns.gandi</a></li>
-				<li><a href="/v1/docs/tls.dns.gandiv5">tls.dns.gandiv5</a></li>
-				<li><a href="/v1/docs/tls.dns.godaddy">tls.dns.godaddy</a></li>
-				<li><a href="/v1/docs/tls.dns.googlecloud">tls.dns.googlecloud</a></li>
-				<li><a href="/v1/docs/tls.dns.lightsail">tls.dns.lightsail</a></li>
-				<li><a href="/v1/docs/tls.dns.linode">tls.dns.linode</a></li>
-				<li><a href="/v1/docs/tls.dns.namecheap">tls.dns.namecheap</a></li>
-				<li><a href="/v1/docs/tls.dns.namedotcom">tls.dns.namedotcom</a></li>
-				<li><a href="/v1/docs/tls.dns.namesilo">tls.dns.namesilo</a></li>
-				<li><a href="/v1/docs/tls.dns.ns1">tls.dns.ns1</a></li>
-				<li><a href="/v1/docs/tls.dns.otc">tls.dns.otc</a></li>
-				<li><a href="/v1/docs/tls.dns.ovh">tls.dns.ovh</a></li>
-				<li><a href="/v1/docs/tls.dns.powerdns">tls.dns.powerdns</a></li>
-				<li><a href="/v1/docs/tls.dns.rackspace">tls.dns.rackspace</a></li>
-				<li><a href="/v1/docs/tls.dns.rfc2136">tls.dns.rfc2136</a></li>
-				<li><a href="/v1/docs/tls.dns.route53">tls.dns.route53</a></li>
-				<li><a href="/v1/docs/tls.dns.vultr">tls.dns.vultr</a></li>
-		</ul>
-	
-		<h4>Directives/Middleware</h4>
-		<ul>
-				<li><a href="/v1/docs/dyndns">dyndns</a></li>
-				<li><a href="/v1/docs/http.authz">http.authz</a></li>
-				<li><a href="/v1/docs/http.awses">http.awses</a></li>
-				<li><a href="/v1/docs/http.awslambda">http.awslambda</a></li>
-				<li><a href="/v1/docs/http.cache">http.cache</a></li>
-				<li><a href="/v1/docs/http.cgi">http.cgi</a></li>
-				<li><a href="/v1/docs/http.cors">http.cors</a></li>
-				<li><a href="/v1/docs/http.datadog">http.datadog</a></li>
-				<li><a href="/v1/docs/http.expires">http.expires</a></li>
-				<li><a href="/v1/docs/http.filter">http.filter</a></li>
-				<li><a href="/v1/docs/http.forwardproxy">http.forwardproxy</a></li>
-				<li><a href="/v1/docs/http.geoip">http.geoip</a></li>
-				<li><a href="/v1/docs/http.git">http.git</a></li>
-				<li><a href="/v1/docs/http.gomods">http.gomods</a></li>
-				<li><a href="/v1/docs/http.gopkg">http.gopkg</a></li>
-				<li><a href="/v1/docs/http.grpc">http.grpc</a></li>
-				<li><a href="/v1/docs/http.ipfilter">http.ipfilter</a></li>
-				<li><a href="/v1/docs/http.jwt">http.jwt</a></li>
-				<li><a href="/v1/docs/http.locale">http.locale</a></li>
-				<li><a href="/v1/docs/http.login">http.login</a></li>
-				<li><a href="/v1/docs/http.mailout">http.mailout</a></li>
-				<li><a href="/v1/docs/http.minify">http.minify</a></li>
-				<li><a href="/v1/docs/http.nobots">http.nobots</a></li>
-				<li><a href="/v1/docs/http.permission">http.permission</a></li>
-				<li><a href="/v1/docs/http.prometheus">http.prometheus</a></li>
-				<li><a href="/v1/docs/http.proxyprotocol">http.proxyprotocol</a></li>
-				<li><a href="/v1/docs/http.pubsub">http.pubsub</a></li>
-				<li><a href="/v1/docs/http.ratelimit">http.ratelimit</a></li>
-				<li><a href="/v1/docs/http.realip">http.realip</a></li>
-				<li><a href="/v1/docs/http.reauth">http.reauth</a></li>
-				<li><a href="/v1/docs/http.recaptcha">http.recaptcha</a></li>
-				<li><a href="/v1/docs/http.restic">http.restic</a></li>
-				<li><a href="/v1/docs/http.s3browser">http.s3browser</a></li>
-				<li><a href="/v1/docs/http.supervisor">http.supervisor</a></li>
-				<li><a href="/v1/docs/http.torproxy">http.torproxy</a></li>
-				<li><a href="/v1/docs/http.webdav">http.webdav</a></li>
-				<li><a href="/v1/docs/http.webp">http.webp</a></li>
-		</ul>
-	
-		<h4>Event Hooks</h4>
-		<ul>
-				<li><a href="/v1/docs/hook.service">hook.service</a></li>
-		</ul>
-	
-		<h4>Server Types</h4>
-		<ul>
-				<li><a href="/v1/docs/dns">dns</a></li>
-				<li><a href="/v1/docs/net">net</a></li>
-				<li><a href="/v1/docs/supervisor">supervisor</a></li>
-		</ul>
-	
-		<h4>TLS Clustering</h4>
-		<ul>
-				<li><a href="/v1/docs/consul">consul</a></li>
-				<li><a href="/v1/docs/redis">redis</a></li>
-		</ul>
-	
-	</ul>
-</nav>
-			<article>
-				<h2>tls.dns.exoscale <div class="plugin-tag tooltip-right" data-tooltip="This feature extends Caddy's standard functionality.">Plugin</div></h2>
-
-				<aside class="plugin-message">
-					This feature does not come with Caddy by default. To get it, select the <b>tls.dns.exoscale</b> plugin when you <a href="/v1/download">download</a> Caddy.
-				</aside>
-
-				<p>Allows you to obtain certificates using DNS records for domains managed with Exoscale.</p>
+			<h3>Plugins</h3>
+			<ul>
+				<li><a href="https://github.com/caddyserver/caddy/wiki" class="external-link">Writing a Caddy Plugin</a></li>
+			</ul>
 
 
-				<p><b><a href="https://github.com/caddyserver/dnsproviders/blob/master/README.md" class="external-link">Full documentation</a></b></p>
+			<h4>Caddyfile Loaders</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/docker">docker</a></li>
+			</ul>
 
-				
-					<h3>Examples</h3>
-					<div class="examples">
-						<div class="example">
-							<div class="example-title">Usage</div>
-							<code class="block">tls {
+			<h4>DNS Providers</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.auroradns">tls.dns.auroradns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.azure">tls.dns.azure</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.cloudflare">tls.dns.cloudflare</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.cloudxns">tls.dns.cloudxns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.digitalocean">tls.dns.digitalocean</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dnsimple">tls.dns.dnsimple</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dnsmadeeasy">tls.dns.dnsmadeeasy</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dnspod">tls.dns.dnspod</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.duckdns">tls.dns.duckdns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.dyn">tls.dns.dyn</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.exoscale">tls.dns.exoscale</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.gandi">tls.dns.gandi</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.gandiv5">tls.dns.gandiv5</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.godaddy">tls.dns.godaddy</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.googlecloud">tls.dns.googlecloud</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.lightsail">tls.dns.lightsail</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.linode">tls.dns.linode</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.namecheap">tls.dns.namecheap</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.namedotcom">tls.dns.namedotcom</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.namesilo">tls.dns.namesilo</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.ns1">tls.dns.ns1</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.otc">tls.dns.otc</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.ovh">tls.dns.ovh</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.powerdns">tls.dns.powerdns</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.rackspace">tls.dns.rackspace</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.rfc2136">tls.dns.rfc2136</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.route53">tls.dns.route53</a></li>
+				<li><a href="/caddy-v1-docs/docs/tls.dns.vultr">tls.dns.vultr</a></li>
+			</ul>
+
+			<h4>Directives/Middleware</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/dyndns">dyndns</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.authz">http.authz</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.awses">http.awses</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.awslambda">http.awslambda</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.cache">http.cache</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.cgi">http.cgi</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.cors">http.cors</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.datadog">http.datadog</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.expires">http.expires</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.filter">http.filter</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.forwardproxy">http.forwardproxy</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.geoip">http.geoip</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.git">http.git</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.gomods">http.gomods</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.gopkg">http.gopkg</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.grpc">http.grpc</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.ipfilter">http.ipfilter</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.jwt">http.jwt</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.locale">http.locale</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.login">http.login</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.mailout">http.mailout</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.minify">http.minify</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.nobots">http.nobots</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.permission">http.permission</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.prometheus">http.prometheus</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.proxyprotocol">http.proxyprotocol</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.pubsub">http.pubsub</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.ratelimit">http.ratelimit</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.realip">http.realip</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.reauth">http.reauth</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.recaptcha">http.recaptcha</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.restic">http.restic</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.s3browser">http.s3browser</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.supervisor">http.supervisor</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.torproxy">http.torproxy</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.webdav">http.webdav</a></li>
+				<li><a href="/caddy-v1-docs/docs/http.webp">http.webp</a></li>
+			</ul>
+
+			<h4>Event Hooks</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/hook.service">hook.service</a></li>
+			</ul>
+
+			<h4>Server Types</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/dns">dns</a></li>
+				<li><a href="/caddy-v1-docs/docs/net">net</a></li>
+				<li><a href="/caddy-v1-docs/docs/supervisor">supervisor</a></li>
+			</ul>
+
+			<h4>TLS Clustering</h4>
+			<ul>
+				<li><a href="/caddy-v1-docs/docs/consul">consul</a></li>
+				<li><a href="/caddy-v1-docs/docs/redis">redis</a></li>
+			</ul>
+
+			</ul>
+		</nav>
+		<article>
+			<h2>tls.dns.exoscale <div class="plugin-tag tooltip-right" data-tooltip="This feature extends Caddy's standard functionality.">Plugin</div>
+			</h2>
+
+			<aside class="plugin-message">
+				This feature does not come with Caddy by default. To get it, select the <b>tls.dns.exoscale</b> plugin when you <a href="/caddy-v1-docs/download">download</a> Caddy.
+			</aside>
+
+			<p>Allows you to obtain certificates using DNS records for domains managed with Exoscale.</p>
+
+
+			<p><b><a href="https://github.com/caddyserver/dnsproviders/blob/master/README.md" class="external-link">Full documentation</a></b></p>
+
+
+			<h3>Examples</h3>
+			<div class="examples">
+				<div class="example">
+					<div class="example-title">Usage</div>
+					<code class="block">tls {
     dns exoscale
 }</code>
-							<p>Configure this in your tls directive.</p>
+					<p>Configure this in your tls directive.</p>
 
-						</div>
-					</div>
-				
-
-				<div class="springboard-header">
-					Related Links
 				</div>
-				<div class="springboard">
-					<div class="springboard-point">
-						<b>Documentation</b>
-						<p>Access the full documentation for this plugin off-site:</p>
-						<a href="https://github.com/caddyserver/dnsproviders/blob/master/README.md" class="button external-link">Docs</a>
-					</div>
-					<div class="springboard-point">
-						<b>Plugin Help</b>
-						<p>Get help from the maintainers of the tls.dns.exoscale plugin:</p>
-						<a href="https://github.com/caddyserver/dnsproviders/issues" class="button external-link">Support</a>
-					</div>
-					<div class="springboard-point">
-						<b>Plugin Website</b>
-						<p>Visit tls.dns.exoscale's website for more information:</p>
-						<a href="https://github.com/caddyserver/dnsproviders" class="button external-link">Website</a>
-					</div>
-				</div>
-
-				<div class="plugin-meta">
-					<div class="meta-left">
-						<b>Plugin Author:</b> Matthew Holt
-					</div>
-					<div class="meta-right">
-						<b>Last Updated:</b> 26 Mar 2017, 4:19 PM
-					</div>
-				</div>
-
-				<div class="plugin-notice">
-					This plugin is independent of the Caddy project and is not endorsed or maintained by Caddy developers. Use at your own risk. Do not file issues for this plugin on Caddy's bug tracker.
-				</div>
-
-			</article>
-		</div>
-		<footer>
-	<div class="nav-container">
-		<div class="flex content">
-			<div class="col">
-				<img src="/v1/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
-				<br>
-				A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
-				<br>
-				as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
-				<br>
-				in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
 			</div>
-			<nav>
-				<h6>The Project</h6>
-				<a href="/v1/download">Download</a>
-				<a href="https://github.com/caddyserver/caddy">GitHub</a>
-				<a href="/v1/docs">Docs</a>
-				<a href="/v1/brand">Brand Kit</a>
-			</nav>
-			<nav>
-				<h6>Account</h6>
-				<a href="/v1/account/login">Log In</a>
-				<a href="/v1/account/register">Sign Up</a>
-				<a href="/v1/legal/terms-of-service">Terms of Service</a>
-			</nav>
-			<nav>
-				<h6>Community</h6>
-				<a href="https://caddy.community/">Forum</a>
-				<a href="https://github.com/caddyserver/caddy">GitHub</a>
-				<a href="https://twitter.com/caddyserver">Twitter</a>
-				<a href="/v1/blog/">Blog</a>
-			</nav>
-			<div class="col">
-				<h6>Hey, You.</h6>
-                Be notified of new releases!
-                <form id="footer-signup-form">
-                    <input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
-                    <button class="subscribe" type="submit">Subscribe</button>
-                </form>
+
+
+			<div class="springboard-header">
+				Related Links
 			</div>
-		</div>
-		<div class="copyright">
-			&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
-		</div>
+			<div class="springboard">
+				<div class="springboard-point">
+					<b>Documentation</b>
+					<p>Access the full documentation for this plugin off-site:</p>
+					<a href="https://github.com/caddyserver/dnsproviders/blob/master/README.md" class="button external-link">Docs</a>
+				</div>
+				<div class="springboard-point">
+					<b>Plugin Help</b>
+					<p>Get help from the maintainers of the tls.dns.exoscale plugin:</p>
+					<a href="https://github.com/caddyserver/dnsproviders/issues" class="button external-link">Support</a>
+				</div>
+				<div class="springboard-point">
+					<b>Plugin Website</b>
+					<p>Visit tls.dns.exoscale's website for more information:</p>
+					<a href="https://github.com/caddyserver/dnsproviders" class="button external-link">Website</a>
+				</div>
+			</div>
+
+			<div class="plugin-meta">
+				<div class="meta-left">
+					<b>Plugin Author:</b> Matthew Holt
+				</div>
+				<div class="meta-right">
+					<b>Last Updated:</b> 26 Mar 2017, 4:19 PM
+				</div>
+			</div>
+
+			<div class="plugin-notice">
+				This plugin is independent of the Caddy project and is not endorsed or maintained by Caddy developers. Use at your own risk. Do not file issues for this plugin on Caddy's bug tracker.
+			</div>
+
+		</article>
 	</div>
-</footer>
+	<footer>
+		<div class="nav-container">
+			<div class="flex content">
+				<div class="col">
+					<img src="/caddy-v1-docs/resources/images/caddy-white.png" class="logo" alt="Caddy Web Server">
+					<br>
+					A project by <a href="https://twitter.com/mholt6">Matthew Holt</a>
+					<br>
+					as part of <a href="https://www.lightcodelabs.com">Light Code Labs</a>
+					<br>
+					in partnership with <a href="https://www.ardanlabs.com">Ardan Labs</a>
+				</div>
+				<nav>
+					<h6>The Project</h6>
+					<a href="/caddy-v1-docs/download">Download</a>
+					<a href="https://github.com/caddyserver/caddy">GitHub</a>
+					<a href="/caddy-v1-docs/docs">Docs</a>
+					<a href="/caddy-v1-docs/brand">Brand Kit</a>
+				</nav>
+				<nav>
+					<h6>Account</h6>
+					<a href="/caddy-v1-docs/account/login">Log In</a>
+					<a href="/caddy-v1-docs/account/register">Sign Up</a>
+					<a href="/caddy-v1-docs/legal/terms-of-service">Terms of Service</a>
+				</nav>
+				<nav>
+					<h6>Community</h6>
+					<a href="https://caddy.community/">Forum</a>
+					<a href="https://github.com/caddyserver/caddy">GitHub</a>
+					<a href="https://twitter.com/caddyserver">Twitter</a>
+					<a href="/caddy-v1-docs/blog/">Blog</a>
+				</nav>
+				<div class="col">
+					<h6>Hey, You.</h6>
+					Be notified of new releases!
+					<form id="footer-signup-form">
+						<input id="footer-email" name="email" type="email" placeholder="> email address" required value="">
+						<button class="subscribe" type="submit">Subscribe</button>
+					</form>
+				</div>
+			</div>
+			<div class="copyright">
+				&copy; 2015-2020 Light Code Labs. All rights reserved.<br>Caddy&reg; is a registered trademark of Light Code Labs, LLC.
+			</div>
+		</div>
+	</footer>
 
-	</body>
+</body>
 </head>
