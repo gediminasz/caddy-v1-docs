@@ -1,8 +1,0 @@
-# Requires Caddy 2.1+
-
-:{$PORT}
-
-@noV1 not path /v1/*
-redir @noV1 /v1{path}
-try_files {path} {path}.html
-file_server
